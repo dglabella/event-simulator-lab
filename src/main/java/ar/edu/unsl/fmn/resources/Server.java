@@ -33,7 +33,9 @@ public abstract class Server {
         this.currentEntity = currentEntity;
     }
 
-    public boolean isBusy() {}
+    public boolean isBusy() {
+        return this.currentEntity == null ? false : true;
+    }
 
     public boolean queuesEmpty() {}
 
