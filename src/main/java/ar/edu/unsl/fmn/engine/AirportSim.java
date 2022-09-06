@@ -20,4 +20,18 @@ public class AirportSim implements Engine {
     public AirportSim(double endClock, List<Server> servers, ServerSelectionPolicy policy,
             Randomizer randomizer) {}
 
+    @Override
+    public void execute() {
+        //start
+    }
+
+    @Override
+    public void stopExecute() {
+        //frenada por ev fin
+    }
+
+    @Override
+    public void generateReport() {
+        //mostrar recolecciones
+    }
 }

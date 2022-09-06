@@ -16,11 +16,22 @@ public class Arrival extends Event {
     private EndOfServiceBehavior endOfServiceBehavior;
 
     public Arrival(double clock, Entity entity, Behavior behavior,
-            EndOfServiceBehavior endOfServiceBehavior, ServerSelectionPolicy policy) {}
+            EndOfServiceBehavior endOfServiceBehavior, ServerSelectionPolicy policy) {
+        super(clock, entity, 0, behavior);
+        this.policy = policy;
+        this.endOfServiceBehavior = endOfServiceBehavior;
+    }
 
     @Override
     public void planificate(FutureEventList fel, List<Server> servers) {
-        // todo planificar prox evento de arribo
+        Server server = this.policy.selectServer(servers);
+        if(server.isBusy()){
+            server.enqueue(this.getEntity());
+        }
+        else{
+            server.setCurrentEntity(this.getEntity());
+            fel.insert(new EndOfService());
+        }
     }
 
     @Override

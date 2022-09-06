@@ -1,14 +1,16 @@
 package ar.edu.unsl.fmn.events;
 
 import java.util.List;
+
+import ar.edu.unsl.fmn.behaviors.Behavior;
 import ar.edu.unsl.fmn.engine.FutureEventList;
 import ar.edu.unsl.fmn.entities.Entity;
 import ar.edu.unsl.fmn.resources.Server;
 
 public class EndOfService extends Event {
 
-    public EndOfService(double clock, Entity entity) {
-        super(clock, entity, 0);
+    public EndOfService(double clock, Entity entity, Behavior behavior) {
+        super(clock, entity, 0, behavior);
     }
 
     @Override
