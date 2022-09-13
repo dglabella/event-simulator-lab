@@ -6,6 +6,8 @@ import ar.edu.unsl.fmn.resources.Server;
 public class UniqueServerSelectionPolicy implements ServerSelectionPolicy {
 
     @Override
-    public Server selectServer(List<Server> servers) {}
+    public Server selectServer(List<Server> servers) {
+        return servers.get(0);
+    }
 
 }

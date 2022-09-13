@@ -30,11 +30,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../TEST/proyecto" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
@@ -84,7 +85,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1662495807169</updated>
-      <workItem from="1662495808421" duration="2085000" />
+      <workItem from="1662495808421" duration="16980000" />
     </task>
     <servers />
   </component>
@@ -96,10 +97,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1662496339191" />
-    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser" timestamp="1662496426970">
+    <state x="423" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1662642048549">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1662496426970" />
+    <state x="423" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1662642048549" />
+    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser" timestamp="1663097122678">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1663097122678" />
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1662642104684">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1662642104684" />
     <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1662496025005">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -116,13 +125,13 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1662496025005" />
-    <state x="163" y="0" key="SettingsEditor" timestamp="1662496348990">
+    <state x="163" y="0" key="SettingsEditor" timestamp="1662854645077">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1662496348990" />
-    <state x="339" y="162" key="run.anything.popup" timestamp="1662497575500">
+    <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1662854645077" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1663096203684">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1662497575500" />
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1663096203684" />
   </component>
 </project>

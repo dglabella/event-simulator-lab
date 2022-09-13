@@ -26,6 +26,7 @@ public class EndOfService extends Event {
             server.setCurrentEntity(null);
             entity = null;
         }
+        //ver si colecciono estadisticas
     }
 
     @Override

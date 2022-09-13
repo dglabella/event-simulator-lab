@@ -22,6 +22,6 @@ public class EndOfServiceBehavior implements Behavior {
 
     @Override
     public double nextTime() {
-        this.distribution.event(this.randomizer.nextRandom());
+        return this.distribution.event(this.randomizer.nextRandom());
     }
 }

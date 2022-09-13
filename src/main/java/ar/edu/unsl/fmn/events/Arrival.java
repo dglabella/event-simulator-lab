@@ -8,6 +8,7 @@ import ar.edu.unsl.fmn.entities.Aircraft;
 import ar.edu.unsl.fmn.entities.Entity;
 import ar.edu.unsl.fmn.policies.ServerSelectionPolicy;
 import ar.edu.unsl.fmn.resources.Server;
+import ar.edu.unsl.fmn.utils.CustomRandomizer;
 
 public class Arrival extends Event {
 
@@ -30,8 +31,12 @@ public class Arrival extends Event {
         }
         else{
             server.setCurrentEntity(this.getEntity());
-            fel.insert(new EndOfService());
+            fel.insert(new EndOfService(
+                    this.getClock() + endOfServiceBehavior.nextTime(),
+                    this.getEntity(),
+                    this.endOfServiceBehavior));
         }
+        //Colleccionar datos
     }
 
     @Override

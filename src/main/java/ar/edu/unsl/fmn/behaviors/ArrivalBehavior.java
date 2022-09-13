@@ -12,5 +12,7 @@ public class ArrivalBehavior implements Behavior {
 
     @Override
     public double nextTime() {
+        //Puse este return, pero no estaria usando la empirica discreta, no?
+        return randomizer.nextRandom();
     }
 }
