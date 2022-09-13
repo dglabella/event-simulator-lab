@@ -31,11 +31,19 @@ public class Arrival extends Event {
         }
         else{
             server.setCurrentEntity(this.getEntity());
+            this.getEntity().setServer(server);
+
             fel.insert(new EndOfService(
                     this.getClock() + endOfServiceBehavior.nextTime(),
                     this.getEntity(),
                     this.endOfServiceBehavior));
         }
+        //Planifico proximo arribo:
+        Aircraft aircraft = new Aircraft(this.getEntity().getId() +1);
+        Arrival arrival = new Arrival(this.getClock() + this.getBehavior().nextTime(),aircraft,this.getBehavior(),endOfServiceBehavior,policy);
+        aircraft.getEvents().add(arrival);
+
+        fel.insert(arrival);
         //Colleccionar datos
     }
 

@@ -10,25 +10,23 @@ import ar.edu.unsl.fmn.resources.CustomQueue;
 import ar.edu.unsl.fmn.resources.Queue;
 import ar.edu.unsl.fmn.resources.Server;
 import ar.edu.unsl.fmn.utils.CustomRandomizer;
+import ar.edu.unsl.fmn.utils.ScenarioBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class App {
 
-    private static final float SIMULATION_LENGHT = 40320f;
+    private static final double SIMULATION_LENGHT = 40320d;
 
     public static void main(String[] args) {
         //Inicializacion
-        List<Queue> queues = new ArrayList<>();
-        queues.add(new CustomQueue());
 
-        List<Server> airstrips = new ArrayList<>();
-        airstrips.add(new Airstrip(0,queues,new OneToOneServerQueue()));
+
 
         Engine engine = new AirportSim(
                 SIMULATION_LENGHT,
-                airstrips,
+                ScenarioBuilder.OneServerOneQueue(),
                 new UniqueServerSelectionPolicy(),
                 new CustomRandomizer());
 
