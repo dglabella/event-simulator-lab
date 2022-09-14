@@ -23,11 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6503c0a6-a548-460d-9a4f-cf44e089aacc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xd/New Text Document.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,10 +58,10 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
@@ -115,7 +112,7 @@
       <option name="presentableId" value="Default" />
       <updated>1663152540705</updated>
       <workItem from="1663152543166" duration="622000" />
-      <workItem from="1663153741189" duration="1985000" />
+      <workItem from="1663153741189" duration="2493000" />
     </task>
     <servers />
   </component>
@@ -143,25 +140,25 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="484" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1663154534111" />
-    <state width="1323" height="135" key="GridCell.Tab.0.bottom" timestamp="1663158492104">
+    <state width="1323" height="135" key="GridCell.Tab.0.bottom" timestamp="1663158525786">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="135" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1663158492104" />
-    <state width="1323" height="135" key="GridCell.Tab.0.center" timestamp="1663158492104">
+    <state width="1323" height="135" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1663158525786" />
+    <state width="1323" height="135" key="GridCell.Tab.0.center" timestamp="1663158525786">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="135" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1663158492104" />
-    <state width="1323" height="135" key="GridCell.Tab.0.left" timestamp="1663158492104">
+    <state width="1323" height="135" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1663158525786" />
+    <state width="1323" height="135" key="GridCell.Tab.0.left" timestamp="1663158525786">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="135" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1663158492104" />
-    <state width="1323" height="135" key="GridCell.Tab.0.right" timestamp="1663158492104">
+    <state width="1323" height="135" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1663158525786" />
+    <state width="1323" height="135" key="GridCell.Tab.0.right" timestamp="1663158525786">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="135" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1663158492104" />
-    <state x="184" y="0" key="SettingsEditor" timestamp="1663158179744">
+    <state width="1323" height="135" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1663158525786" />
+    <state x="184" y="0" key="SettingsEditor" timestamp="1663159028741">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1663158179744" />
+    <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1663159028741" />
   </component>
 </project>

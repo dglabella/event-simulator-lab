@@ -31,6 +31,5 @@ public class App {
 
         engine.execute();
         engine.generateReport();
-
     }
 }
