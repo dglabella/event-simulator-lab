@@ -21,9 +21,6 @@ public class App {
 
     public static void main(String[] args) {
         //Inicializacion
-
-
-
         Engine engine = new AirportSim(
                 SIMULATION_LENGHT,
                 ScenarioBuilder.OneServerOneQueue(),
