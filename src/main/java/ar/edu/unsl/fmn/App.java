@@ -21,6 +21,8 @@ public class App {
 
     public static void main(String[] args) {
         //Inicializacion
+        for(int i=0;i<50;i++){
+        System.out.println("Prueba");}
         Engine engine = new AirportSim(
                 SIMULATION_LENGHT,
                 ScenarioBuilder.OneServerOneQueue(),
@@ -29,5 +31,6 @@ public class App {
 
         engine.execute();
         engine.generateReport();
+
     }
 }
