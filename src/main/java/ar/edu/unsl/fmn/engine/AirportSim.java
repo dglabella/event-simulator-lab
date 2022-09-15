@@ -37,7 +37,9 @@ public class AirportSim implements Engine {
     @Override
     public void execute() {
         //start
+        System.out.println("prueba");
         System.out.println(fel.toString());
+        System.out.println("prueba");
         while(!stop){
             fel.getImminent().planificate(fel,servers);
             fel.toString();

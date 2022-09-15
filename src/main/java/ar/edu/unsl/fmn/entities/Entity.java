@@ -17,6 +17,8 @@ public abstract class Entity {
 
     public Entity(int id) {
         this.id = id;
+        //AGREGO
+        events = new ArrayList<>();
     }
 
     public Entity(int id, Arrival arrival) {

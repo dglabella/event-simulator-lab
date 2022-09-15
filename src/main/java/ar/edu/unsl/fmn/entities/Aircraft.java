@@ -2,6 +2,8 @@ package ar.edu.unsl.fmn.entities;
 
 import ar.edu.unsl.fmn.events.Arrival;
 
+import java.util.ArrayList;
+
 public class Aircraft extends Entity {
 
     public Aircraft() {

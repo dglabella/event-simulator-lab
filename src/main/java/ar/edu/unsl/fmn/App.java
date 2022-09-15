@@ -11,6 +11,7 @@ import ar.edu.unsl.fmn.resources.Queue;
 import ar.edu.unsl.fmn.resources.Server;
 import ar.edu.unsl.fmn.utils.CustomRandomizer;
 import ar.edu.unsl.fmn.utils.ScenarioBuilder;
+import jdk.swing.interop.SwingInterOpUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,14 +22,12 @@ public class App {
 
     public static void main(String[] args) {
         //Inicializacion
-        for(int i=0;i<50;i++){
-        System.out.println("Prueba");}
         Engine engine = new AirportSim(
                 SIMULATION_LENGHT,
                 ScenarioBuilder.OneServerOneQueue(),
                 new UniqueServerSelectionPolicy(),
                 new CustomRandomizer());
-
+        System.out.println("Se creo el engine"); //borrar
         engine.execute();
         engine.generateReport();
     }
