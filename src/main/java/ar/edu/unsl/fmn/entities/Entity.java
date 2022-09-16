@@ -29,7 +29,7 @@ public abstract class Entity {
         this.events.add(arrival);
     }
 
-    public Entity(int id, EndOfService endOfService) {
+    /*public Entity(int id, EndOfService endOfService) {
         this.events = new ArrayList<>();
 
         this.id = id;
@@ -41,7 +41,7 @@ public abstract class Entity {
 
         this.id = id;
         this.events.add(stopSimulation);
-    }
+    }*/
 
     public int getId() {
         return this.id;

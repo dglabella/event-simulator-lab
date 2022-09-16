@@ -1,6 +1,7 @@
 package ar.edu.unsl.fmn.entities;
 
 import ar.edu.unsl.fmn.events.Arrival;
+import ar.edu.unsl.fmn.events.EndOfService;
 
 import java.util.ArrayList;
 

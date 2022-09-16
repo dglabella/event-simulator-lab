@@ -21,10 +21,12 @@ public class ScenarioBuilder {
     }
 
     public static List<Server> OneServerMultipleQueues(int queuesQuantity) {
+        System.out.println("OneServerMultipleQueues in ScenarioBuilder: not yet implemented");
         return null;
     }
 
-    public static List<Server> multipleServersOneQueuePerServer(int queuesQuantity) {
+    public static List<Server> MultipleServersOneQueuePerServer(int queuesQuantity) {
+        System.out.println("MultipleServersOneQueuePerServer in ScenarioBuilder: not yet implemented");
         return null;
     }
 }

@@ -23,6 +23,13 @@ public class EndOfService extends Event {
         if (!server.queuesEmpty()) {
             entity = server.dequeue();
             server.setCurrentEntity(entity);
+            System.out.println("Se ingresara un EOS");
+            fel.insert(new EndOfService(
+                    this.getClock() + this.getBehavior().nextTime(),
+                    entity,
+                    this.getBehavior()));
+            System.out.println("Se ingreso un EOS");
+            System.out.println(fel.toString());
         } else {
             server.setCurrentEntity(null);
             entity = null;

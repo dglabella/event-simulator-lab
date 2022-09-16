@@ -41,16 +41,20 @@ public class AirportSim implements Engine {
         System.out.println(fel.toString());
         while(!stop){
             fel.getImminent().planificate(fel,servers);
-            System.out.println(fel.toString());//fel.toString(); //BORRAR ESTODS DOS COMMENTS?
+
+            System.out.println("\nexecute in AirportSim: showing fel in every planificate step:\n");
+            System.out.println(fel.toString());
         }
     }
 
     @Override
     public void stopExecute() {
         stop = true;
+        System.out.println("stopExecute in AirportSim: Method not yet corroborated");
     }
 
     @Override
     public void generateReport() {
+        System.out.println("generateReport in AirportSim: Method not yet implemented");
     }
 }

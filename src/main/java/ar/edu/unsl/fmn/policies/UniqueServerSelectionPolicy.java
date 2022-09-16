@@ -9,5 +9,4 @@ public class UniqueServerSelectionPolicy implements ServerSelectionPolicy {
     public Server selectServer(List<Server> servers) {
         return servers.get(0);
     }
-
 }
