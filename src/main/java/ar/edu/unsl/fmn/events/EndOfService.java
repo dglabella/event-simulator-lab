@@ -15,8 +15,9 @@ public class EndOfService extends Event {
 
     @Override
     public void planificate(FutureEventList fel, List<Server> servers) {
-
+        System.out.println("prueba1");
         Server server = this.getEntity().getServer();
+        System.out.println("prueba2");
         Entity entity;
 
         if (!server.queuesEmpty()) {
@@ -26,14 +27,12 @@ public class EndOfService extends Event {
             server.setCurrentEntity(null);
             entity = null;
         }
+        System.out.println("EndOfSerice planificate fuera if/else");
         //ver si colecciono estadisticas
     }
 
     @Override
     public String toString() {
-        String ret = "";
-        ret += "end of service - entity id: " + this.getEntity().getId() + " - clock: "
-                + this.getClock();
-        return ret;
+        return "end of service - entity id: " + this.getEntity().getId() + " - clock: " + this.getClock();
     }
 }

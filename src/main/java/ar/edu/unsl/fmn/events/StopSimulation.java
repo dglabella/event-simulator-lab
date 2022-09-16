@@ -23,8 +23,6 @@ public class StopSimulation extends Event {
 
     @Override
     public String toString() {
-        String ret = "";
-        ret += "Stop Simulation - entity id: null - clock: " + this.getClock();
-        return ret;
+        return "Stop Simulation - entity id: null - clock: " + this.getClock();
     }
 }

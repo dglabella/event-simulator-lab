@@ -49,8 +49,6 @@ public class Arrival extends Event {
 
     @Override
     public String toString() {
-        String ret = "";
-        ret += "arrival - entity id: " + this.getEntity().getId() + " - clock: " + this.getClock();
-        return ret;
+        return "arrival - entity id: " + this.getEntity().getId() + " - clock: " + this.getClock();
     }
 }

@@ -11,7 +11,7 @@ import ar.edu.unsl.fmn.resources.Queue;
 import ar.edu.unsl.fmn.resources.Server;
 import ar.edu.unsl.fmn.utils.CustomRandomizer;
 import ar.edu.unsl.fmn.utils.ScenarioBuilder;
-import jdk.swing.interop.SwingInterOpUtils;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,8 @@ public class App {
                 ScenarioBuilder.OneServerOneQueue(),
                 new UniqueServerSelectionPolicy(),
                 new CustomRandomizer());
-        System.out.println("Se creo el engine"); //borrar
+
+
         engine.execute();
         engine.generateReport();
     }

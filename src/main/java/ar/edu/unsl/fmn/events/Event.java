@@ -11,10 +11,14 @@ public abstract class Event {
     private double clock;
     private Entity entity;
     private int order;
-
     private Behavior behavior;
 
-    public Event(double clock, Entity entity, int order, Behavior behavior) {}
+    public Event(double clock, Entity entity, int order, Behavior behavior) {
+        this.clock = clock;
+        this.entity = entity;
+        this.order = order;
+        this.behavior = behavior;
+    }
 
     public double getClock() {
         return this.clock;

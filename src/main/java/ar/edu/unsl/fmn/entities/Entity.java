@@ -3,7 +3,9 @@ package ar.edu.unsl.fmn.entities;
 import java.util.ArrayList;
 import java.util.List;
 import ar.edu.unsl.fmn.events.Arrival;
+import ar.edu.unsl.fmn.events.EndOfService;
 import ar.edu.unsl.fmn.events.Event;
+import ar.edu.unsl.fmn.events.StopSimulation;
 import ar.edu.unsl.fmn.resources.Server;
 
 public abstract class Entity {
@@ -17,7 +19,6 @@ public abstract class Entity {
 
     public Entity(int id) {
         this.id = id;
-        //AGREGO
         events = new ArrayList<>();
     }
 
@@ -26,6 +27,20 @@ public abstract class Entity {
 
         this.id = id;
         this.events.add(arrival);
+    }
+
+    public Entity(int id, EndOfService endOfService) {
+        this.events = new ArrayList<>();
+
+        this.id = id;
+        this.events.add(endOfService);
+    }
+
+    public Entity(int id, StopSimulation stopSimulation) {
+        this.events = new ArrayList<>();
+
+        this.id = id;
+        this.events.add(stopSimulation);
     }
 
     public int getId() {

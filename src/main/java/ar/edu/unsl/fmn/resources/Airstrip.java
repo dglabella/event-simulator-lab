@@ -9,7 +9,9 @@ public class Airstrip extends Server {
         super();
     }
 
-    public Airstrip(int id, List<Queue> queues, ServerQueuePolicy serverQueuePolicy) {}
+    public Airstrip(int id, List<Queue> queues, ServerQueuePolicy serverQueuePolicy) {
+        super(id,queues,serverQueuePolicy);
+    }
 
     @Override
     public String toString() {

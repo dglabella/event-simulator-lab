@@ -15,7 +15,7 @@ public class Aircraft extends Entity {
     }
 
     public Aircraft(int id, Arrival arrival) {
-        super(id);
+        super(id,arrival);
     }
 
     @Override
