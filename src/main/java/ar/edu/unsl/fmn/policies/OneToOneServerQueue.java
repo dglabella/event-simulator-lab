@@ -14,7 +14,6 @@ public class OneToOneServerQueue implements ServerQueuePolicy {
     @Override
     public void enqueue(List<Queue> queues, Entity entity) {
         queues.get(0).enqueue(entity);
-
     }
 
     @Override

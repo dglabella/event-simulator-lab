@@ -19,8 +19,7 @@ public class AirportSim implements Engine {
     private FutureEventList fel;
     private List<Server> servers;
 
-    public AirportSim(double endClock, List<Server> servers, ServerSelectionPolicy policy,
-            Randomizer randomizer) {
+    public AirportSim(double endClock, List<Server> servers, ServerSelectionPolicy policy, Randomizer randomizer) {
         fel = new FutureEventList();
         this.servers = servers;
         fel.insert(new StopSimulation(endClock,this));

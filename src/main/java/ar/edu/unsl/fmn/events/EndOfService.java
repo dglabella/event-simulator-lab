@@ -15,12 +15,29 @@ public class EndOfService extends Event {
 
     @Override
     public void planificate(FutureEventList fel, List<Server> servers) {
-        System.out.println("prueba1");
+        System.out.println("punto control");
         Server server = this.getEntity().getServer();
-        System.out.println("prueba2");
+        //Server server = this.getEntity().getServer();
         Entity entity;
+        /*if(!servers.get(0).queuesEmpty()){ //El 0 en vez de ser 0 no deberia estar determinado por la policy?
+            System.out.println("Se hara un dequeue");
+            entity = servers.get(0).dequeue();
+            servers.get(0).setCurrentEntity(entity);
+            System.out.println("Se ingresara un EOS");
+            fel.insert(new EndOfService(
+                    this.getClock() + this.getBehavior().nextTime(),
+                    entity,
+                    this.getBehavior()));
+            System.out.println("Se ingreso un EOS");
+            System.out.println(fel.toString());
+        }
+        else{
+            server.setCurrentEntity(null);
+            entity = null;
+        }*/
 
         if (!server.queuesEmpty()) {
+            System.out.println("Se hara un dequeue");
             entity = server.dequeue();
             server.setCurrentEntity(entity);
             System.out.println("Se ingresara un EOS");
