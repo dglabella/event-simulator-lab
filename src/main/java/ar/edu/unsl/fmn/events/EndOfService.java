@@ -15,11 +15,10 @@ public class EndOfService extends Event {
 
     @Override
     public void planificate(FutureEventList fel, List<Server> servers) {
-        System.out.println("punto control");
         Server server = this.getEntity().getServer();
-        //Server server = this.getEntity().getServer();
         Entity entity;
-        /*if(!servers.get(0).queuesEmpty()){ //El 0 en vez de ser 0 no deberia estar determinado por la policy?
+        System.out.println("pre-pregunta");
+        if(!servers.get(0).queuesEmpty()){ //El 0 en vez de ser 0 no deberia estar determinado por la policy?
             System.out.println("Se hara un dequeue");
             entity = servers.get(0).dequeue();
             servers.get(0).setCurrentEntity(entity);
@@ -34,8 +33,9 @@ public class EndOfService extends Event {
         else{
             server.setCurrentEntity(null);
             entity = null;
-        }*/
-
+        }
+        //Comentado por si estoy consultando bien la cola o no
+        /*System.out.println("EOS Pre-Pregunta");
         if (!server.queuesEmpty()) {
             System.out.println("Se hara un dequeue");
             entity = server.dequeue();
@@ -48,9 +48,10 @@ public class EndOfService extends Event {
             System.out.println("Se ingreso un EOS");
             System.out.println(fel.toString());
         } else {
+            System.out.println("rama del else");
             server.setCurrentEntity(null);
             entity = null;
-        }
+        }*/
         System.out.println("EndOfSerice planificate fuera if/else");
         //ver si colecciono estadisticas
     }

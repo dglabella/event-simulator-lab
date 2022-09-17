@@ -5,6 +5,7 @@ import ar.edu.unsl.fmn.entities.Entity;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.PriorityQueue;
 
 public class CustomQueue implements Queue {
 

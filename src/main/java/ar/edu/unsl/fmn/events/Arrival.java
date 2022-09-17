@@ -28,7 +28,7 @@ public class Arrival extends Event {
         Server server = this.policy.selectServer(servers);
         if(server.isBusy()){
             server.enqueue(this.getEntity());
-            System.out.println("added");
+            //REVISAR SI LE HACE EL ENQUEUE BIEN
         }
         else{
             server.setCurrentEntity(this.getEntity());
