@@ -13,6 +13,10 @@ public class ScenarioBuilder {
 
     public static List<Server> OneServerOneQueue() {
         List<Queue> queues = new ArrayList<>();
+        //CustomQueue cq = new CustomQueue();
+        /*Necesito como instanciar esto, o algo, pq al ser interface o dentro de CustomQueue no estar "Ccreado"
+                me tira que la queue es null todo el tiempo, entonces al acceder a la cola tira npe*/
+        //System.out.println(cq.getId());
         queues.add(new CustomQueue());
 
         List<Server> servers = new ArrayList<>();
