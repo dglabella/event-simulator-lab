@@ -18,30 +18,17 @@ public class EndOfService extends Event {
     public void planificate(FutureEventList fel, List<Server> servers) {
         Server server = this.getEntity().getServer();
         Entity entity;
-        System.out.println("pre-pregunta");
-
-        if(!servers.get(0).queuesEmpty()){ //El 0 en vez de ser 0 no deberia estar determinado por la policy?
-            System.out.println("Se hara un dequeue");
-            //entity = server.dequeue();
-            entity = servers.get(0).dequeue();
-            servers.get(0).setCurrentEntity(entity);
-            System.out.println("Se ingresara un EOS");
-            fel.insert(new EndOfService(
-                    this.getClock() + this.getBehavior().nextTime(),
-                    entity,
-                    this.getBehavior()));
-            System.out.println("Se ingreso un EOS");
-            System.out.println(fel.toString());
-        }
-        else{
-            server.setCurrentEntity(null);
-            entity = null;
-        }
-        //Comentado por si estoy consultando bien la cola o no
-        /*System.out.println("EOS Pre-Pregunta");
         if (!server.queuesEmpty()) {
             System.out.println("Se hara un dequeue");
-            entity = server.dequeue();
+            /*
+            * Aca tengo que hacer:
+            * "Despreciar" el que tiene el servidor asociado
+            * Asignarle el de tope de cola al server
+            * Planificar el proximo EOS para esta entidad que acabo de asignar
+            * */
+            entity = server.dequeue();//Ver si este dequeue esta trabajando como debe
+            //Que deberia ser tomar la cola y devolver el primero que tiene
+            //Para esto, la cola deberia tener una entidad cargada dentro
             server.setCurrentEntity(entity);
             System.out.println("Se ingresara un EOS");
             fel.insert(new EndOfService(
@@ -54,7 +41,7 @@ public class EndOfService extends Event {
             System.out.println("rama del else");
             server.setCurrentEntity(null);
             entity = null;
-        }*/
+        }
         System.out.println("EndOfSerice planificate fuera if/else");
         //ver si colecciono estadisticas
     }
