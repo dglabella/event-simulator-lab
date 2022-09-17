@@ -13,8 +13,8 @@ public class CustomQueue implements Queue {
     private java.util.Queue<Entity> queue;
 
     public CustomQueue(){
-        id = 0;
-        queue = new LinkedList<>();
+        id = 0;//?
+        queue = new LinkedList<>(); //new PriorityQueue<>();?
     }
     @Override
     public String toString() {

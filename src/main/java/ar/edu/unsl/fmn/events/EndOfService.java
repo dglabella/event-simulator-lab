@@ -5,6 +5,7 @@ import java.util.List;
 import ar.edu.unsl.fmn.behaviors.Behavior;
 import ar.edu.unsl.fmn.engine.FutureEventList;
 import ar.edu.unsl.fmn.entities.Entity;
+import ar.edu.unsl.fmn.policies.ServerSelectionPolicy;
 import ar.edu.unsl.fmn.resources.Server;
 
 public class EndOfService extends Event {
@@ -18,8 +19,10 @@ public class EndOfService extends Event {
         Server server = this.getEntity().getServer();
         Entity entity;
         System.out.println("pre-pregunta");
+
         if(!servers.get(0).queuesEmpty()){ //El 0 en vez de ser 0 no deberia estar determinado por la policy?
             System.out.println("Se hara un dequeue");
+            //entity = server.dequeue();
             entity = servers.get(0).dequeue();
             servers.get(0).setCurrentEntity(entity);
             System.out.println("Se ingresara un EOS");
