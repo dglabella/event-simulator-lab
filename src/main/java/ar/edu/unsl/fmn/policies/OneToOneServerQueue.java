@@ -18,7 +18,6 @@ public class OneToOneServerQueue implements ServerQueuePolicy {
 
     @Override
     public Entity dequeue(List<Queue> queues) {
-        System.out.println(queues.get(0).toString());
         return queues.get(0).next();
     }
 }

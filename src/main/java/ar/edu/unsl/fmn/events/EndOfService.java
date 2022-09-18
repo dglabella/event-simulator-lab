@@ -27,6 +27,7 @@ public class EndOfService extends Event {
             * Planificar el proximo EOS para esta entidad que acabo de asignar
             * */
             entity = server.dequeue();//Ver si este dequeue esta trabajando como debe
+            System.out.println("se hizo el dequeue");
             //Que deberia ser tomar la cola y devolver el primero que tiene
             //Para esto, la cola deberia tener una entidad cargada dentro
             server.setCurrentEntity(entity);

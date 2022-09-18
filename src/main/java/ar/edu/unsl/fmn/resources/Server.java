@@ -45,7 +45,8 @@ public abstract class Server {
     }
 
     public boolean queuesEmpty() {
-        return this.queues.isEmpty();
+        return this.policy.queuesEmpty(this.queues);
+        //return this.queues.isEmpty();
     }
 
     public void enqueue(Entity entity) {
