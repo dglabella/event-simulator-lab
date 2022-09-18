@@ -19,7 +19,6 @@ public class EndOfService extends Event {
         Server server = this.getEntity().getServer();
         Entity entity;
         if (!server.queuesEmpty()) {
-            System.out.println("Se hara un dequeue");
             /*
             * Aca tengo que hacer:
             * "Despreciar" el que tiene el servidor asociado
@@ -27,24 +26,20 @@ public class EndOfService extends Event {
             * Planificar el proximo EOS para esta entidad que acabo de asignar
             * */
             entity = server.dequeue();//Ver si este dequeue esta trabajando como debe
-            System.out.println("se hizo el dequeue");
             //Que deberia ser tomar la cola y devolver el primero que tiene
             //Para esto, la cola deberia tener una entidad cargada dentro
             server.setCurrentEntity(entity);
-            System.out.println("Se ingresara un EOS");
             fel.insert(new EndOfService(
                     this.getClock() + this.getBehavior().nextTime(),
                     entity,
                     this.getBehavior()));
-            System.out.println("Se ingreso un EOS");
             System.out.println(fel.toString());
         } else {
-            System.out.println("rama del else");
+            //REVISAR SI FALTA ALGO, IDLE TIME?
             server.setCurrentEntity(null);
             entity = null;
         }
-        System.out.println("EndOfSerice planificate fuera if/else");
-        //ver si colecciono estadisticas
+        //Coleccion de Estadisticas
     }
 
     @Override

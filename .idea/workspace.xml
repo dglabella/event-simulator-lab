@@ -22,7 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6503c0a6-a548-460d-9a4f-cf44e089aacc" name="Default Changelist" comment="" />
+    <list default="true" id="6503c0a6-a548-460d-9a4f-cf44e089aacc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/events/EndOfService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/events/EndOfService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -99,7 +103,8 @@
       <workItem from="1663275946274" duration="8184000" />
       <workItem from="1663360531475" duration="3251000" />
       <workItem from="1663368045011" duration="13799000" />
-      <workItem from="1663435683479" duration="9253000" />
+      <workItem from="1663435683479" duration="10734000" />
+      <workItem from="1663533468830" duration="820000" />
     </task>
     <servers />
   </component>
@@ -122,38 +127,18 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/events/EndOfService.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="41" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/events/EndOfService.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="42" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/events/EndOfService.java</url>
           <line>19</line>
           <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/events/EndOfService.java</url>
-          <line>28</line>
+          <line>27</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/events/EndOfService.java</url>
-          <line>32</line>
+          <line>30</line>
           <option name="timeStamp" value="60" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/events/EndOfService.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="61" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/events/EndOfService.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="64" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/utils/ScenarioBuilder.java</url>
@@ -214,6 +199,31 @@
           <url>file://$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/events/EndOfService.java</url>
           <line>18</line>
           <option name="timeStamp" value="83" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/events/Arrival.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/events/EndOfService.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="85" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/events/EndOfService.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/events/Arrival.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/App.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="88" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

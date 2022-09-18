@@ -28,7 +28,7 @@ public class App {
                 new UniqueServerSelectionPolicy(),
                 new CustomRandomizer());
 
-
+        //Arrival y EOS tienen mismo order en el constructor, se trataba primero la salida y despues la entrada?
         engine.execute();
         engine.generateReport();
     }
