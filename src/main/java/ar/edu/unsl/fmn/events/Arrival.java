@@ -43,6 +43,8 @@ public class Arrival extends Event {
         Aircraft aircraft = new Aircraft(this.getEntity().getId() +1);
         Arrival arrival = new Arrival(this.getClock() + this.getBehavior().nextTime(),aircraft,this.getBehavior(),endOfServiceBehavior,policy);
         aircraft.getEvents().add(arrival);
+        //LE FALTABA ESTO DE ABAJO?????
+        aircraft.setServer(this.policy.selectServer(servers));
 
         fel.insert(arrival);
         //Colleccionar datos
