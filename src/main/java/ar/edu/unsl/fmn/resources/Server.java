@@ -45,8 +45,6 @@ public abstract class Server {
 
     public int getAircraftAttended(){return this.aircraftAttended;}
 
-    public void setAircraftAttended(int aircraftAttended){this.aircraftAttended = aircraftAttended;}
-
     public void addAircraftAttended(){
         this.aircraftAttended += 1;
     }

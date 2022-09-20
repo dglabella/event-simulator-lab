@@ -72,7 +72,7 @@ public class AirportSim implements Engine {
          */
 
         //Esto tira en un 0, pero deberia saber de que server, por lo que deberia guardar la politica?
-        System.out.println("Entidades atendidas: " + policy.selectServer(servers).getAircraftAttended());
+        System.out.println("Entidades atendidas: " + this.policy.selectServer(servers).getAircraftAttended());
         System.out.println("generateReport in AirportSim: Method not yet implemented");
     }
 }
