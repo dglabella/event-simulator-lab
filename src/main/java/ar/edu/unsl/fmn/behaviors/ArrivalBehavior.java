@@ -21,6 +21,7 @@ public class ArrivalBehavior implements Behavior {
 
     @Override
     public double nextTime() {
+        //return 10;
         return this.distribution.event(this.randomizer.nextRandom());
     }
 }

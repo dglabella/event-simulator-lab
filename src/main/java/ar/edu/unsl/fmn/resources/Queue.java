@@ -13,4 +13,8 @@ public interface Queue {
     Entity checkNext();
 
     Entity next();
+
+    void checkMaxQueue();
+
+    int getMaxQueue();
 }

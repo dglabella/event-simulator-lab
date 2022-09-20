@@ -133,6 +133,10 @@ public abstract class Server {
         //Por ahora lo implemente en el servidor, pero creo que esta mal
     }
 
+    public int getMaxQueue(){
+        return this.queues.get(0).getMaxQueue();
+    }
+
     @Override
     public String toString() {
         String ret = "id: " + this.id + " -- current entity: " + this.currentEntity.getId() + "\n"

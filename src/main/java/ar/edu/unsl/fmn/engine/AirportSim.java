@@ -35,7 +35,7 @@ public class AirportSim implements Engine {
 
         entity.getEvents().add(arrival);
         fel.insert(arrival);
-        policy.selectServer(servers).addAircraftAttended();
+        //policy.selectServer(servers).addAircraftAttended();
 
     }
 
@@ -57,14 +57,18 @@ public class AirportSim implements Engine {
 
     @Override
     public void generateReport() {
+        //Esto deberia estar asociado a una clase que me guarde las estadisticas y llamar a eso desde aca
         /*
         * R-Cantidad total de aeronaves que aterrizaron. //Las que no fueron atendidas no cuentan? (cambiar el addAircraftAttended(); a EOS)
-        * R-Tiempo total de espera en cola.
-        * R-Tiempo medio de espera en cola. //Sobre los que esperan solamente???? o sobre cant de entidades?
-        * R-Tiempo máximo de espera en cola.
-        * R-Tiempo total de transito.
-        * R-Tiempo medio de tránsito.
-        * R-Tiempo máximo de tránsito.
+        * ESTE DE ARRIBA ES SOLO LAS QUE ENTRARON A SER ATENDIDAS
+        * N-Tiempo total de espera en cola. //PASAR A ENTIDADES ESTO?
+        * N-Tiempo medio de espera en cola. //Sobre los que esperan solamente???? o sobre cant de entidades?
+        * N-Tiempo máximo de espera en cola.
+        * Podria ponerle a cada entidad el tiempo de espera que tiene c/u antes de ser atendida
+        * N-Tiempo total de transito. TRANSITO ES TIEMPO DE SALIDA - TIEMPO DE ARRIBO
+        * el transito es el tiempo desde que entra a la cola (o ser atendida si no hay) mas el tiempo que tarda en atenderse
+        * N-Tiempo medio de tránsito.
+        * N-Tiempo máximo de tránsito.
         * Tiempo total de ocio de la pista y el porcentaje que representa respecto del tiempo de simulación.
         * Tiempo máximo de ocio de la pista y el porcentaje que representa respecto del tiempo total de ocio.
         * R-Tamaño máximo de la cola de espera para este servidor.
@@ -76,11 +80,22 @@ public class AirportSim implements Engine {
         System.out.println("Tiempo Total de transito: " + this.policy.selectServer(servers).getTotalServiceTime());
         System.out.println("Tiempo Medio de transito: " + this.policy.selectServer(servers).getTotalServiceTime()/this.policy.selectServer(servers).getAircraftAttended());
         System.out.println("Tiempo Maximo de transito: " + this.policy.selectServer(servers).getMaxServiceTime());
+        /*
+        El tiempo de ocio deberia estar implementado como un flag?
+        Osea, en EoS se activa si no tengo cola y cuento hasta el proximo arrival, que si el flag esta levantado
+        me lo deberia bajar y dejar de contar (sumar el tiempo acumulado del actual tiempo que tengo - tiempo
+        en el que se levanta el flag) tiempo ahi.
+        Puede ser tranquilamente un flag de la clase abstracta y el contador otro atributo, uno de maximo
+        como vengo laburando y otro de total.
+        cuando entra un arribo, si no habia cola (server desocupado) bajo el flag y sumo el tiempo
+        cuando sale una entidad por un EoS levanto el flag y anoto en que tick de tiempo se produce esto
+         */
         System.out.println("Tiempo Total de ocio de la pista: ");
         System.out.println("Porcentaje respecto del tiempo de simulacion: ");
         System.out.println("Tiempo maximo de ocio de la pista: ");
         System.out.println("Porcentaje respecto del tiempo de simulacion: ");
-        System.out.println("Tiempo Maximo de la cola de espera para este servidor: " + this.policy.selectServer(servers).getMaxQueueTime()); //por esto el queue time deberia estar en la cola y no en el server
+        System.out.println("Tamaño Maximo de la cola de espera para este servidor: " + this.policy.selectServer(servers).getMaxQueue());
+        //por cada enqueue veo la lenght y veo si actualizo el max.
         System.out.println("generateReport in AirportSim: Implementation not finished");
     }
 }

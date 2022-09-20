@@ -12,9 +12,14 @@ public class CustomQueue implements Queue {
     private int id;
     private java.util.Queue<Entity> queue;
 
+    private int currentQueue;
+    private int maxQueue;
+
     public CustomQueue(){
         id = 0;//?
         queue = new LinkedList<>(); //new PriorityQueue<>();?
+        currentQueue = 0;
+        maxQueue = 0;
     }
     @Override
     public String toString() {
@@ -34,6 +39,8 @@ public class CustomQueue implements Queue {
     @Override
     public void enqueue(Entity entity) {
         this.queue.add(entity);
+        this.currentQueue +=1;
+        checkMaxQueue();
     }
 
     @Override
@@ -43,6 +50,19 @@ public class CustomQueue implements Queue {
 
     @Override
     public Entity next() {
+        this.currentQueue -=1;
         return this.queue.remove();
+
+    }
+
+    @Override
+    public int getMaxQueue(){
+        return this.maxQueue;
+    }
+    @Override
+    public void checkMaxQueue() {
+        if(maxQueue<currentQueue){
+            maxQueue = currentQueue;
+        }
     }
 }

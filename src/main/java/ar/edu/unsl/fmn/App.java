@@ -19,7 +19,7 @@ import java.util.List;
 public class App {
 
     private static final double SIMULATION_LENGHT = 40320d;
-
+    //private static final double SIMULATION_LENGHT = 100d;
     public static void main(String[] args) {
         //Inicializacion
         Engine engine = new AirportSim(

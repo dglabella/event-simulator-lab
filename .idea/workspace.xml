@@ -25,10 +25,11 @@
     <list default="true" id="6503c0a6-a548-460d-9a4f-cf44e089aacc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/behaviors/ArrivalBehavior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/behaviors/ArrivalBehavior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/behaviors/EndOfServiceBehavior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/behaviors/EndOfServiceBehavior.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/engine/AirportSim.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/engine/AirportSim.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/events/Arrival.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/events/Arrival.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/events/EndOfService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/events/EndOfService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/resources/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/resources/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,12 +120,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/events/EndOfService.java</url>
-          <line>27</line>
+          <line>28</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/events/EndOfService.java</url>
-          <line>30</line>
+          <line>32</line>
           <option name="timeStamp" value="60" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -184,12 +185,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/events/EndOfService.java</url>
-          <line>49</line>
+          <line>51</line>
           <option name="timeStamp" value="86" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/events/Arrival.java</url>
-          <line>49</line>
+          <line>50</line>
           <option name="timeStamp" value="87" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -199,7 +200,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/events/EndOfService.java</url>
-          <line>36</line>
+          <line>38</line>
           <option name="timeStamp" value="91" />
         </line-breakpoint>
       </breakpoints>
