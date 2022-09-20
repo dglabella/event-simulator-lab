@@ -59,16 +59,17 @@ public class AirportSim implements Engine {
     public void generateReport() {
         //Esto deberia estar asociado a una clase que me guarde las estadisticas y llamar a eso desde aca
         /*
-        * R-Cantidad total de aeronaves que aterrizaron. //Las que no fueron atendidas no cuentan? (cambiar el addAircraftAttended(); a EOS)
-        * ESTE DE ARRIBA ES SOLO LAS QUE ENTRARON A SER ATENDIDAS
+        * R-Cantidad total de aeronaves que aterrizaron.
+        * Ver bien el TIEMPO DE ESPERA, donde ponerlo, seria resta entre tiempo que entro la entidad a tiempo de
+        * inicio de atencion quizas, para asegurarme que no sumo tiempos que no debo x entidades que no fueron atendidas todavia
         * N-Tiempo total de espera en cola. //PASAR A ENTIDADES ESTO?
         * N-Tiempo medio de espera en cola. //Sobre los que esperan solamente???? o sobre cant de entidades?
         * N-Tiempo máximo de espera en cola.
         * Podria ponerle a cada entidad el tiempo de espera que tiene c/u antes de ser atendida
-        * N-Tiempo total de transito. TRANSITO ES TIEMPO DE SALIDA - TIEMPO DE ARRIBO
+        * R-Tiempo total de transito. TRANSITO ES TIEMPO DE SALIDA - TIEMPO DE ARRIBO
         * el transito es el tiempo desde que entra a la cola (o ser atendida si no hay) mas el tiempo que tarda en atenderse
-        * N-Tiempo medio de tránsito.
-        * N-Tiempo máximo de tránsito.
+        * R-Tiempo medio de tránsito.
+        * R-Tiempo máximo de tránsito.
         * Tiempo total de ocio de la pista y el porcentaje que representa respecto del tiempo de simulación.
         * Tiempo máximo de ocio de la pista y el porcentaje que representa respecto del tiempo total de ocio.
         * R-Tamaño máximo de la cola de espera para este servidor.

@@ -134,7 +134,7 @@ public abstract class Server {
     }
 
     public int getMaxQueue(){
-        return this.queues.get(0).getMaxQueue();
+        return this.queues.get(0).getMaxQueue(); //este get(0) parece una negrada, revisar
     }
 
     @Override
