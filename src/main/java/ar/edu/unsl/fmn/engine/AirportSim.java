@@ -53,26 +53,34 @@ public class AirportSim implements Engine {
     @Override
     public void stopExecute() {
         stop = true;
-        System.out.println("stopExecute in AirportSim: Method not yet corroborated");
     }
 
     @Override
     public void generateReport() {
         /*
-        * Cantidad total de aeronaves que aterrizaron.
-        * Tiempo total de espera en cola.
-        * Tiempo medio de espera en cola.
-        * Tiempo máximo de espera en cola.
-        * Tiempo total de transito.
-        * Tiempo medio de tránsito.
-        * Tiempo máximo de tránsito.
+        * R-Cantidad total de aeronaves que aterrizaron. //Las que no fueron atendidas no cuentan? (cambiar el addAircraftAttended(); a EOS)
+        * R-Tiempo total de espera en cola.
+        * R-Tiempo medio de espera en cola. //Sobre los que esperan solamente???? o sobre cant de entidades?
+        * R-Tiempo máximo de espera en cola.
+        * R-Tiempo total de transito.
+        * R-Tiempo medio de tránsito.
+        * R-Tiempo máximo de tránsito.
         * Tiempo total de ocio de la pista y el porcentaje que representa respecto del tiempo de simulación.
         * Tiempo máximo de ocio de la pista y el porcentaje que representa respecto del tiempo total de ocio.
-        * Tamaño máximo de la cola de espera para este servidor.
+        * R-Tamaño máximo de la cola de espera para este servidor.
          */
-
-        //Esto tira en un 0, pero deberia saber de que server, por lo que deberia guardar la politica?
         System.out.println("Entidades atendidas: " + this.policy.selectServer(servers).getAircraftAttended());
-        System.out.println("generateReport in AirportSim: Method not yet implemented");
+        System.out.println("Tiempo Total de espera en cola: " + this.policy.selectServer(servers).getTotalQueueTime());
+        System.out.println("Tiempo Medio de espera en cola: " + this.policy.selectServer(servers).getTotalQueueTime()/this.policy.selectServer(servers).getAircraftAttended());
+        System.out.println("Tiempo Maximo de espera en cola: " + this.policy.selectServer(servers).getMaxQueueTime());
+        System.out.println("Tiempo Total de transito: " + this.policy.selectServer(servers).getTotalServiceTime());
+        System.out.println("Tiempo Medio de transito: " + this.policy.selectServer(servers).getTotalServiceTime()/this.policy.selectServer(servers).getAircraftAttended());
+        System.out.println("Tiempo Maximo de transito: " + this.policy.selectServer(servers).getMaxServiceTime());
+        System.out.println("Tiempo Total de ocio de la pista: ");
+        System.out.println("Porcentaje respecto del tiempo de simulacion: ");
+        System.out.println("Tiempo maximo de ocio de la pista: ");
+        System.out.println("Porcentaje respecto del tiempo de simulacion: ");
+        System.out.println("Tiempo Maximo de la cola de espera para este servidor: " + this.policy.selectServer(servers).getMaxQueueTime()); //por esto el queue time deberia estar en la cola y no en el server
+        System.out.println("generateReport in AirportSim: Implementation not finished");
     }
 }

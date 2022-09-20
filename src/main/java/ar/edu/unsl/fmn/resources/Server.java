@@ -15,6 +15,16 @@ public abstract class Server {
     private ServerQueuePolicy policy;
 
     private int aircraftAttended;
+    private double totalQueueTime;
+    private double maxQueueTime;
+
+    private double totalServiceTime;
+
+    private double maxServiceTime;
+
+    /*
+    * Estos de queue time, deberian estar sobre la cola y no sobre el server, cierto?
+    */
 
     public Server() {
 
@@ -25,6 +35,10 @@ public abstract class Server {
         this.queues = queues;
         this.policy = policy;
         this.aircraftAttended=0;
+        this.totalQueueTime=0;
+        this.maxQueueTime=0;
+        this.totalServiceTime=0;
+        this.maxServiceTime=0;
     }
 
     public int getId() {
@@ -49,6 +63,55 @@ public abstract class Server {
         this.aircraftAttended += 1;
     }
 
+    public double getTotalQueueTime(){
+        return this.totalQueueTime;
+    }
+    public void setTotalQueueTime(double totalQueueTime){
+        this.totalQueueTime = totalQueueTime;
+    }
+    public double getMaxQueueTime(){
+        return this.maxQueueTime;
+    }
+    private void setMaxQueueTime(double maxQueueTime){
+        this.maxQueueTime = maxQueueTime;
+    }
+
+    public double getTotalServiceTime(){
+        return this.totalServiceTime;
+    }
+
+    private void setTotalServiceTime(double serviceTime){
+        this.totalServiceTime = serviceTime;
+    }
+
+    public double getMaxServiceTime(){
+        return this.maxServiceTime;
+    }
+
+    private void setMaxServiceTime(double maxServiceTime){
+        this.maxServiceTime = maxServiceTime;
+    }
+
+    public void addTotalQueueTime(double timeAdded){
+        setTotalQueueTime(getTotalQueueTime() + timeAdded);
+    }
+    public void compareMaxQueueTime(double timeAdded){
+        if(this.maxQueueTime<=timeAdded){
+            setMaxQueueTime(timeAdded);
+        }
+    }
+
+    public void addTotalServiceTime(double timeAdded){
+        setTotalServiceTime(getTotalServiceTime() + timeAdded);
+    }
+
+    public void compareMaxServiceTime(double serviceTime){
+        if(this.maxServiceTime<=serviceTime){
+            setMaxServiceTime(serviceTime);
+        }
+
+    }
+
     public boolean isBusy() {
         return this.currentEntity == null ? false : true;
     }
@@ -60,10 +123,14 @@ public abstract class Server {
 
     public void enqueue(Entity entity) {
         this.policy.enqueue(queues,entity);
+        //aca puedo acceder para las colecciones de datos?
     }
 
     public Entity dequeue() {
         return this.policy.dequeue(this.queues);
+        //aca puedo acceder para las colecciones de datos?
+        //pq con el dequeue, puedo ver el tiempo de cola que tuvo digamos.
+        //Por ahora lo implemente en el servidor, pero creo que esta mal
     }
 
     @Override

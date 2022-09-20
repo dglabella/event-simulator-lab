@@ -28,22 +28,22 @@ public class Arrival extends Event {
         Server server = this.policy.selectServer(servers);
         if(server.isBusy()){
             server.enqueue(this.getEntity());
-            //REVISAR SI LE HACE EL ENQUEUE BIEN
         }
         else{
             server.setCurrentEntity(this.getEntity());
             this.getEntity().setServer(server);
-
+            double nextTime = endOfServiceBehavior.nextTime();
             fel.insert(new EndOfService(
-                    this.getClock() + endOfServiceBehavior.nextTime(),
+                    this.getClock() + nextTime,
                     this.getEntity(),
                     this.endOfServiceBehavior));
+            this.getEntity().getServer().addTotalServiceTime(nextTime);
+            this.getEntity().getServer().compareMaxServiceTime(nextTime);
         }
         //Planifico proximo arribo:
         Aircraft aircraft = new Aircraft(this.getEntity().getId() +1);
         Arrival arrival = new Arrival(this.getClock() + this.getBehavior().nextTime(),aircraft,this.getBehavior(),endOfServiceBehavior,policy);
         aircraft.getEvents().add(arrival);
-        //LE FALTABA ESTO DE ABAJO?????
         aircraft.setServer(this.policy.selectServer(servers));
 
         fel.insert(arrival);

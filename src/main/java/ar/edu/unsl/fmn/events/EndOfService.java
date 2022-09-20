@@ -29,17 +29,26 @@ public class EndOfService extends Event {
             //Que deberia ser tomar la cola y devolver el primero que tiene
             //Para esto, la cola deberia tener una entidad cargada dentro
             server.setCurrentEntity(entity);
+            double nextTime = this.getBehavior().nextTime();
             fel.insert(new EndOfService(
-                    this.getClock() + this.getBehavior().nextTime(),
+                    this.getClock() + nextTime,
                     entity,
                     this.getBehavior()));
-            System.out.println(fel.toString());
-        } else {
+            double queueTime = this.getClock() - entity.getEvents().get(0).getClock();//esta bien decirle que es el 0?
+            entity.getServer().addTotalQueueTime(queueTime);
+            entity.getServer().compareMaxQueueTime(queueTime);
+            entity.getServer().addTotalServiceTime(nextTime);
+            entity.getServer().compareMaxServiceTime(nextTime);
+
+
+        }
+        else{
             //REVISAR SI FALTA ALGO, IDLE TIME?
             server.setCurrentEntity(null);
             entity = null;
         }
         //Coleccion de Estadisticas
+
     }
 
     @Override
