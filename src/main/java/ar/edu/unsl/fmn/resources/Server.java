@@ -14,6 +14,8 @@ public abstract class Server {
 
     private ServerQueuePolicy policy;
 
+    private int aircraftAttended;
+
     public Server() {
 
     }
@@ -22,6 +24,7 @@ public abstract class Server {
         this.id = id;
         this.queues = queues;
         this.policy = policy;
+        this.aircraftAttended=0;
     }
 
     public int getId() {
@@ -38,6 +41,14 @@ public abstract class Server {
 
     public void setCurrentEntity(Entity currentEntity) {
         this.currentEntity = currentEntity;
+    }
+
+    public int getAircraftAttended(){return this.aircraftAttended;}
+
+    public void setAircraftAttended(int aircraftAttended){this.aircraftAttended = aircraftAttended;}
+
+    public void addAircraftAttended(){
+        this.aircraftAttended += 1;
     }
 
     public boolean isBusy() {

@@ -48,6 +48,7 @@ public class Arrival extends Event {
 
         fel.insert(arrival);
         //Colleccionar datos
+        this.policy.selectServer(servers).addAircraftAttended();
     }
 
     @Override

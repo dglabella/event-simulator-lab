@@ -19,9 +19,12 @@ public class AirportSim implements Engine {
     private FutureEventList fel;
     private List<Server> servers;
 
+    private ServerSelectionPolicy policy;
+
     public AirportSim(double endClock, List<Server> servers, ServerSelectionPolicy policy, Randomizer randomizer) {
         fel = new FutureEventList();
         this.servers = servers;
+        this.policy = policy; //Para el generate report
         fel.insert(new StopSimulation(endClock,this));
         Aircraft entity = new Aircraft(1);
         Arrival arrival = new Arrival(0,
@@ -32,7 +35,8 @@ public class AirportSim implements Engine {
 
         entity.getEvents().add(arrival);
         fel.insert(arrival);
-        System.out.println(fel.toString());
+        policy.selectServer(servers).addAircraftAttended();
+
     }
 
     @Override
@@ -41,7 +45,7 @@ public class AirportSim implements Engine {
         while(!stop){
             fel.getImminent().planificate(fel,servers);
 
-            System.out.println("\nexecute in AirportSim: showing fel in every planificate step:\n");
+            System.out.println("\nexecute in AirportSim: showing fel in every planificate step: (borrar este msg?)\n");
             System.out.println(fel.toString());
         }
     }
@@ -54,6 +58,21 @@ public class AirportSim implements Engine {
 
     @Override
     public void generateReport() {
+        /*
+        * Cantidad total de aeronaves que aterrizaron.
+        * Tiempo total de espera en cola.
+        * Tiempo medio de espera en cola.
+        * Tiempo máximo de espera en cola.
+        * Tiempo total de transito.
+        * Tiempo medio de tránsito.
+        * Tiempo máximo de tránsito.
+        * Tiempo total de ocio de la pista y el porcentaje que representa respecto del tiempo de simulación.
+        * Tiempo máximo de ocio de la pista y el porcentaje que representa respecto del tiempo total de ocio.
+        * Tamaño máximo de la cola de espera para este servidor.
+         */
+
+        //Esto tira en un 0, pero deberia saber de que server, por lo que deberia guardar la politica?
+        System.out.println("Entidades atendidas: " + policy.selectServer(servers).getAircraftAttended());
         System.out.println("generateReport in AirportSim: Method not yet implemented");
     }
 }
