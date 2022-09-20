@@ -27,7 +27,7 @@ public class EndOfService extends Event {
             * Planificar el proximo EOS para esta entidad que acabo de asignar
             * */
             entity = server.dequeue();//Ver si este dequeue esta trabajando como debe
-            //entity.getServer().addAircraftAttended();
+
             //Que deberia ser tomar la cola y devolver el primero que tiene
             //Para esto, la cola deberia tener una entidad cargada dentro
             server.setCurrentEntity(entity);
@@ -37,8 +37,10 @@ public class EndOfService extends Event {
                     entity,
                     this.getBehavior()));
             double queueTime = this.getClock() - entity.getEvents().get(0).getClock();//esta bien decirle que es el 0?
-            entity.getServer().addTotalQueueTime(queueTime);
-            entity.getServer().compareMaxQueueTime(queueTime);
+
+            entity.getServer().addTotalQueueTime(queueTime);//ESTO CUANDO DEBERIA SER TRATADO?
+            entity.getServer().compareMaxQueueTime(queueTime);//ESTO CUANDO DEBERIA SER TRATADO?
+            //Y SOBRE EL DEQUEUE, NO SOBRE EL PROX EOS
             entity.getServer().addTotalServiceTime(eosclock - entity.getEvents().get(0).getClock());
             entity.getServer().compareMaxServiceTime(eosclock - entity.getEvents().get(0).getClock());
         }
