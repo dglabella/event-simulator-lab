@@ -22,6 +22,12 @@ public abstract class Server {
 
     private double maxServiceTime;
 
+    private double idleStartTime;
+
+    private double idleTotalTime;
+
+    private double maxIdleTime;
+
     /*
     * Estos de queue time, deberian estar sobre la cola y no sobre el server, cierto?
     */
@@ -39,6 +45,7 @@ public abstract class Server {
         this.maxQueueTime=0;
         this.totalServiceTime=0;
         this.maxServiceTime=0;
+        this.maxIdleTime=0;
     }
 
     public int getId() {
@@ -66,12 +73,15 @@ public abstract class Server {
     public double getTotalQueueTime(){
         return this.totalQueueTime;
     }
+
     public void setTotalQueueTime(double totalQueueTime){
         this.totalQueueTime = totalQueueTime;
     }
+
     public double getMaxQueueTime(){
         return this.maxQueueTime;
     }
+
     private void setMaxQueueTime(double maxQueueTime){
         this.maxQueueTime = maxQueueTime;
     }
@@ -92,11 +102,56 @@ public abstract class Server {
         this.maxServiceTime = maxServiceTime;
     }
 
+    public double getIdleStartTime(){
+        return this.idleStartTime;
+    }
+
+    public void setIdleStartTime(double idleStartTime){
+        this.idleStartTime = idleStartTime;
+    }
+
+    public double getIdleTotalTime(){
+        return this.idleTotalTime;
+    }
+
+    private void setIdleTotalTime(double idleTotalTime){
+        this.idleTotalTime = idleTotalTime;
+    }
+
+    public double getMaxIdleTime(){
+        return this.maxIdleTime;
+    }
+
+    private void setMaxIdleTime(double maxIdleTime){
+        this.maxIdleTime = maxIdleTime;
+    }
+
+    public void addIdleTotalTime(double idleTime){
+        setIdleTotalTime(getIdleTotalTime() + idleTime);
+    }
+
+    private void compareIdleMaxTime(double idleTime){
+        if(getMaxIdleTime() < idleTime){
+            setMaxIdleTime(idleTime);
+        }
+    }
+
+    public void startIdle(double startTime){
+        setIdleStartTime(startTime);
+    }
+
+    public void endIdle(double endTime){
+        addIdleTotalTime( endTime - getIdleStartTime());
+        compareIdleMaxTime(endTime - getIdleStartTime());
+        setIdleStartTime(0);
+    }
+
     public void addTotalQueueTime(double timeAdded){
         setTotalQueueTime(getTotalQueueTime() + timeAdded);
     }
+
     public void compareMaxQueueTime(double timeAdded){
-        if(this.maxQueueTime<=timeAdded){
+        if(this.maxQueueTime < timeAdded){
             setMaxQueueTime(timeAdded);
         }
     }
@@ -106,7 +161,7 @@ public abstract class Server {
     }
 
     public void compareMaxServiceTime(double serviceTime){
-        if(this.maxServiceTime<=serviceTime){
+        if(this.maxServiceTime < serviceTime){
             setMaxServiceTime(serviceTime);
         }
 

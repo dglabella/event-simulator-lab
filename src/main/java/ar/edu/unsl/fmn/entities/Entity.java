@@ -13,20 +13,24 @@ public abstract class Entity {
     private int id;
 
     private Server server;
+
     private List<Event> events;
+
+    private double queuedTime;
 
     public Entity() {}
 
     public Entity(int id) {
         this.id = id;
         events = new ArrayList<>();
+        this.queuedTime = 0;
     }
 
     public Entity(int id, Arrival arrival) {
         this.events = new ArrayList<>();
-
         this.id = id;
         this.events.add(arrival);
+        this.queuedTime = 0;
     }
 
     /*public Entity(int id, EndOfService endOfService) {
@@ -65,5 +69,17 @@ public abstract class Entity {
 
     public void setEvents(List<Event> events) {
         this.events = events;
+    }
+
+    public double getQueuedTime(){
+        return this.queuedTime;
+    }
+
+    private void setQueuedTime(double queuedTime){
+        this.queuedTime = queuedTime;
+    }
+
+    public void calculateQueuedTime(double currentTime){
+        setQueuedTime(currentTime - getEvents().get(0).getClock());
     }
 }

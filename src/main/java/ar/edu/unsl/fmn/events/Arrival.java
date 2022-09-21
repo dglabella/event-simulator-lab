@@ -39,6 +39,8 @@ public class Arrival extends Event {
                     this.endOfServiceBehavior));
             this.getEntity().getServer().addTotalServiceTime(eosclock - this.getEntity().getEvents().get(0).getClock());
             this.getEntity().getServer().compareMaxServiceTime(eosclock - this.getEntity().getEvents().get(0).getClock());
+            //IdleTime
+            this.getEntity().getServer().endIdle(this.getClock());
         }
         //Planifico proximo arribo:
         Aircraft aircraft = new Aircraft(this.getEntity().getId() +1);

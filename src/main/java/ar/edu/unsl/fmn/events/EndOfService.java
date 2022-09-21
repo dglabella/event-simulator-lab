@@ -26,28 +26,27 @@ public class EndOfService extends Event {
             * Asignarle el de tope de cola al server
             * Planificar el proximo EOS para esta entidad que acabo de asignar
             * */
-            entity = server.dequeue();//Ver si este dequeue esta trabajando como debe
-
-            //Que deberia ser tomar la cola y devolver el primero que tiene
-            //Para esto, la cola deberia tener una entidad cargada dentro
+            entity = server.dequeue();
             server.setCurrentEntity(entity);
-            double eosclock = this.getClock() + this.getBehavior().nextTime(); //RENOMBRAR
+            double tickEoS = this.getClock() + this.getBehavior().nextTime(); //RENOMBRAR
             fel.insert(new EndOfService(
-                    eosclock,
+                    tickEoS,
                     entity,
                     this.getBehavior()));
-            double queueTime = this.getClock() - entity.getEvents().get(0).getClock();//esta bien decirle que es el 0?
-
-            entity.getServer().addTotalQueueTime(queueTime);//ESTO CUANDO DEBERIA SER TRATADO?
-            entity.getServer().compareMaxQueueTime(queueTime);//ESTO CUANDO DEBERIA SER TRATADO?
-            //Y SOBRE EL DEQUEUE, NO SOBRE EL PROX EOS
-            entity.getServer().addTotalServiceTime(eosclock - entity.getEvents().get(0).getClock());
-            entity.getServer().compareMaxServiceTime(eosclock - entity.getEvents().get(0).getClock());
+            //calculo tiempo de cola
+            entity.calculateQueuedTime(this.getClock());
+            entity.getServer().addTotalQueueTime(entity.getQueuedTime());
+            entity.getServer().compareMaxQueueTime(entity.getQueuedTime());
+            //calculo tiempo de servicio
+            entity.getServer().addTotalServiceTime(tickEoS - entity.getEvents().get(0).getClock());
+            entity.getServer().compareMaxServiceTime(tickEoS - entity.getEvents().get(0).getClock());
         }
         else{
             //REVISAR SI FALTA ALGO, IDLE TIME?
             server.setCurrentEntity(null);
             entity = null;
+
+            server.startIdle(this.getClock());
             //ACA LEVANTO EL FLAG QUE EMPIEZA A ESTAR EN OCIO Y GUARDO ESTE TICK
             //el profe ponia 2 flags en -1
         }
