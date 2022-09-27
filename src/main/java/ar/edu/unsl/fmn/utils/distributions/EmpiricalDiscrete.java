@@ -12,7 +12,7 @@ import ar.edu.unsl.fmn.utils.exceptions.OutOfRangeException;
  * This class is an implementation for an empirical discrete distribution.
  * 
  */
-public class EmpiricalDiscrete<T> implements Distribution<T> {
+public class EmpiricalDiscrete<T> implements Distribution<T>, InvertibleDistribution<T> {
     private double sum;
     private boolean locked = false;
 

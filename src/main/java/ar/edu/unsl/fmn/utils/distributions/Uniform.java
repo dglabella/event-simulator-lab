@@ -1,6 +1,6 @@
 package ar.edu.unsl.fmn.utils.distributions;
 
-public class Uniform implements Distribution<Double> {
+public class Uniform implements Distribution<Double>, InvertibleDistribution<Double> {
 
     private double a;
     private double b;
