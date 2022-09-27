@@ -26,6 +26,8 @@ public class App {
         Exponential asd = new Exponential(1/5d);
         System.out.println(asd.event(0.6321235));
 
+        //para saber lo de hora pico hago modulo de cuantos minutos sean 24hs y si el arribo esta entre
+        //ese tiempo de hora pico le mando otra exponential
         /*Engine engine = new AirportSim(
                 SIMULATION_LENGHT,
                 ScenarioBuilder.OneServerOneQueue(),
