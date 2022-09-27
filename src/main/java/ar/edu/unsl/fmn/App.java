@@ -11,6 +11,7 @@ import ar.edu.unsl.fmn.resources.Queue;
 import ar.edu.unsl.fmn.resources.Server;
 import ar.edu.unsl.fmn.utils.CustomRandomizer;
 import ar.edu.unsl.fmn.utils.ScenarioBuilder;
+import ar.edu.unsl.fmn.utils.distributions.Exponential;
 
 
 import java.util.ArrayList;
@@ -22,12 +23,15 @@ public class App {
     //private static final double SIMULATION_LENGHT = 100d;
 
     public static void main(String[] args) {
-        Engine engine = new AirportSim(
+        Exponential asd = new Exponential(1/5d);
+        System.out.println(asd.event(0.6321235));
+
+        /*Engine engine = new AirportSim(
                 SIMULATION_LENGHT,
                 ScenarioBuilder.OneServerOneQueue(),
                 new UniqueServerSelectionPolicy(),
                 new CustomRandomizer());
         engine.execute();
-        engine.generateReport();
+        engine.generateReport();*/
     }
 }
