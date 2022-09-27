@@ -1,5 +1,6 @@
 package ar.edu.unsl.fmn.utils.distributions;
 
+@FunctionalInterface
 public interface Distribution<T> {
     /**
      * get the probability of an event.

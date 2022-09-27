@@ -1,5 +1,6 @@
 package ar.edu.unsl.fmn.utils.distributions;
 
+@FunctionalInterface
 public interface InvertibleDistribution<T> {
     /**
      * get a sample from this distribution.
