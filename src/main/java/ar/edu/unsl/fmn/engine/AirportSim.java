@@ -48,8 +48,8 @@ public class AirportSim implements Engine {
         while(!stop){
             fel.getImminent().planificate(fel,servers);
 
-            System.out.println("\nexecute in AirportSim: showing fel in every planificate step: (borrar este msg?)\n");
-            System.out.println(fel.toString());
+            //System.out.println("\nexecute in AirportSim: showing fel in every planificate step: (borrar este msg?)\n");
+            //System.out.println(fel.toString());
         }
     }
 
