@@ -15,6 +15,7 @@ import ar.edu.unsl.fmn.utils.distributions.Exponential;
 import ar.edu.unsl.fmn.utils.distributions.Normal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class App {
 
@@ -23,9 +24,16 @@ public class App {
 
     public static void main(String[] args) {
         Normal normal = new Normal(120, 100);
+        Random random = new Random(0);
 
         for (int i = 0; i < 50; i++) {
             System.out.println(normal.event());
+        }
+
+        System.out.println("=========================================================");
+
+        for (int i = 0; i < 50; i++) {
+            System.out.println(random.nextGaussian() * 10 + 120);
         }
 
         // para saber lo de hora pico hago modulo de cuantos minutos sean 24hs y si el arribo esta
