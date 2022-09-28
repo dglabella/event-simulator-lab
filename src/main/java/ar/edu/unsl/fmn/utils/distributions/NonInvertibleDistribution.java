@@ -15,5 +15,5 @@ public interface NonInvertibleDistribution<T> {
      * @param list the number list used to get the sample.
      * @return the event sample.
      */
-    T event(double... list);
+    T event(double mu, double varianze, double... list);
 }

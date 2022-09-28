@@ -12,28 +12,29 @@ import ar.edu.unsl.fmn.resources.Server;
 import ar.edu.unsl.fmn.utils.CustomRandomizer;
 import ar.edu.unsl.fmn.utils.ScenarioBuilder;
 import ar.edu.unsl.fmn.utils.distributions.Exponential;
-
-
+import ar.edu.unsl.fmn.utils.distributions.Normal;
 import java.util.ArrayList;
 import java.util.List;
 
 public class App {
 
     private static final double SIMULATION_LENGHT = 40320d;
-    //private static final double SIMULATION_LENGHT = 100d;
+    // private static final double SIMULATION_LENGHT = 100d;
 
     public static void main(String[] args) {
-        Exponential asd = new Exponential(1/5d);
-        System.out.println(asd.event(0.6321235));
+        Normal normal = new Normal(120, 100);
 
-        //para saber lo de hora pico hago modulo de cuantos minutos sean 24hs y si el arribo esta entre
-        //ese tiempo de hora pico le mando otra exponential
-        /*Engine engine = new AirportSim(
-                SIMULATION_LENGHT,
-                ScenarioBuilder.OneServerOneQueue(),
-                new UniqueServerSelectionPolicy(),
-                new CustomRandomizer());
-        engine.execute();
-        engine.generateReport();*/
+        for (int i = 0; i < 50; i++) {
+            System.out.println(normal.event());
+        }
+
+        // para saber lo de hora pico hago modulo de cuantos minutos sean 24hs y si el arribo esta
+        // entre
+        // ese tiempo de hora pico le mando otra exponential
+        /*
+         * Engine engine = new AirportSim( SIMULATION_LENGHT, ScenarioBuilder.OneServerOneQueue(),
+         * new UniqueServerSelectionPolicy(), new CustomRandomizer()); engine.execute();
+         * engine.generateReport();
+         */
     }
 }
