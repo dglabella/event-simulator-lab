@@ -2,6 +2,7 @@ package ar.edu.unsl.fmn;
 
 import ar.edu.unsl.fmn.engine.AirportSim;
 import ar.edu.unsl.fmn.engine.Engine;
+import ar.edu.unsl.fmn.policies.MultipleServerSelectionPolicy;
 import ar.edu.unsl.fmn.policies.OneToOneServerQueue;
 import ar.edu.unsl.fmn.policies.ServerQueuePolicy;
 import ar.edu.unsl.fmn.policies.UniqueServerSelectionPolicy;
@@ -40,8 +41,8 @@ public class App {
         // entre
         // ese tiempo de hora pico le mando otra exponential
 
-         Engine engine = new AirportSim( SIMULATION_LENGHT, ScenarioBuilder.OneServerOneQueue(),
-         new UniqueServerSelectionPolicy(), new CustomRandomizer()); engine.execute();
+         Engine engine = new AirportSim( SIMULATION_LENGHT, ScenarioBuilder.MultipleServersOneQueuePerServer(),
+         new MultipleServerSelectionPolicy(), new CustomRandomizer()); engine.execute();
          engine.generateReport();
 
     }

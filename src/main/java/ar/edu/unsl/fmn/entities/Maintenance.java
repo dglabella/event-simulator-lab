@@ -1,0 +1,23 @@
+package ar.edu.unsl.fmn.entities;
+
+import ar.edu.unsl.fmn.events.Arrival;
+
+public class Maintenance extends Entity{
+
+    public Maintenance() {
+        super();
+    }
+
+    public Maintenance(int id) {
+        super(id);
+    }
+
+    public Maintenance(int id, Arrival arrival) {
+        super(id,arrival);
+    }
+
+    @Override
+    public String toString() {
+        return "type: maintenance - id: " + this.getId();
+    }
+}

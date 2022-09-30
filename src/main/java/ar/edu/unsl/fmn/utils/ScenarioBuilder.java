@@ -25,7 +25,7 @@ public class ScenarioBuilder {
         return null;
     }
 
-    public static List<Server> MultipleServersOneQueuePerServer(int queuesQuantity) {
+    public static List<Server> MultipleServersOneQueuePerServer() {
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(System.in));
         int pl,pm,pp;
