@@ -5,12 +5,22 @@ import ar.edu.unsl.fmn.policies.ServerQueuePolicy;
 
 public class Airstrip extends Server {
 
+    private double durability;
+
     public Airstrip() {
         super();
     }
 
     public Airstrip(int id, List<Queue> queues, ServerQueuePolicy serverQueuePolicy) {
         super(id,queues,serverQueuePolicy);
+    }
+
+    public double getDurability(){
+        return this.durability;
+    }
+
+    public void setDurability(double durability){
+        this.durability = durability;
     }
 
     @Override

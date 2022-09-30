@@ -1,22 +1,18 @@
 package ar.edu.unsl.fmn.utils;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
 import ar.edu.unsl.fmn.policies.OneToOneServerQueue;
-import ar.edu.unsl.fmn.resources.Airstrip;
-import ar.edu.unsl.fmn.resources.CustomQueue;
-import ar.edu.unsl.fmn.resources.Queue;
-import ar.edu.unsl.fmn.resources.Server;
+import ar.edu.unsl.fmn.resources.*;
 
 public class ScenarioBuilder {
 
     public static List<Server> OneServerOneQueue() {
         List<Queue> queues = new ArrayList<>();
-        //CustomQueue cq = new CustomQueue();
-        /*Necesito como instanciar esto, o algo, pq al ser interface o dentro de CustomQueue no estar "Ccreado"
-                me tira que la queue es null todo el tiempo, entonces al acceder a la cola tira npe*/
-        //System.out.println(cq.getId());
         queues.add(new CustomQueue());
 
         List<Server> servers = new ArrayList<>();
@@ -30,7 +26,50 @@ public class ScenarioBuilder {
     }
 
     public static List<Server> MultipleServersOneQueuePerServer(int queuesQuantity) {
-        System.out.println("MultipleServersOneQueuePerServer in ScenarioBuilder: not yet implemented");
-        return null;
+        BufferedReader reader = new BufferedReader(
+                new InputStreamReader(System.in));
+        int pl,pm,pp;
+        System.out.println("Cuantas pistas Livianas?");
+        pl=3;
+        /*try {
+            pl = Integer.parseInt( reader.readLine());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }*/
+        System.out.println("Cuantos pistas Medianas?");
+        pm=4;
+        /*try {
+            pm = Integer.parseInt( reader.readLine());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }*/
+        System.out.println("Cuantos pistas Pesadas?");
+        pp=2;
+        /*try {
+            pp = Integer.parseInt( reader.readLine());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }*/
+        List<Server> servers = new ArrayList<>();
+        int j=0;
+        for(int i=0;i<pl;i++){
+            List<Queue> queues = new ArrayList<>();
+            queues.add(new CustomQueue());
+            servers.add(new LightAirstrip(j,queues,new OneToOneServerQueue()));
+            j++;
+        }
+        for(int i=0;i<pm;i++){
+            List<Queue> queues = new ArrayList<>();
+            queues.add(new CustomQueue());
+            servers.add(new MediumAirstrip(j,queues,new OneToOneServerQueue()));
+            j++;
+        }
+        for(int i=0;i<pp;i++){
+            List<Queue> queues = new ArrayList<>();
+            queues.add(new CustomQueue());
+            servers.add(new HeavyAirstrip(j,queues,new OneToOneServerQueue()));
+            j++;
+        }
+        return servers;
     }
 }

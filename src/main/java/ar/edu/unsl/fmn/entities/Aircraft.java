@@ -23,4 +23,5 @@ public class Aircraft extends Entity {
     public String toString() {
         return "type: aircraft - id: " + this.getId();
     }
+
 }

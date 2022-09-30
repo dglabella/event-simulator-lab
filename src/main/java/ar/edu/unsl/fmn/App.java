@@ -39,10 +39,10 @@ public class App {
         // para saber lo de hora pico hago modulo de cuantos minutos sean 24hs y si el arribo esta
         // entre
         // ese tiempo de hora pico le mando otra exponential
-        /*
-         * Engine engine = new AirportSim( SIMULATION_LENGHT, ScenarioBuilder.OneServerOneQueue(),
-         * new UniqueServerSelectionPolicy(), new CustomRandomizer()); engine.execute();
-         * engine.generateReport();
-         */
+
+         Engine engine = new AirportSim( SIMULATION_LENGHT, ScenarioBuilder.OneServerOneQueue(),
+         new UniqueServerSelectionPolicy(), new CustomRandomizer()); engine.execute();
+         engine.generateReport();
+
     }
 }
