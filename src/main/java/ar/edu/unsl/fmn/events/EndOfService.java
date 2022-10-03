@@ -28,6 +28,8 @@ public class EndOfService extends Event {
             * */
             entity = server.dequeue();
             server.setCurrentEntity(entity);
+            //aca desgastar pista
+            //si es mantenimiento reparar el % que sea, sino gastarlo
             double tickEoS = this.getClock() + this.getBehavior().nextTime(); //RENOMBRAR
             fel.insert(new EndOfService(
                     tickEoS,

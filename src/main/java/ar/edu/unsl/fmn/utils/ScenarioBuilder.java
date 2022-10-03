@@ -50,6 +50,26 @@ public class ScenarioBuilder {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }*/
+        System.out.println("SERVIDOR AUXILIAR FALTA");
+        System.out.println("SERVIDOR AUXILIAR FALTA");
+        System.out.println("SERVIDOR AUXILIAR FALTA");
+        System.out.println("SERVIDOR AUXILIAR FALTA");
+        System.out.println("SERVIDOR AUXILIAR FALTA");
+        System.out.println("SERVIDOR AUXILIAR FALTA");
+        System.out.println("SERVIDOR AUXILIAR FALTA");
+        System.out.println("SERVIDOR AUXILIAR FALTA");
+        System.out.println("SERVIDOR AUXILIAR FALTA");
+        System.out.println("SERVIDOR AUXILIAR FALTA");
+        System.out.println("SERVIDOR AUXILIAR FALTA");
+        System.out.println("SERVIDOR AUXILIAR FALTA");
+        System.out.println("SERVIDOR AUXILIAR FALTA");
+        System.out.println("SERVIDOR AUXILIAR FALTA");
+        System.out.println("SERVIDOR AUXILIAR FALTA");
+        System.out.println("SERVIDOR AUXILIAR FALTA");
+        System.out.println("SERVIDOR AUXILIAR FALTA");
+        System.out.println("SERVIDOR AUXILIAR FALTA");
+        System.out.println("SERVIDOR AUXILIAR FALTA");
+        System.out.println("permitir preguntar cuantos???");
         List<Server> servers = new ArrayList<>();
         int j=0;
         for(int i=0;i<pl;i++){

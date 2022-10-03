@@ -82,4 +82,6 @@ public abstract class Entity {
     public void calculateQueuedTime(double currentTime){
         setQueuedTime(currentTime - getEvents().get(0).getClock());
     }
+
+    public abstract applyEffect(Server server);
 }

@@ -62,6 +62,14 @@ public abstract class Server {
 
     public void setCurrentEntity(Entity currentEntity) {
         this.currentEntity = currentEntity;
+        ACA LLAMAR AL currentEntity.applyEffect(this);
+        osea, aca tengo que desgastar
+                this.durability o algo asi se lo cambio
+
+                ;
+        CREO QUE METO UN OVERRIDE A CADA HIJO DE ESTO
+                Y AHI HAGO SUPER().setCurrentEntity(entity);
+        Y AHI LE MODIFICO LA DURABILIDAD, SIGUIENTE A LO DE ARRIBA, EN EL PADRE EN EL OVERRIDE QUE DIJE
     }
 
     public int getAircraftAttended(){return this.aircraftAttended;}

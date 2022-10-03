@@ -30,6 +30,17 @@ public class App {
         for (int i = 0; i < 50; i++) {
             System.out.println(normal.event());
         }
+        /*
+        cosas a hacer:
+        servidor auxiliar settearlo
+        durabilidad
+        maximo durabilidad registrado por pista
+        ingreso de mantenimiento
+
+        analizar la FEL por los ingresos de distintos tipos
+
+        un arribo de livianos es otro tipo respecto de arribo de medianos?
+         */
 
         System.out.println("=========================================================");
 
@@ -44,6 +55,5 @@ public class App {
          Engine engine = new AirportSim( SIMULATION_LENGHT, ScenarioBuilder.MultipleServersOneQueuePerServer(),
          new MultipleServerSelectionPolicy(), new CustomRandomizer()); engine.execute();
          engine.generateReport();
-
     }
 }

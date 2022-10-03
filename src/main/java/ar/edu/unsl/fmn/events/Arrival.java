@@ -31,6 +31,14 @@ public class Arrival extends Event {
         }
         else{
             server.setCurrentEntity(this.getEntity());
+            //aca desgasto la pista
+            //si es mantenimiento arreglar
+            //PARA LOS DOS::
+            //cuando creo la entidad o algo asi, le digo cuanto va a desgastar (negativo) o le digo
+            //cuanto voy a sumar si es mantenimiento (un switch por tipo de pista y va aser positivo)
+            //y le hago la suma a server.desgastar(entity.getdesgasste)
+            //settear el desgaste en la creacion de la entity
+
             this.getEntity().setServer(server);
             double eosclock = this.getClock() + endOfServiceBehavior.nextTime(); //RENOMBRAR
             fel.insert(new EndOfService(
