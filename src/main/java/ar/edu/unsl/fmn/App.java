@@ -40,6 +40,10 @@ public class App {
         analizar la FEL por los ingresos de distintos tipos
 
         un arribo de livianos es otro tipo respecto de arribo de medianos?
+
+        Falta Hora Pico
+        Detalle de aplicar el desgaste del aircraft 0 y de cada tipo setear el valor correspondiente, 0 pq asi no modifico, las otras van a ser negativos menos el manteminiemto que es positivo pq repara
+        Ver el Dequeue
          */
 
         System.out.println("=========================================================");
