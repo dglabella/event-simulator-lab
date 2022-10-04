@@ -197,15 +197,18 @@ public abstract class Server {
     }
 
     public int getMaxQueue(){
-        return this.queues.get(0).getMaxQueue(); //este get(0) parece una negrada, revisar
+        int max = 0;
+        for (Queue q:this.queues) {
+            if (max < q.getMaxQueue()){
+                max = q.getMaxQueue();
+            }
+        }
+        return max;
+        //return this.queues.get(0).getMaxQueue(); //este get(0) parece una negrada, revisar
     }
 
-    public int getQueueSize(){
-        return this.queues.get(0).getSize();
-    }
-
-    public boolean checkForActivity(Entity entity){
-        return this.queues.get(0).checkForActivity(entity);
+    public int getQueueSize(){ // PODRIA PONER ID Y LE PASO DE LA SERVER SELECTION EL ID DE LA QUEUE 0 Y BUSCAR CON EL GET (ID). GUARDA LOS NULLS, x si le paso id 3 y tiene 1 sola x ej
+        return this.queues.get(0).getSize();//esto es una negrada
     }
 
     @Override

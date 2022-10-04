@@ -62,7 +62,7 @@ public class CustomQueue implements Queue {
 
     @Override
     public int getSize() {
-        return queue.size();
+        return queue.size(); ver que tengo un atributo que registra esto
     }
 
     @Override
