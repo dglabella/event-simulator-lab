@@ -207,7 +207,11 @@ public abstract class Server {
         //return this.queues.get(0).getMaxQueue(); //este get(0) parece una negrada, revisar
     }
 
-    public int getQueueSize(){ // PODRIA PONER ID Y LE PASO DE LA SERVER SELECTION EL ID DE LA QUEUE 0 Y BUSCAR CON EL GET (ID). GUARDA LOS NULLS, x si le paso id 3 y tiene 1 sola x ej
+    /**
+     * Decir como devuelve este metodo segun que criterio xd
+     * @return
+     */
+    public int getMinCurrentQueueSize(){ // PODRIA PONER ID Y LE PASO DE LA SERVER SELECTION EL ID DE LA QUEUE 0 Y BUSCAR CON EL GET (ID). GUARDA LOS NULLS, x si le paso id 3 y tiene 1 sola x ej
         return this.queues.get(0).getSize();//esto es una negrada
     }
 
