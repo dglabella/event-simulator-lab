@@ -200,6 +200,14 @@ public abstract class Server {
         return this.queues.get(0).getMaxQueue(); //este get(0) parece una negrada, revisar
     }
 
+    public int getQueueSize(){
+        return this.queues.get(0).getSize();
+    }
+
+    public boolean checkForActivity(Entity entity){
+        return this.queues.get(0).checkForActivity(entity);
+    }
+
     @Override
     public String toString() {
         String ret = "id: " + this.id + " -- current entity: " + this.currentEntity.getId() + "\n"

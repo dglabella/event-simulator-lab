@@ -35,7 +35,7 @@ public class App {
         servidor auxiliar settearlo
         durabilidad
         maximo durabilidad registrado por pista
-        ingreso de mantenimiento
+        ingreso de mantenimiento. CUANDO TENGO UN ARRIBO DE MANTENIMIENTO, setSettedMaintenance(true);
 
         analizar la FEL por los ingresos de distintos tipos
 

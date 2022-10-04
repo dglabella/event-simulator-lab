@@ -23,6 +23,12 @@ public class Airstrip extends Server {
         this.durability = durability;
     }
 
+    public boolean isSettedMaintenance(){
+        return this.g
+    }
+
+
+
     @Override
     public String toString() {
         String ret = super.toString();

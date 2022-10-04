@@ -17,4 +17,6 @@ public interface Queue {
     void checkMaxQueue();
 
     int getMaxQueue();
+
+    int getSize();
 }

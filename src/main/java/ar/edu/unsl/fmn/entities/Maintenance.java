@@ -1,6 +1,7 @@
 package ar.edu.unsl.fmn.entities;
 
 import ar.edu.unsl.fmn.events.Arrival;
+import com.sun.org.apache.xpath.internal.operations.Equals;
 
 public class Maintenance extends Entity{
 
@@ -19,5 +20,10 @@ public class Maintenance extends Entity{
     @Override
     public String toString() {
         return "type: maintenance - id: " + this.getId();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj.getClass().getName() == "Maintenance"; //Ver que devuelva bien
     }
 }

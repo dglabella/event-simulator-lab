@@ -59,10 +59,21 @@ public class CustomQueue implements Queue {
     public int getMaxQueue(){
         return this.maxQueue;
     }
+
+    @Override
+    public int getSize() {
+        return queue.size();
+    }
+
     @Override
     public void checkMaxQueue() {
         if(maxQueue<currentQueue){
             maxQueue = currentQueue;
         }
     }
+
+    public boolean checkForActivity(Entity entity){
+        return this.queue.contains(entity);
+    }
+
 }
