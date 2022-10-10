@@ -7,11 +7,13 @@ public class MediumAircraft extends Aircraft{
         super();
     }
 
-    public MediumAircraft(int id) {
+    public MediumAircraft(int id, double breakRatio) {
         super(id);
+        setAirstripBreak(breakRatio);
     }
 
-    public MediumAircraft(int id, Arrival arrival) {
+    public MediumAircraft(int id, Arrival arrival, double breakRatio) {
         super(id,arrival);
+        setAirstripBreak(breakRatio);
     }
 }

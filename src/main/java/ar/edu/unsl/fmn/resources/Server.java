@@ -2,6 +2,7 @@ package ar.edu.unsl.fmn.resources;
 
 import java.util.List;
 import ar.edu.unsl.fmn.entities.Entity;
+import ar.edu.unsl.fmn.entities.Maintenance;
 import ar.edu.unsl.fmn.policies.ServerQueuePolicy;
 
 public abstract class Server {
@@ -62,7 +63,9 @@ public abstract class Server {
 
     public void setCurrentEntity(Entity currentEntity) {
         this.currentEntity = currentEntity;
-        ACA LLAMAR AL currentEntity.applyEffect(this);
+
+        //ACA LLAMAR AL currentEntity.applyEffect(this);
+
         osea, aca tengo que desgastar
                 this.durability o algo asi se lo cambio
 
@@ -181,7 +184,6 @@ public abstract class Server {
 
     public boolean queuesEmpty() {
         return this.policy.queuesEmpty(this.queues);
-        //return this.queues.isEmpty();
     }
 
     public void enqueue(Entity entity) {
@@ -209,10 +211,19 @@ public abstract class Server {
 
     /**
      * Decir como devuelve este metodo segun que criterio xd
+     * creo que deberia devolver el tamaño de la cola con menos entidades jeje, actualizar pa que haga eso
      * @return
      */
     public int getMinCurrentQueueSize(){ // PODRIA PONER ID Y LE PASO DE LA SERVER SELECTION EL ID DE LA QUEUE 0 Y BUSCAR CON EL GET (ID). GUARDA LOS NULLS, x si le paso id 3 y tiene 1 sola x ej
         return this.queues.get(0).getSize();//esto es una negrada
+    }
+
+    public boolean checkForActivity(Entity entity){
+        boolean res = false;
+        for(int i=0; i<this.queues.size();i++){
+            res = res || this.queues.get(i).checkForEntity(entity);
+        }
+        return res;
     }
 
     @Override
@@ -225,4 +236,6 @@ public abstract class Server {
 
         return ret;
     }
+
+
 }

@@ -1,6 +1,8 @@
 package ar.edu.unsl.fmn.resources;
 
 import java.util.List;
+
+import ar.edu.unsl.fmn.entities.Maintenance;
 import ar.edu.unsl.fmn.policies.ServerQueuePolicy;
 
 public class Airstrip extends Server {
@@ -23,9 +25,12 @@ public class Airstrip extends Server {
         this.durability = durability;
     }
 
-    public boolean isSettedMaintenance(){
-        return this.g
-    }
+    /*public boolean isSettedMaintenance(){
+        return this.checkForActivity(new Maintenance());
+    }*/ //creo que esto ya lo hace el propio server buscando por entity con new Maintenance, ejemplo en selectServer de MultipleServerSelection
+
+
+
 
 
 

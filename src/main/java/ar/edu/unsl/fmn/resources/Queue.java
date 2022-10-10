@@ -19,4 +19,6 @@ public interface Queue {
     int getMaxQueue();
 
     int getSize();
+
+    boolean checkForEntity(Entity entity);
 }

@@ -3,9 +3,7 @@ package ar.edu.unsl.fmn.entities;
 import java.util.ArrayList;
 import java.util.List;
 import ar.edu.unsl.fmn.events.Arrival;
-import ar.edu.unsl.fmn.events.EndOfService;
 import ar.edu.unsl.fmn.events.Event;
-import ar.edu.unsl.fmn.events.StopSimulation;
 import ar.edu.unsl.fmn.resources.Server;
 
 public abstract class Entity {
@@ -83,5 +81,5 @@ public abstract class Entity {
         setQueuedTime(currentTime - getEvents().get(0).getClock());
     }
 
-    public abstract applyEffect(Server server);
+    public abstract void applyEffect(Server server);
 }

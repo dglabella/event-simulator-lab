@@ -2,28 +2,42 @@ package ar.edu.unsl.fmn.entities;
 
 import ar.edu.unsl.fmn.events.Arrival;
 import ar.edu.unsl.fmn.events.EndOfService;
+import ar.edu.unsl.fmn.resources.Server;
 
 import java.util.ArrayList;
 
 public class Aircraft extends Entity {
 
-    private double cambiarnombreefectoODesgasteComoPinteEnIngles;
+    private double airstripBreak;
 
     public Aircraft() {
         super();
-    }setear la var
+        airstripBreak = 0;
+    }
 
     public Aircraft(int id) {
         super(id);
-    } setear la var
+        airstripBreak = 0;
+    }
 
     public Aircraft(int id, Arrival arrival) {
         super(id,arrival);
-    } setear la var
+        airstripBreak = 0;
+    }
 
-    falta un metodo creo, traerlo
-            el applyeffect del server hace:
-    server.modoificarDurabilidad(this.getdesgaste())
+    @Override
+    public void applyEffect(Server server) {
+
+    }
+
+    public double getAirstripBreak() {
+        return airstripBreak;
+    }
+
+    public void setAirstripBreak(double airstripBreak) {
+        this.airstripBreak = airstripBreak;
+    }
+
     @Override
     public String toString() {
         return "type: aircraft - id: " + this.getId();

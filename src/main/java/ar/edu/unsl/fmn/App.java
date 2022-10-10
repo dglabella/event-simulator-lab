@@ -30,6 +30,12 @@ public class App {
         for (int i = 0; i < 50; i++) {
             System.out.println(normal.event());
         }
+
+        MAINTENANCE ES ENTITY XDDDDDDD
+
+
+
+
         /*
         cosas a hacer:
         servidor auxiliar settearlo

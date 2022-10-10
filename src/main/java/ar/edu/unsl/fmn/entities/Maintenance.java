@@ -1,6 +1,7 @@
 package ar.edu.unsl.fmn.entities;
 
 import ar.edu.unsl.fmn.events.Arrival;
+import ar.edu.unsl.fmn.resources.Server;
 import com.sun.org.apache.xpath.internal.operations.Equals;
 
 public class Maintenance extends Entity{
@@ -15,6 +16,11 @@ public class Maintenance extends Entity{
 
     public Maintenance(int id, Arrival arrival) {
         super(id,arrival);
+    }
+
+    @Override
+    public void applyEffect(Server server) {
+
     }
 
     @Override

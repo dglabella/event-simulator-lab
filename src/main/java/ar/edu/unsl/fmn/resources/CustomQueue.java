@@ -72,7 +72,8 @@ public class CustomQueue implements Queue {
         }
     }
 
-    public boolean checkForActivity(Entity entity){
+    @Override
+    public boolean checkForEntity(Entity entity){
         return this.queue.contains(entity);
     }
 

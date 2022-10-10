@@ -24,13 +24,16 @@
   <component name="ChangeListManager">
     <list default="true" id="6503c0a6-a548-460d-9a4f-cf44e089aacc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/entities/Maintenance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/entities/Maintenance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/entities/Aircraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/entities/Aircraft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/entities/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/entities/HeavyAircraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/entities/HeavyAircraft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/entities/LightAircraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/entities/LightAircraft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/entities/MediumAircraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/entities/MediumAircraft.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/policies/MultipleServerSelectionPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/policies/MultipleServerSelectionPolicy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/policies/ServerSelectionPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/policies/ServerSelectionPolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/policies/OneToManyServerQueues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/policies/OneToManyServerQueues.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/policies/OneToOneServerQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/policies/OneToOneServerQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/policies/ServerQueuePolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/policies/ServerQueuePolicy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/resources/Airstrip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/resources/Airstrip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/resources/CustomQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/resources/CustomQueue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/resources/Queue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/resources/Queue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/resources/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/resources/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,14 +62,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "node.js.selected.package.tslint": "(autodetect)"
+  }
+}]]></component>
   <component name="RunManager">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
@@ -145,37 +145,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser" timestamp="1664912219997">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1664912219997" />
-    <state x="466" y="233" width="433" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1664914432112">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="466" y="233" width="433" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1664914432112" />
-    <state width="1323" height="369" key="GridCell.Tab.0.bottom" timestamp="1664832248503">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="369" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1664832248503" />
-    <state width="1323" height="369" key="GridCell.Tab.0.center" timestamp="1664832248502">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="369" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1664832248502" />
-    <state width="1323" height="369" key="GridCell.Tab.0.left" timestamp="1664832248502">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="369" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1664832248502" />
-    <state width="1323" height="369" key="GridCell.Tab.0.right" timestamp="1664832248502">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="369" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1664832248502" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1664912128077">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1664912128077" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -202,7 +171,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/resources/Server.java</url>
-          <line>198</line>
+          <line>200</line>
           <properties class="ar.edu.unsl.fmn.resources.Server" method="getMaxQueue">
             <option name="EMULATED" value="true" />
           </properties>
