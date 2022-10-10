@@ -26,7 +26,7 @@ public class Aircraft extends Entity {
     }
 
     @Override
-    public void applyEffect(Server server) {
+    public void applyEffect(Server server, double damage) {
 
     }
 

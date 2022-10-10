@@ -25,6 +25,10 @@ public class Airstrip extends Server {
         this.durability = durability;
     }
 
+    public void updateDurability(double change){
+        setDurability(this.durability + change);
+    }
+
     /*public boolean isSettedMaintenance(){
         return this.checkForActivity(new Maintenance());
     }*/ //creo que esto ya lo hace el propio server buscando por entity con new Maintenance, ejemplo en selectServer de MultipleServerSelection

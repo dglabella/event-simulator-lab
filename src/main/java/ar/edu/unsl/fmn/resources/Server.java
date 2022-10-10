@@ -4,6 +4,7 @@ import java.util.List;
 import ar.edu.unsl.fmn.entities.Entity;
 import ar.edu.unsl.fmn.entities.Maintenance;
 import ar.edu.unsl.fmn.policies.ServerQueuePolicy;
+import ar.edu.unsl.fmn.utils.Utils;
 
 public abstract class Server {
 
@@ -63,6 +64,8 @@ public abstract class Server {
 
     public void setCurrentEntity(Entity currentEntity) {
         this.currentEntity = currentEntity;
+        double dmg = Utils.calculateDmg(this.getCurrentEntity(), this);
+        this.currentEntity.applyEffect(this,dmg);
 
         //ACA LLAMAR AL currentEntity.applyEffect(this);
 

@@ -9,6 +9,7 @@ import ar.edu.unsl.fmn.entities.Entity;
 import ar.edu.unsl.fmn.policies.ServerSelectionPolicy;
 import ar.edu.unsl.fmn.resources.Server;
 import ar.edu.unsl.fmn.utils.CustomRandomizer;
+import ar.edu.unsl.fmn.utils.Utils;
 
 public class Arrival extends Event {
 
@@ -31,6 +32,10 @@ public class Arrival extends Event {
         }
         else{
             server.setCurrentEntity(this.getEntity());
+
+
+
+
             //aca desgasto la pista
             //si es mantenimiento arreglar
             //PARA LOS DOS::

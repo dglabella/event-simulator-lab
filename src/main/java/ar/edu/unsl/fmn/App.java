@@ -31,12 +31,28 @@ public class App {
             System.out.println(normal.event());
         }
 
-        MAINTENANCE ES ENTITY XDDDDDDD
+        /*
+        esto estaba en maintenance:
+        @Override
+    public boolean equals(Object obj) {
+        return obj.getClass().getName() == "Maintenance"; //Ver que devuelva bien
+    }
+    se lo puse a los 3 aircrafts (light,medium,heavy)
+    no se si ponerselo al server tmb
+    porque comparo por esto.getclass
+    yo creo que si, pq los usos de ese equals tmb los hago con los class de los airfields, mas que nada
+    en clase Utils
+
+    AGREGAR DSPUES pq ahora a cocinar
+
+
+         */
 
 
 
 
         /*
+        BORRAR LA DURABILIDAD DE LAS ENTITIES
         cosas a hacer:
         servidor auxiliar settearlo
         durabilidad

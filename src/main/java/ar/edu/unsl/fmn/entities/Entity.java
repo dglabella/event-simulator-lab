@@ -81,5 +81,5 @@ public abstract class Entity {
         setQueuedTime(currentTime - getEvents().get(0).getClock());
     }
 
-    public abstract void applyEffect(Server server);
+    public abstract void applyEffect(Server server, double damage);
 }
