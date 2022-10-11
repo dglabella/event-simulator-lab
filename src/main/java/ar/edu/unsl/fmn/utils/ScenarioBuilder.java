@@ -16,7 +16,7 @@ public class ScenarioBuilder {
         queues.add(new CustomQueue());
 
         List<Server> servers = new ArrayList<>();
-        servers.add(new Airstrip(0,queues,new OneToOneServerQueue()));
+        servers.add(new Airstrip(0,queues,new OneToOneServerQueue(),0,"Airstrip"));
         return servers;
     }
 
@@ -28,7 +28,7 @@ public class ScenarioBuilder {
     public static List<Server> MultipleServersOneQueuePerServer() {
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(System.in));
-        int pl,pm,pp;
+        int pl,pm,pp,pa;
         System.out.println("Cuantas pistas Livianas?");
         pl=3;
         /*try {
@@ -50,26 +50,9 @@ public class ScenarioBuilder {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }*/
-        System.out.println("SERVIDOR AUXILIAR FALTA");
-        System.out.println("SERVIDOR AUXILIAR FALTA");
-        System.out.println("SERVIDOR AUXILIAR FALTA");
-        System.out.println("SERVIDOR AUXILIAR FALTA");
-        System.out.println("SERVIDOR AUXILIAR FALTA");
-        System.out.println("SERVIDOR AUXILIAR FALTA");
-        System.out.println("SERVIDOR AUXILIAR FALTA");
-        System.out.println("SERVIDOR AUXILIAR FALTA");
-        System.out.println("SERVIDOR AUXILIAR FALTA");
-        System.out.println("SERVIDOR AUXILIAR FALTA");
-        System.out.println("SERVIDOR AUXILIAR FALTA");
-        System.out.println("SERVIDOR AUXILIAR FALTA");
-        System.out.println("SERVIDOR AUXILIAR FALTA");
-        System.out.println("SERVIDOR AUXILIAR FALTA");
-        System.out.println("SERVIDOR AUXILIAR FALTA");
-        System.out.println("SERVIDOR AUXILIAR FALTA");
-        System.out.println("SERVIDOR AUXILIAR FALTA");
-        System.out.println("SERVIDOR AUXILIAR FALTA");
-        System.out.println("SERVIDOR AUXILIAR FALTA");
-        System.out.println("permitir preguntar cuantos???");
+        pa=1;
+
+
         List<Server> servers = new ArrayList<>();
         int j=0;
         for(int i=0;i<pl;i++){
@@ -88,6 +71,12 @@ public class ScenarioBuilder {
             List<Queue> queues = new ArrayList<>();
             queues.add(new CustomQueue());
             servers.add(new HeavyAirstrip(j,queues,new OneToOneServerQueue()));
+            j++;
+        }
+        for(int i=0;i<pa;i++){
+            List<Queue> queues = new ArrayList<>();
+            queues.add(new CustomQueue());
+            servers.add(new Auxiliar(j,queues,new OneToOneServerQueue()));
             j++;
         }
         return servers;

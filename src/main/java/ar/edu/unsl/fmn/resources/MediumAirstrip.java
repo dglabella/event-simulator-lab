@@ -6,12 +6,15 @@ import java.util.List;
 
 public class MediumAirstrip extends Airstrip{
     public MediumAirstrip() {
-        super();
-        setDurability(3000);
+        super(3000);
     }
 
     public MediumAirstrip(int id, List<Queue> queues, ServerQueuePolicy serverQueuePolicy) {
-        super(id,queues,serverQueuePolicy);
-        setDurability(3000);
+        super(id,queues,serverQueuePolicy,3000);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj.getClass().getName() == "MediumAirstrip";
     }
 }

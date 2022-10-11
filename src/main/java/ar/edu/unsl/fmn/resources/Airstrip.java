@@ -9,12 +9,20 @@ public class Airstrip extends Server {
 
     private double durability;
 
-    public Airstrip() {
+    private double initDurability;
+
+
+
+    public Airstrip(double durability) {
         super();
+        this.durability = durability;
+        this.initDurability = durability;
     }
 
-    public Airstrip(int id, List<Queue> queues, ServerQueuePolicy serverQueuePolicy) {
+    public Airstrip(int id, List<Queue> queues, ServerQueuePolicy serverQueuePolicy, double durability) {
         super(id,queues,serverQueuePolicy);
+        this.durability = durability;
+        this.initDurability = durability;
     }
 
     public double getDurability(){
@@ -25,9 +33,15 @@ public class Airstrip extends Server {
         this.durability = durability;
     }
 
+    public double getInitDurability(){
+        return this.initDurability;
+    }
+
     public void updateDurability(double change){
         setDurability(this.durability + change);
     }
+
+
 
     /*public boolean isSettedMaintenance(){
         return this.checkForActivity(new Maintenance());
