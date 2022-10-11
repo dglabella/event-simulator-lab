@@ -73,6 +73,7 @@ public class AirportSim implements Engine {
         * Tiempo máximo de ocio de la pista y el porcentaje que representa respecto del tiempo total de ocio.
         * Tamaño máximo de la cola de espera para este servidor.
          */
+        /*
         System.out.println("Entidades atendidas: " + this.policy.selectServer(servers).getAircraftAttended());
         System.out.println("Tiempo Total de espera en cola: " + this.policy.selectServer(servers).getTotalQueueTime());
         System.out.println("Tiempo Medio de espera en cola: " + this.policy.selectServer(servers).getTotalQueueTime()/this.policy.selectServer(servers).getAircraftAttended());
@@ -85,5 +86,6 @@ public class AirportSim implements Engine {
         System.out.println("Tiempo maximo de ocio de la pista: " + this.policy.selectServer(servers).getMaxIdleTime());
         System.out.println("Porcentaje respecto del tiempo de simulacion: " + String.format("%.2f",((this.policy.selectServer(servers).getMaxIdleTime() * 100) / stopTime)) + "%");
         System.out.println("Tamaño Maximo de la cola de espera para este servidor: " + this.policy.selectServer(servers).getMaxQueue());
+         */
     }
 }

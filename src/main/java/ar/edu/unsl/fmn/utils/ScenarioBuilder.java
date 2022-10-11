@@ -16,7 +16,7 @@ public class ScenarioBuilder {
         queues.add(new CustomQueue());
 
         List<Server> servers = new ArrayList<>();
-        servers.add(new Airstrip(0,queues,new OneToOneServerQueue(),0,"Airstrip"));
+        servers.add(new Airstrip(0,queues,new OneToOneServerQueue(),0));
         return servers;
     }
 

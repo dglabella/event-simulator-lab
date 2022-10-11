@@ -6,11 +6,11 @@ import java.util.List;
 
 public class Auxiliar extends Airstrip {
     public Auxiliar() {
-        super(250, "Auxiliar");
+        super(250);
     }
 
     public Auxiliar(int id, List<Queue> queues, ServerQueuePolicy serverQueuePolicy) {
-        super(id, queues, serverQueuePolicy, 250, "Auxiliar");
+        super(id, queues, serverQueuePolicy, 250);
     }
 
     @Override

@@ -24,6 +24,11 @@ public class App {
     // private static final double SIMULATION_LENGHT = 100d;
 
     public static void main(String[] args) {
+
+        FALTA LA PARTE DEL "SPAWN" DE AVIONES, ESTOY MANDANDO AICRAFT Y NO LOS OTROS TIPOS xd;
+        VER LA PARTE DE SELECCIONAR QUE TIPO CORRESPONDE xd;
+
+        /*
         Normal normal = new Normal(120, 100);
         Random random = new Random(0);
 
@@ -31,6 +36,7 @@ public class App {
             System.out.println(normal.event());
         }
 
+        */
         /*
         esto estaba en maintenance:
         @Override

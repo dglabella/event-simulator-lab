@@ -14,17 +14,27 @@ public class MultipleServerSelectionPolicy implements ServerSelectionPolicy{
     @Override
     public Server selectServer(List<Server> servers, Entity entity) {
         System.out.println("selectServer in MultipleServerSelectionPolicy needs verification of functioning");
-        Server server;
+        Server server = null;
 
         if(entity.getClass().equals(new Maintenance())){
-            int minDurability,currentServerWithMinDurability;
-            //Seleccionar server con PROPORCION mas desgastada, no puede ser el auxiliar
-            //Atento con la proporcion
+            Airstrip serverAux;
+            serverAux = (Airstrip)servers.get(0);
+            double minDurability = serverAux.getDurability() / serverAux.getInitDurability();
+            int currentServerWithMinDurability = 0;
+
+            for(int i=1;i<servers.size() - 1;i++){ //-1 por la auxiliar
+                serverAux = (Airstrip) servers.get(i);
+                if(serverAux.getDurability()/serverAux.getInitDurability() <  minDurability){
+                    minDurability = serverAux.getDurability() / serverAux.getInitDurability();
+                    currentServerWithMinDurability = i;
+                }
+            }
+            server = servers.get(currentServerWithMinDurability);
         }
         else{
             List<Server> filteredservers = new ArrayList<>();
             String checkAirstripType = null;
-            for(int i=0;i<servers.size();i++){
+            for(int i=0;i<servers.size() - 1;i++){//-1 por la pista auxiliar
                 if(!(servers.get(i).checkForActivity(new Maintenance()))){
                     if(entity.getClass().equals(new LightAircraft())){
                         checkAirstripType = "LightAirstrip";
@@ -52,14 +62,13 @@ public class MultipleServerSelectionPolicy implements ServerSelectionPolicy{
                             }
                             break;
                         default:
-
+                            System.out.println("Default branch not yet implemented in SelectServer on MultipleServerSelecionPolicy");
                             break;
                     }
                 }
             }
             if (filteredservers.size() == 0){
-                //esto seria un ret
-                servers.get(servers.size() - 1); //esta va a ser la pista de mantenimiento
+                server = servers.get(servers.size() - 1); //esta va a ser la pista de mantenimiento
             }
             else{
                 int minQueue = filteredservers.get(0).getMinCurrentQueueSize();
@@ -68,70 +77,11 @@ public class MultipleServerSelectionPolicy implements ServerSelectionPolicy{
                     if(filteredservers.get(i).getMinCurrentQueueSize() < minQueue){
                         minQueue = filteredservers.get(i).getMinCurrentQueueSize();
                         currentServerWithMinQueue = i;
-                        //Retornar el filteredserver i
                     }
                 }
+                server = filteredservers.get(currentServerWithMinQueue);
             }
         }
-
-
-
-
-
-
-        si la entity no es de mantenimiento, tengo que ver a que server pertenece;
-        este server se elige el que tenga menos cola, pero los que tengan asignado mantenimiento no se selecciona;
-
-
-
-
-
-
-
-
-
-
-
-        for(int i=0; i < servers.size();i++){
-            //el primer equals mepa que deberia preguntar por otra cosa che
-            if((servers.get(i).getClass().equals(entity.getClass())) && (!(servers.get(i).checkForActivity(new Maintenance())))){
-                filteredservers.add(servers.get(i));
-            }
-        }
-
-
-        if(filteredservers.size() == 0){
-            for(int i=0;i<servers.size();i++){
-                if(servers.get(i).getClass().equals(Maintenance.class)){
-                    ACA EN SI DEBERIA VER SI HAY ALGUNO LIBRE Y SINO DEVOLVER EL MENOR TAMANO DE COLA
-                    return servers.get(i);
-                }
-            }
-        }
-        else{
-            maxQueue = filteredservers.get(0).getQueueSize(); //VER SI LABURA BIEN
-            for(int i=0;i<filteredservers.size();i++){
-                if(!(filteredservers.get(i).isBusy())){
-                    return filteredservers.get(i);
-                }
-            }
-            for(int i=1;i<filteredservers.size();i++){
-                if(filteredservers.get(i).getQueueSize() < maxQueue);{
-                    maxQueue = filteredservers.get(i).getQueueSize();
-                    server = filteredservers.get(i);
-                }
-            }
-            return server;
-        }
-
-        TMB TENGO QUE VER SI TENGO UN MANTENIMMIENTO, O EL SERVER IS NULL Y LLEVARLA A LA AUXILIAR, AUXILIAR SIEMPRE TENGO UNA, FORZAR ESO
-        //aca deberia ver cual server devuelvo dependiendo el tipo que se necesita, me imagino
-        //la lista que le paso ya deberia tener solo los servidores de un tipo?
-        //si es asi, tiro un random de alguna forma y divido sobre la long de esa lista
-        //y de ahi decido a que server va? aleatoriamente?
-        //o cuento todos y veo cual es el que tiene el server con menos cola?
-        //o que politica de seleccion es??????
-
-        return null;
+        return server;
     }
 }

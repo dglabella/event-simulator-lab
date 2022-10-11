@@ -32,10 +32,6 @@ public class Arrival extends Event {
         }
         else{
             server.setCurrentEntity(this.getEntity());
-
-
-
-
             //aca desgasto la pista
             //si es mantenimiento arreglar
             //PARA LOS DOS::
