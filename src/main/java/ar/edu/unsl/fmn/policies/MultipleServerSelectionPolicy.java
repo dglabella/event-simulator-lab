@@ -2,12 +2,8 @@ package ar.edu.unsl.fmn.policies;
 
 import ar.edu.unsl.fmn.entities.*;
 import ar.edu.unsl.fmn.resources.*;
-import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
-import com.sun.source.tree.InstanceOfTree;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class MultipleServerSelectionPolicy implements ServerSelectionPolicy{
 
