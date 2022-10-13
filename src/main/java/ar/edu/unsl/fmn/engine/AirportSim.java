@@ -29,6 +29,9 @@ public class AirportSim implements Engine {
         this.servers = servers;
         this.policy = policy; //Para el generate report
         fel.insert(new StopSimulation(endClock,this));
+
+
+
         Aircraft entity = new Aircraft(1);
         Arrival arrival = new Arrival(0,
                 entity,

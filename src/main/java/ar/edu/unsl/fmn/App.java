@@ -27,7 +27,13 @@ public class App {
 
         FALTA LA PARTE DEL "SPAWN" DE AVIONES, ESTOY MANDANDO AICRAFT Y NO LOS OTROS TIPOS xd;
         VER LA PARTE DE SELECCIONAR QUE TIPO CORRESPONDE xd;
+        //Liviana: Exp 40
+        //Mediana: Exp 30
+        //Pesada: Normal (60,2)
+        Exponential exponential1 = new Exponential(40);
+        Exponential exponential2 = new Exponential(30);
 
+        Normal normal = new Normal(60,Math.pow(2,2));
         /*
         Normal normal = new Normal(120, 100);
         Random random = new Random(0);

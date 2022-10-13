@@ -2,6 +2,8 @@ package ar.edu.unsl.fmn.utils;
 
 import ar.edu.unsl.fmn.entities.*;
 import ar.edu.unsl.fmn.resources.*;
+import ar.edu.unsl.fmn.utils.distributions.Exponential;
+import ar.edu.unsl.fmn.utils.distributions.Normal;
 import ar.edu.unsl.fmn.utils.distributions.Uniform;
 
 public class Utils {
@@ -22,5 +24,22 @@ public class Utils {
             dmg = server.getInitDurability() * 15 / 100;
         }
         return dmg;
+    }
+
+    public static Aircraft calculateFirstAircraft(){
+        Aircraft ret;
+
+
+
+
+        return ret;
+    }
+
+    public static Aircraft calculateNextAircraftType(){
+        Aircraft ret;
+
+        Aircraft entity = new Aircraft(1);
+
+        return ret;
     }
 }

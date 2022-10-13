@@ -52,7 +52,6 @@ public class Arrival extends Event {
             this.getEntity().getServer().endIdle(this.getClock());
         }
         //Planifico proximo arribo:
-        System.out.println("Ver pq aca mete un aircraft y no veo que tipo deberia ser");
         System.out.println("linea 60, mandale, del arrival, la parte de planificar prox arribo xd");
         Aircraft aircraft = new Aircraft(this.getEntity().getId() +1);
         Arrival arrival = new Arrival(this.getClock() + this.getBehavior().nextTime(),aircraft,this.getBehavior(),endOfServiceBehavior,policy);
