@@ -10,14 +10,12 @@ public class LightAircraft extends Aircraft{
         super();
     }
 
-    public LightAircraft(int id, double breakRatio) {
+    public LightAircraft(int id) {
         super(id);
-        setAirstripBreak(breakRatio);
     }
 
-    public LightAircraft(int id, Arrival arrival, double breakRatio) {
+    public LightAircraft(int id, Arrival arrival) {
         super(id,arrival);
-        setAirstripBreak(breakRatio);
     }
 
     @Override

@@ -12,14 +12,12 @@ public class HeavyAircraft extends Aircraft{
         super();
     }
 
-    public HeavyAircraft(int id, double breakRatio) {
+    public HeavyAircraft(int id) {
         super(id);
-        setAirstripBreak(breakRatio);
     }
 
-    public HeavyAircraft(int id, Arrival arrival, double breakRatio) {
+    public HeavyAircraft(int id, Arrival arrival) {
         super(id,arrival);
-        setAirstripBreak(breakRatio);
     }
 
     @Override

@@ -28,13 +28,10 @@ public class EndOfService extends Event {
 
 
         if (!server.queuesEmpty()) {
-            //double dmg = Utils.calculateDmg(this.getCurrentEntity(), this);
-            //this.currentEntity.applyEffect(this,dmg);
-
             entity = server.dequeue();
             server.setCurrentEntity(entity);
 
-            double tickEoS = this.getClock() + this.getBehavior().nextTime(); //RENOMBRAR
+            double tickEoS = this.getClock() + this.getBehavior().nextTime(entity,this.getClock()); //RENOMBRAR
             fel.insert(new EndOfService(
                     tickEoS,
                     entity,

@@ -26,20 +26,13 @@ public class Utils {
         return dmg;
     }
 
-    public static Aircraft calculateFirstAircraft(){
-        Aircraft ret;
-
-
-
-
-        return ret;
-    }
-
-    public static Aircraft calculateNextAircraftType(){
-        Aircraft ret;
-
-        Aircraft entity = new Aircraft(1);
-
-        return ret;
+    public static boolean esHoraPico(double clock){
+        double mod = clock % 1440;
+        if(((mod >= 420) && (mod <= 600)) || ((mod >= 1140) && (mod <= 1320))){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }

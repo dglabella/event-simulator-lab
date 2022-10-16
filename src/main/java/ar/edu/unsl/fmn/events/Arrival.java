@@ -32,16 +32,8 @@ public class Arrival extends Event {
         }
         else{
             server.setCurrentEntity(this.getEntity());
-            //aca desgasto la pista
-            //si es mantenimiento arreglar
-            //PARA LOS DOS::
-            //cuando creo la entidad o algo asi, le digo cuanto va a desgastar (negativo) o le digo
-            //cuanto voy a sumar si es mantenimiento (un switch por tipo de pista y va aser positivo)
-            //y le hago la suma a server.desgastar(entity.getdesgasste)
-            //settear el desgaste en la creacion de la entity
-
             this.getEntity().setServer(server);
-            double eosclock = this.getClock() + endOfServiceBehavior.nextTime(); //RENOMBRAR
+            double eosclock = this.getClock() + endOfServiceBehavior.nextTime(this.getEntity(), this.getClock()); //RENOMBRAR
             fel.insert(new EndOfService(
                     eosclock,
                     this.getEntity(),
@@ -54,7 +46,7 @@ public class Arrival extends Event {
         //Planifico proximo arribo:
         System.out.println("linea 60, mandale, del arrival, la parte de planificar prox arribo xd");
         Aircraft aircraft = new Aircraft(this.getEntity().getId() +1);
-        Arrival arrival = new Arrival(this.getClock() + this.getBehavior().nextTime(),aircraft,this.getBehavior(),endOfServiceBehavior,policy);
+        Arrival arrival = new Arrival(this.getClock() + this.getBehavior().nextTime(aircraft,this.getClock()),aircraft,this.getBehavior(),endOfServiceBehavior,policy);
         aircraft.getEvents().add(arrival);
         aircraft.setServer(this.policy.selectServer(servers, aircraft));
 

@@ -6,6 +6,9 @@ import java.util.Scanner;
 import ar.edu.unsl.fmn.behaviors.ArrivalBehavior;
 import ar.edu.unsl.fmn.behaviors.EndOfServiceBehavior;
 import ar.edu.unsl.fmn.entities.Aircraft;
+import ar.edu.unsl.fmn.entities.HeavyAircraft;
+import ar.edu.unsl.fmn.entities.LightAircraft;
+import ar.edu.unsl.fmn.entities.MediumAircraft;
 import ar.edu.unsl.fmn.events.Arrival;
 import ar.edu.unsl.fmn.events.StopSimulation;
 import ar.edu.unsl.fmn.policies.ServerSelectionPolicy;
@@ -27,22 +30,34 @@ public class AirportSim implements Engine {
         fel = new FutureEventList();
         this.stopTime = endClock;
         this.servers = servers;
-        this.policy = policy; //Para el generate report
+        this.policy = policy;
         fel.insert(new StopSimulation(endClock,this));
 
-
-
-        Aircraft entity = new Aircraft(1);
-        Arrival arrival = new Arrival(0,
-                entity,
+        LightAircraft entity1 = new LightAircraft(1);
+        MediumAircraft entity2 = new MediumAircraft(1);
+        HeavyAircraft entity3 = new HeavyAircraft(1);
+        Arrival arrival1 = new Arrival(0,
+                entity1,
+                new ArrivalBehavior(randomizer),
+                new EndOfServiceBehavior(randomizer),
+                policy);
+        Arrival arrival2 = new Arrival(0,
+                entity2,
+                new ArrivalBehavior(randomizer),
+                new EndOfServiceBehavior(randomizer),
+                policy);
+        Arrival arrival3 = new Arrival(0,
+                entity3,
                 new ArrivalBehavior(randomizer),
                 new EndOfServiceBehavior(randomizer),
                 policy);
 
-        entity.getEvents().add(arrival);
-        fel.insert(arrival);
-        //policy.selectServer(servers).addAircraftAttended();
-
+        entity1.getEvents().add(arrival1);
+        entity2.getEvents().add(arrival2);
+        entity3.getEvents().add(arrival3);
+        fel.insert(arrival1);
+        fel.insert(arrival2);
+        fel.insert(arrival3);
     }
 
     @Override
