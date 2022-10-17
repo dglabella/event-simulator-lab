@@ -212,7 +212,7 @@ public abstract class Server {
      * @return
      */
     public int getMinCurrentQueueSize(){ // PODRIA PONER ID Y LE PASO DE LA SERVER SELECTION EL ID DE LA QUEUE 0 Y BUSCAR CON EL GET (ID). GUARDA LOS NULLS, x si le paso id 3 y tiene 1 sola x ej
-        return this.queues.get(0).getSize();//esto es una negrada
+        return this.queues.get(0).getSize();//esto es una negrada, tmb acomodar la doc de arriba
     }
 
     public boolean checkForActivity(Entity entity){

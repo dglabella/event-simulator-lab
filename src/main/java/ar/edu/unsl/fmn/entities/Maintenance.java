@@ -21,11 +21,6 @@ public class Maintenance extends Entity{
     }
 
     @Override
-    public String toString() {
-        return "type: maintenance - id: " + this.getId();
-    }
-
-    @Override
     public boolean equals(Object obj) {
         return obj.getClass().getName() == "Maintenance"; //Ver que devuelva bien
     }
@@ -35,5 +30,14 @@ public class Maintenance extends Entity{
         if (Airstrip.class.equals(server.getClass())) {
             ((Airstrip) server).updateDurability(damage);
         }
+    }
+
+    @Override
+    public String toString() {
+        String ret = super.toString();
+
+        ret += "type: maintenance";
+
+        return ret;
     }
 }

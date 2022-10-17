@@ -62,7 +62,6 @@ public class CustomQueue implements Queue {
 
     @Override
     public int getSize() {
-        System.out.println("REVISAR GETSIZE DE CUSTOMQUEUE");
         return queue.size();
         //ver que tengo un atributo que registra esto
     }

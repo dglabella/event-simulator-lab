@@ -31,4 +31,13 @@ public class HeavyAircraft extends Aircraft{
             ((Airstrip) server).updateDurability(damage);
         }
     }
+
+    @Override
+    public String toString() {
+        String ret = super.toString();
+
+        ret += "type: heavy";
+
+        return ret;
+    }
 }

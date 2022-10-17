@@ -2,6 +2,8 @@ package ar.edu.unsl.fmn.policies;
 
 import ar.edu.unsl.fmn.entities.*;
 import ar.edu.unsl.fmn.resources.*;
+import jdk.tools.jmod.Main;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,10 +11,9 @@ public class MultipleServerSelectionPolicy implements ServerSelectionPolicy{
 
     @Override
     public Server selectServer(List<Server> servers, Entity entity) {
-        System.out.println("selectServer in MultipleServerSelectionPolicy needs verification of functioning");
-        Server server = null;
+        Server server;
 
-        if(entity.getClass().equals(new Maintenance())){
+        if(entity instanceof Maintenance){
             Airstrip serverAux;
             serverAux = (Airstrip)servers.get(0);
             double minDurability = serverAux.getDurability() / serverAux.getInitDurability();
@@ -25,40 +26,42 @@ public class MultipleServerSelectionPolicy implements ServerSelectionPolicy{
                     currentServerWithMinDurability = i;
                 }
             }
-            server = servers.get(currentServerWithMinDurability);
+            return servers.get(currentServerWithMinDurability);
         }
         else{
+            /**
+             * Filtro los servidores por el tipo que sean
+             */
             List<Server> filteredservers = new ArrayList<>();
-            String checkAirstripType = null;
+            int instance = 0;
+            if(entity instanceof LightAircraft){
+                instance = 1;
+            } else if (entity instanceof MediumAircraft) {
+                instance = 2;
+            } else if (entity instanceof HeavyAircraft) {
+                instance = 3;
+            }
+
             for(int i=0;i<servers.size() - 1;i++){//-1 por la pista auxiliar
                 if(!(servers.get(i).checkForActivity(new Maintenance()))){
-                    if(entity.getClass().equals(new LightAircraft())){
-                        checkAirstripType = "LightAirstrip";
-                    }
-                    else if(entity.getClass().equals(new MediumAircraft())){
-                        checkAirstripType = "MediumAirstrip";
-                    }
-                    else if(entity.getClass().equals(new HeavyAircraft())){
-                        checkAirstripType = "HeavyAirstrip";
-                    }
-                    switch(checkAirstripType){
-                        case "LightAirstrip":
-                            if(servers.get(i).getClass().equals(new LightAirstrip())){
+                    switch (instance){
+                        case 1:
+                            if(servers.get(i) instanceof LightAirstrip){
                                 filteredservers.add(servers.get(i));
                             }
                             break;
-                        case "MediumAirstrip":
-                            if(servers.get(i).getClass().equals(new MediumAirstrip())){
+                        case 2:
+                            if(servers.get(i) instanceof MediumAirstrip){
                                 filteredservers.add(servers.get(i));
                             }
                             break;
-                        case "HeavyAirstrip":
-                            if(servers.get(i).getClass().equals(new HeavyAirstrip())){
+                        case 3:
+                            if(servers.get(i) instanceof HeavyAirstrip){
                                 filteredservers.add(servers.get(i));
                             }
                             break;
                         default:
-                            System.out.println("Default branch not yet implemented in SelectServer on MultipleServerSelecionPolicy");
+                            System.out.println("No deberia entrar a este default, MultiplEserVErSelectionPolicy, puede ser pq no le digo que tipo de entity es a la fel");
                             break;
                     }
                 }
@@ -77,7 +80,7 @@ public class MultipleServerSelectionPolicy implements ServerSelectionPolicy{
                 }
                 server = filteredservers.get(currentServerWithMinQueue);
             }
+            return server;
         }
-        return server;
     }
 }

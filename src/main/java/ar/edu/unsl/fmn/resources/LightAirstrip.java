@@ -17,4 +17,13 @@ public class LightAirstrip extends Airstrip{
     public boolean equals(Object obj) {
         return obj.getClass().getName() == "LightAirstrip";
     }
+
+    @Override
+    public String toString() {
+        String ret = super.toString();
+
+        ret += "type: light";
+
+        return ret;
+    }
 }

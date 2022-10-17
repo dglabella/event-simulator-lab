@@ -24,14 +24,18 @@ public class App {
     // private static final double SIMULATION_LENGHT = 100d;
 
     public static void main(String[] args) {
-
-        FALTA LA PARTE DEL "SPAWN" DE AVIONES, ESTOY MANDANDO AICRAFT Y NO LOS OTROS TIPOS xd;
-        VER LA PARTE DE SELECCIONAR QUE TIPO CORRESPONDE xd;
         //Liviana: Exp 40
         //Mediana: Exp 30
         //Pesada: Normal (60,2)
         Exponential exponential1 = new Exponential(40);
         Exponential exponential2 = new Exponential(30);
+        Random rand = new Random();
+
+        for (int i=1;i<10000000;i++){
+            System.out.println("la exponential esta devolviendo mal parece");
+            System.out.println(exponential1.event(rand.nextDouble()));
+            //necesito el evento, y no puede ser tan bajo
+        }
 
         Normal normal = new Normal(60,Math.pow(2,2));
         /*
@@ -40,6 +44,11 @@ public class App {
 
         for (int i = 0; i < 50; i++) {
             System.out.println(normal.event());
+        }
+        System.out.println("=========================================================");
+
+        for (int i = 0; i < 50; i++) {
+            System.out.println(random.nextGaussian() * 10 + 120);
         }
 
         */
@@ -80,11 +89,7 @@ public class App {
         Ver el Dequeue
          */
 
-        System.out.println("=========================================================");
 
-        for (int i = 0; i < 50; i++) {
-            System.out.println(random.nextGaussian() * 10 + 120);
-        }
 
         // para saber lo de hora pico hago modulo de cuantos minutos sean 24hs y si el arribo esta
         // entre

@@ -17,4 +17,13 @@ public class MediumAirstrip extends Airstrip{
     public boolean equals(Object obj) {
         return obj.getClass().getName() == "MediumAirstrip";
     }
+
+    @Override
+    public String toString() {
+        String ret = super.toString();
+
+        ret += "type: medium";
+
+        return ret;
+    }
 }

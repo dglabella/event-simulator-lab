@@ -17,4 +17,13 @@ public class Auxiliar extends Airstrip {
     public boolean equals(Object obj) {
         return obj.getClass().getName() == "Auxiliar";
     }
+
+    @Override
+    public String toString() {
+        String ret = super.toString();
+
+        ret += "type: auxiliar";
+
+        return ret;
+    }
 }

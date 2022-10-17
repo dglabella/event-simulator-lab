@@ -17,4 +17,13 @@ public class HeavyAirstrip extends Airstrip{
     public boolean equals(Object obj) {
         return obj.getClass().getName() == "HeavyAirstrip";
     }
+
+    @Override
+    public String toString() {
+        String ret = super.toString();
+
+        ret += "type: heavy";
+
+        return ret;
+    }
 }

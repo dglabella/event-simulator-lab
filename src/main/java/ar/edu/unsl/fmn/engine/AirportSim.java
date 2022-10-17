@@ -5,10 +5,7 @@ import java.util.Scanner;
 
 import ar.edu.unsl.fmn.behaviors.ArrivalBehavior;
 import ar.edu.unsl.fmn.behaviors.EndOfServiceBehavior;
-import ar.edu.unsl.fmn.entities.Aircraft;
-import ar.edu.unsl.fmn.entities.HeavyAircraft;
-import ar.edu.unsl.fmn.entities.LightAircraft;
-import ar.edu.unsl.fmn.entities.MediumAircraft;
+import ar.edu.unsl.fmn.entities.*;
 import ar.edu.unsl.fmn.events.Arrival;
 import ar.edu.unsl.fmn.events.StopSimulation;
 import ar.edu.unsl.fmn.policies.ServerSelectionPolicy;
@@ -36,6 +33,7 @@ public class AirportSim implements Engine {
         LightAircraft entity1 = new LightAircraft(1);
         MediumAircraft entity2 = new MediumAircraft(1);
         HeavyAircraft entity3 = new HeavyAircraft(1);
+        Maintenance entity4 = new Maintenance(1);
         Arrival arrival1 = new Arrival(0,
                 entity1,
                 new ArrivalBehavior(randomizer),
@@ -51,13 +49,20 @@ public class AirportSim implements Engine {
                 new ArrivalBehavior(randomizer),
                 new EndOfServiceBehavior(randomizer),
                 policy);
+        Arrival arrival4 = new Arrival(0,
+                entity4,
+                new ArrivalBehavior(randomizer),
+                new EndOfServiceBehavior(randomizer),
+                policy);
 
         entity1.getEvents().add(arrival1);
         entity2.getEvents().add(arrival2);
         entity3.getEvents().add(arrival3);
+        entity4.getEvents().add(arrival4);
         fel.insert(arrival1);
         fel.insert(arrival2);
         fel.insert(arrival3);
+        fel.insert(arrival4);
     }
 
     @Override
@@ -66,8 +71,8 @@ public class AirportSim implements Engine {
         while(!stop){
             fel.getImminent().planificate(fel,servers);
 
-            //System.out.println("\nexecute in AirportSim: showing fel in every planificate step: (borrar este msg?)\n");
-            //System.out.println(fel.toString());
+            System.out.println("\nexecute in AirportSim: showing fel in every planificate step: \n");
+            System.out.println(fel.toString());
         }
     }
 

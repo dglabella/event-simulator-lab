@@ -30,4 +30,13 @@ public class MediumAircraft extends Aircraft{
             ((Airstrip) server).updateDurability(damage);
         }
     }
+
+    @Override
+    public String toString() {
+        String ret = super.toString();
+
+        ret += "type: medium";
+
+        return ret;
+    }
 }
