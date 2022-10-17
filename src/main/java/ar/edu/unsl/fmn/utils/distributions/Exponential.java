@@ -3,9 +3,9 @@ import java.lang.Math;
 
 public class Exponential implements Distribution<Double>, InvertibleDistribution<Double> {
 
-    private double lambda;
-    public Exponential(double lambda){
-        this.lambda = lambda;
+    private double mu;
+    public Exponential(double mu){
+        this.mu = mu;
     }
 
 
@@ -16,6 +16,6 @@ public class Exponential implements Distribution<Double>, InvertibleDistribution
 
     @Override
     public Double event(double cumulativeProbability) {
-        return (-lambda) * Math.log(1d - cumulativeProbability);
+        return (-mu) * Math.log(1d - cumulativeProbability);
     }
 }

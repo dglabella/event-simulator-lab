@@ -14,19 +14,28 @@ public class MultipleServerSelectionPolicy implements ServerSelectionPolicy{
         Server server;
 
         if(entity instanceof Maintenance){
-            Airstrip serverAux;
-            serverAux = (Airstrip)servers.get(0);
-            double minDurability = serverAux.getDurability() / serverAux.getInitDurability();
-            int currentServerWithMinDurability = 0;
-
-            for(int i=1;i<servers.size() - 1;i++){ //-1 por la auxiliar
+            Airstrip returnAirs =  null; //= (Airstrip)servers.get(0);
+            Airstrip serverAux; //= (Airstrip)servers.get(0);
+            double minDurability = Double.MAX_VALUE; //(serverAux.getDurability() / serverAux.getInitDurability());
+            int currentServerWithMinDurability = 50;// = 0;
+            //System.out.println(minDurability);
+            for(int i=0;i<servers.size() - 1;i++){ //-1 por la auxiliar
                 serverAux = (Airstrip) servers.get(i);
-                if(serverAux.getDurability()/serverAux.getInitDurability() <  minDurability){
-                    minDurability = serverAux.getDurability() / serverAux.getInitDurability();
+                System.out.println((serverAux.getDurability()/serverAux.getInitDurability()));
+                if((serverAux.getDurability()/serverAux.getInitDurability()) <  minDurability){
+                    minDurability = (serverAux.getDurability() / serverAux.getInitDurability());
+                    returnAirs = serverAux;
                     currentServerWithMinDurability = i;
+
                 }
             }
-            return servers.get(currentServerWithMinDurability);
+            for (int i=0;i<50;i++){
+                System.out.println("Voy a dar el SERVER: " + currentServerWithMinDurability);
+            }
+            System.out.println(servers.get(currentServerWithMinDurability).toString());
+            System.exit(0);
+            return returnAirs;
+            //return servers.get(currentServerWithMinDurability);
         }
         else{
             /**

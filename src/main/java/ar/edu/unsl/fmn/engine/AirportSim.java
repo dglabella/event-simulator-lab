@@ -11,6 +11,7 @@ import ar.edu.unsl.fmn.events.StopSimulation;
 import ar.edu.unsl.fmn.policies.ServerSelectionPolicy;
 import ar.edu.unsl.fmn.resources.Server;
 import ar.edu.unsl.fmn.utils.Randomizer;
+import ar.edu.unsl.fmn.utils.distributions.Normal;
 
 public class AirportSim implements Engine {
 
@@ -49,7 +50,8 @@ public class AirportSim implements Engine {
                 new ArrivalBehavior(randomizer),
                 new EndOfServiceBehavior(randomizer),
                 policy);
-        Arrival arrival4 = new Arrival(0,
+        Normal norm = new Normal(5,Math.pow(0.5,2));
+        Arrival arrival4 = new Arrival(norm.event() * 1440d, //Para que no entre un mant en tiempo 0
                 entity4,
                 new ArrivalBehavior(randomizer),
                 new EndOfServiceBehavior(randomizer),

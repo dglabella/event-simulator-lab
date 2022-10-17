@@ -11,6 +11,7 @@ import ar.edu.unsl.fmn.resources.Airstrip;
 import ar.edu.unsl.fmn.resources.Auxiliar;
 import ar.edu.unsl.fmn.resources.Server;
 import ar.edu.unsl.fmn.utils.Utils;
+import sun.tools.jar.Main;
 
 public class EndOfService extends Event {
 
@@ -26,18 +27,22 @@ public class EndOfService extends Event {
         //server.addAircraftAttended();
 
 
-        if(!(server instanceof Auxiliar)){
-            System.out.println(server.getCurrentEntity());
-            System.out.println(server.getClass());
-            double dmg = Utils.calculateDmg(server.getCurrentEntity(), (Airstrip)server);
-            server.getCurrentEntity().applyEffect(server,dmg);
+        System.out.println(this.getEntity().toString());
+        if(this.getEntity() instanceof Maintenance){
+            System.out.println(this.getEntity().getServer());
         }
+        //System.out.println(this.getEntity().getServer().toString());
+        //System.out.println(server.getClass());
+        double dmg = Utils.calculateDmg(this.getEntity(), (Airstrip)server);
+        this.getEntity().applyEffect(server,dmg);
+        //server.getCurrentEntity().applyEffect(server,dmg);
 
 
 
         if (!server.queuesEmpty()) {
             entity = server.dequeue();
             server.setCurrentEntity(entity);
+            entity.setServer(server);
 
             double tickEoS = this.getClock() + this.getBehavior().nextTime(entity,this.getClock()); //RENOMBRAR
             fel.insert(new EndOfService(

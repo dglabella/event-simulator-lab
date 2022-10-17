@@ -29,13 +29,17 @@ public class Arrival extends Event {
     @Override
     public void planificate(FutureEventList fel, List<Server> servers) {
         Server server = this.policy.selectServer(servers, this.getEntity());
+        //ACA ME FALTA SETEARLE EN ALGUN LADO A LA ENTIDAD EL SERVER?
         if(server.isBusy()){
+            /*
             System.out.println("Clase del servidor a la que se hace enqueue:");
             System.out.println(server.toString());
             System.out.println("Aircraft que se mete en la cola:");
             System.out.println(this.getEntity().toString());
             System.out.println("se procede al enqueue");
+             */
             server.enqueue(this.getEntity());
+//            this.getEntity().setServer(server); comentado pq ya lo hago en el enqueue
         }
         else{
             server.setCurrentEntity(this.getEntity());
@@ -45,8 +49,8 @@ public class Arrival extends Event {
                     eosclock,
                     this.getEntity(),
                     this.endOfServiceBehavior));
-            this.getEntity().getServer().addTotalServiceTime(eosclock - this.getEntity().getEvents().get(0).getClock());
-            this.getEntity().getServer().compareMaxServiceTime(eosclock - this.getEntity().getEvents().get(0).getClock());
+            //this.getEntity().getServer().addTotalServiceTime(eosclock - this.getEntity().getEvents().get(0).getClock());
+            //this.getEntity().getServer().compareMaxServiceTime(eosclock - this.getEntity().getEvents().get(0).getClock());
             //IdleTime
             this.getEntity().getServer().endIdle(this.getClock());
         }
@@ -84,11 +88,10 @@ public class Arrival extends Event {
         }
 
 
-
         //Aircraft aircraft = new Aircraft(this.getEntity().getId() +1);
         Arrival arrival = new Arrival(this.getClock() + this.getBehavior().nextTime(aircraft,this.getClock()),aircraft,this.getBehavior(),endOfServiceBehavior,policy);
         aircraft.getEvents().add(arrival);
-        aircraft.setServer(this.policy.selectServer(servers, aircraft));
+        //aircraft.setServer(this.policy.selectServer(servers, aircraft));
 
         fel.insert(arrival);
         //Colleccionar datos

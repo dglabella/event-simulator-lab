@@ -26,9 +26,7 @@ public class MediumAircraft extends Aircraft{
 
     @Override
     public void applyEffect(Server server, double damage){
-        if (Airstrip.class.equals(server.getClass())) {
-            ((Airstrip) server).updateDurability(damage);
-        }
+        ((Airstrip) server).updateDurability(damage);
     }
 
     @Override

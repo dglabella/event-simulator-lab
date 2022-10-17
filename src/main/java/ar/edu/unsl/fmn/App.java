@@ -30,12 +30,8 @@ public class App {
         Exponential exponential1 = new Exponential(40);
         Exponential exponential2 = new Exponential(30);
         Random rand = new Random();
-/*
-        for (int i=1;i<10000000;i++){
-            System.out.println("la exponential esta devolviendo mal parece");
-            System.out.println(exponential1.event(rand.nextDouble()));
-            //necesito el evento, y no puede ser tan bajo
-        }*/
+
+
 
         Normal normal = new Normal(60,Math.pow(2,2));
         /*
@@ -91,6 +87,13 @@ public class App {
 
 
 
+        /**
+         * Cuando se asigna un server a una entidad, a esa entidad se le asigna ese server
+         * en alguna rama no anda esto, por el aply efect en EoS. se me rompia cuando hacia server.getEntity y tenia que hacer this.getEntity
+         * de cola a server tengo que hacer el seteo de server a entidad y de entidad a server
+         * Ver si el aply efect me rompe esa asoc de arriba
+         */
+
         // para saber lo de hora pico hago modulo de cuantos minutos sean 24hs y si el arribo esta
         // entre
         // ese tiempo de hora pico le mando otra exponential
@@ -99,4 +102,5 @@ public class App {
          new MultipleServerSelectionPolicy(), new CustomRandomizer()); engine.execute();
          engine.generateReport();
     }
+
 }

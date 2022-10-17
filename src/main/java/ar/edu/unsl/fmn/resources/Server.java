@@ -225,7 +225,7 @@ public abstract class Server {
 
     @Override
     public String toString() {
-        String ret = "id: " + this.id + " -- current entity: " + this.currentEntity.getId() + "\n"
+        String ret = "id: " + this.id + " -- current entity: " + (this.currentEntity == null?"null": this.currentEntity.getId()) + "\n"
                 + "queues:\n";
 
         for (Queue q : queues)
