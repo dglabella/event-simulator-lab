@@ -5,8 +5,10 @@ import java.util.List;
 import ar.edu.unsl.fmn.behaviors.Behavior;
 import ar.edu.unsl.fmn.engine.FutureEventList;
 import ar.edu.unsl.fmn.entities.Entity;
+import ar.edu.unsl.fmn.entities.Maintenance;
 import ar.edu.unsl.fmn.policies.ServerSelectionPolicy;
 import ar.edu.unsl.fmn.resources.Airstrip;
+import ar.edu.unsl.fmn.resources.Auxiliar;
 import ar.edu.unsl.fmn.resources.Server;
 import ar.edu.unsl.fmn.utils.Utils;
 
@@ -24,8 +26,13 @@ public class EndOfService extends Event {
         //server.addAircraftAttended();
 
 
-        double dmg = Utils.calculateDmg(server.getCurrentEntity(), (Airstrip)server);
-        server.getCurrentEntity().applyEffect(server,dmg);
+        if(!(server instanceof Auxiliar)){
+            System.out.println(server.getCurrentEntity());
+            System.out.println(server.getClass());
+            double dmg = Utils.calculateDmg(server.getCurrentEntity(), (Airstrip)server);
+            server.getCurrentEntity().applyEffect(server,dmg);
+        }
+
 
 
         if (!server.queuesEmpty()) {

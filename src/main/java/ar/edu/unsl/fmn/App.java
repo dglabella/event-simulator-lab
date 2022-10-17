@@ -30,12 +30,12 @@ public class App {
         Exponential exponential1 = new Exponential(40);
         Exponential exponential2 = new Exponential(30);
         Random rand = new Random();
-
+/*
         for (int i=1;i<10000000;i++){
             System.out.println("la exponential esta devolviendo mal parece");
             System.out.println(exponential1.event(rand.nextDouble()));
             //necesito el evento, y no puede ser tan bajo
-        }
+        }*/
 
         Normal normal = new Normal(60,Math.pow(2,2));
         /*

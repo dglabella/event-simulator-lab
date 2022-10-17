@@ -16,6 +16,6 @@ public class Exponential implements Distribution<Double>, InvertibleDistribution
 
     @Override
     public Double event(double cumulativeProbability) {
-        return (-1d / lambda) * Math.log(1d - cumulativeProbability);
+        return (-lambda) * Math.log(1d - cumulativeProbability);
     }
 }
