@@ -31,13 +31,6 @@ public class Arrival extends Event {
         Server server = this.policy.selectServer(servers, this.getEntity());
         //ACA ME FALTA SETEARLE EN ALGUN LADO A LA ENTIDAD EL SERVER?
         if(server.isBusy()){
-            /*
-            System.out.println("Clase del servidor a la que se hace enqueue:");
-            System.out.println(server.toString());
-            System.out.println("Aircraft que se mete en la cola:");
-            System.out.println(this.getEntity().toString());
-            System.out.println("se procede al enqueue");
-             */
             server.enqueue(this.getEntity());
 //            this.getEntity().setServer(server); comentado pq ya lo hago en el enqueue
         }
@@ -83,6 +76,7 @@ public class Arrival extends Event {
                 break;
             default:
                 System.out.println("Default on Arrival should never be reached");
+                System.exit(0);
                 aircraft = new Aircraft(this.getEntity().getId() +1);
                 break;
         }

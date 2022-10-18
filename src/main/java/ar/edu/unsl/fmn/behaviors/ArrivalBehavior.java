@@ -29,40 +29,30 @@ public class ArrivalBehavior implements Behavior {
         if (LightAircraft.class.equals(entity.getClass())) {
             if(Utils.esHoraPico(clock)){
                 exp = new Exponential(20d);
-                return exp.event(rand.nextRandom());
             }
             else{
                 exp = new Exponential(40d);
-                System.out.println("light");
-                System.out.println(exp.event(rand.nextRandom()));
-                return exp.event(rand.nextRandom());
             }
+            return exp.event(rand.nextRandom());
         } else if (MediumAircraft.class.equals(entity.getClass())) {
             if(Utils.esHoraPico(clock)){
                 exp = new Exponential(15d);
-                return exp.event(rand.nextRandom());
             }
             else{
                 exp = new Exponential(30d);
-                System.out.println("medium");
-                System.out.println(exp.event(rand.nextRandom()));
-                return exp.event(rand.nextRandom());
             }
+            return exp.event(rand.nextRandom());
         } else if (HeavyAircraft.class.equals(entity.getClass())) {
             if(Utils.esHoraPico(clock)){
                 norm = new Normal(30d,Math.pow(2d,2d));
-                return norm.event();
             }
             else{
                 norm = new Normal(60d,Math.pow(2d,2d));
-                System.out.println("heavy");
-                System.out.println(norm.event());
-                return norm.event();
             }
+            return norm.event();
         } else if (Maintenance.class.equals(entity.getClass())){
             norm = new Normal(5,Math.pow(0.5,2));
             return norm.event() * 1440d;
-
         }
         else{
             return this.distribution.event(this.randomizer.nextRandom());

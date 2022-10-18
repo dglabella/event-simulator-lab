@@ -27,10 +27,10 @@ public class EndOfService extends Event {
         //server.addAircraftAttended();
 
 
-        System.out.println(this.getEntity().toString());
-        if(this.getEntity() instanceof Maintenance){
+        //System.out.println(this.getEntity().toString());
+        /*if(this.getEntity() instanceof Maintenance){
             System.out.println(this.getEntity().getServer());
-        }
+        }*/
         //System.out.println(this.getEntity().getServer().toString());
         //System.out.println(server.getClass());
         double dmg = Utils.calculateDmg(this.getEntity(), (Airstrip)server);
