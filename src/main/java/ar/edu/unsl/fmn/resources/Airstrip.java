@@ -48,6 +48,13 @@ public class Airstrip extends Server {
     }*/ //creo que esto ya lo hace el propio server buscando por entity con new Maintenance, ejemplo en selectServer de MultipleServerSelection
 
 
+    @Override
+    public void addEntityAttended(){
+        if(!(this.getCurrentEntity() instanceof Maintenance)){
+            setEntityAttended(getEntityAttended() + 1);
+        }
+    }
+
 
 
 

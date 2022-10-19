@@ -11,6 +11,7 @@ import ar.edu.unsl.fmn.events.StopSimulation;
 import ar.edu.unsl.fmn.policies.ServerSelectionPolicy;
 import ar.edu.unsl.fmn.resources.Server;
 import ar.edu.unsl.fmn.utils.Randomizer;
+import ar.edu.unsl.fmn.utils.Statistics;
 import ar.edu.unsl.fmn.utils.distributions.Normal;
 
 public class AirportSim implements Engine {
@@ -69,7 +70,7 @@ public class AirportSim implements Engine {
 
     @Override
     public void execute() {
-        System.out.println(fel.toString());
+        //System.out.println(fel.toString());
         while(!stop){
             fel.getImminent().planificate(fel,servers);
             //System.out.println("\nexecute in AirportSim: showing fel in every planificate step: \n");
@@ -97,8 +98,13 @@ public class AirportSim implements Engine {
         * Tiempo máximo de ocio de la pista y el porcentaje que representa respecto del tiempo total de ocio.
         * Tamaño máximo de la cola de espera para este servidor.
          */
-        /*
-        System.out.println("Entidades atendidas: " + this.policy.selectServer(servers).getAircraftAttended());
+
+        Statistics stats = new Statistics(servers);
+        stats.collectStatistics(servers);
+        stats.showReport();
+
+
+/*
         System.out.println("Tiempo Total de espera en cola: " + this.policy.selectServer(servers).getTotalQueueTime());
         System.out.println("Tiempo Medio de espera en cola: " + this.policy.selectServer(servers).getTotalQueueTime()/this.policy.selectServer(servers).getAircraftAttended());
         System.out.println("Tiempo Maximo de espera en cola: " + this.policy.selectServer(servers).getMaxQueueTime());
@@ -110,6 +116,6 @@ public class AirportSim implements Engine {
         System.out.println("Tiempo maximo de ocio de la pista: " + this.policy.selectServer(servers).getMaxIdleTime());
         System.out.println("Porcentaje respecto del tiempo de simulacion: " + String.format("%.2f",((this.policy.selectServer(servers).getMaxIdleTime() * 100) / stopTime)) + "%");
         System.out.println("Tamaño Maximo de la cola de espera para este servidor: " + this.policy.selectServer(servers).getMaxQueue());
-         */
+*/
     }
 }

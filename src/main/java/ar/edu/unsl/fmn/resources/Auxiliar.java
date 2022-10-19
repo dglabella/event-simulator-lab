@@ -13,6 +13,7 @@ public class Auxiliar extends Airstrip {
         super(id, queues, serverQueuePolicy, 250);
     }
 
+
     @Override
     public boolean equals(Object obj) {
         return obj.getClass().getName() == "Auxiliar";

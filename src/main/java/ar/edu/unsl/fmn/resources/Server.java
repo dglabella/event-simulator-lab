@@ -16,7 +16,7 @@ public abstract class Server {
 
     private ServerQueuePolicy policy;
 
-    private int aircraftAttended;
+    private int entityAttended;
     private double totalQueueTime;
     private double maxQueueTime;
 
@@ -42,7 +42,7 @@ public abstract class Server {
         this.id = id;
         this.queues = queues;
         this.policy = policy;
-        this.aircraftAttended=0;
+        this.entityAttended=0;
         this.totalQueueTime=0;
         this.maxQueueTime=0;
         this.totalServiceTime=0;
@@ -64,18 +64,16 @@ public abstract class Server {
 
     public void setCurrentEntity(Entity currentEntity) {
         this.currentEntity = currentEntity;
-        /*
-        double dmg = Utils.calculateDmg(this.getCurrentEntity(), this);
-        this.currentEntity.applyEffect(this,dmg);
-        aca no va esto, pq entity puede ser null
-        */
-
     }
 
-    public int getAircraftAttended(){return this.aircraftAttended;}
+    public int getEntityAttended(){return this.entityAttended;}
 
-    public void addAircraftAttended(){
-        this.aircraftAttended += 1;
+    public void addEntityAttended(){
+        this.entityAttended += 1;
+    }
+
+    public void setEntityAttended(int entityAttended){
+        this.entityAttended = entityAttended;
     }
 
     public double getTotalQueueTime(){

@@ -10,8 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Utils {
-    public static double calculateDmg(Entity entity, Airstrip server){
-        CustomRandomizer rand = new CustomRandomizer();
+    public static double calculateDmg(Entity entity, Airstrip server, Randomizer rand){
         double dmg = 0;
         Uniform dist;
         if (LightAircraft.class.equals(entity.getClass())) {

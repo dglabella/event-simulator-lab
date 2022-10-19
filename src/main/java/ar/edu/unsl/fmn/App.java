@@ -99,7 +99,8 @@ public class App {
         // ese tiempo de hora pico le mando otra exponential
 
          Engine engine = new AirportSim( SIMULATION_LENGHT, ScenarioBuilder.MultipleServersOneQueuePerServer(),
-         new MultipleServerSelectionPolicy(), new CustomRandomizer()); engine.execute();
+         new MultipleServerSelectionPolicy(), new CustomRandomizer());
+         engine.execute();
          engine.generateReport();
     }
 

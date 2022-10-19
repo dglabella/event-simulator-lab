@@ -52,4 +52,9 @@ public class EndOfServiceBehavior implements Behavior {
             return this.distribution.event(this.randomizer.nextRandom());
         }
     }
+
+    @Override
+    public Randomizer getRandomizer(){
+        return this.randomizer;
+    }
 }

@@ -10,6 +10,7 @@ import ar.edu.unsl.fmn.policies.ServerSelectionPolicy;
 import ar.edu.unsl.fmn.resources.Airstrip;
 import ar.edu.unsl.fmn.resources.Auxiliar;
 import ar.edu.unsl.fmn.resources.Server;
+import ar.edu.unsl.fmn.utils.CustomRandomizer;
 import ar.edu.unsl.fmn.utils.Utils;
 import sun.tools.jar.Main;
 
@@ -24,7 +25,7 @@ public class EndOfService extends Event {
         Server server = this.getEntity().getServer();
         Entity entity;
         //ESTA LINEA LA COMENTE XQ TIRABA NPE, REVISAR PQ
-        //server.addAircraftAttended();
+        server.addEntityAttended();
 
 
         //System.out.println(this.getEntity().toString());
@@ -33,7 +34,9 @@ public class EndOfService extends Event {
         }*/
         //System.out.println(this.getEntity().getServer().toString());
         //System.out.println(server.getClass());
-        double dmg = Utils.calculateDmg(this.getEntity(), (Airstrip)server);
+
+
+        double dmg = Utils.calculateDmg(this.getEntity(), (Airstrip)server,this.getBehavior().getRandomizer());
         this.getEntity().applyEffect(server,dmg);
         //server.getCurrentEntity().applyEffect(server,dmg);
 
