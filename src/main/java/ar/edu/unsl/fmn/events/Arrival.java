@@ -42,8 +42,8 @@ public class Arrival extends Event {
                     eosclock,
                     this.getEntity(),
                     this.endOfServiceBehavior));
-            //this.getEntity().getServer().addTotalServiceTime(eosclock - this.getEntity().getEvents().get(0).getClock());
-            //this.getEntity().getServer().compareMaxServiceTime(eosclock - this.getEntity().getEvents().get(0).getClock());
+            this.getEntity().getServer().addTotalServiceTime(eosclock - this.getEntity().getEvents().get(0).getClock());
+            this.getEntity().getServer().compareMaxServiceTime(eosclock - this.getEntity().getEvents().get(0).getClock());
             //IdleTime
             this.getEntity().getServer().endIdle(this.getClock());
         }

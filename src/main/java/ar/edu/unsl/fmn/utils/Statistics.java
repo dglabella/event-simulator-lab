@@ -13,12 +13,66 @@ public class Statistics {
 
     private double totalQueueWaitTimePerServer[];
 
+    private double maxQueueWaitTimePerServer[];
+
+    private double medQueueWaitTimePerServer[];
+
+    private double totalServiceTimePerServer[];
+    private double maxServiceTimePerServer[];
+    private double medServiceTimePerServer[];
+
+    private double totalIdleTimePerServer[];
+    private double maxIdleTimePerServer[];
+
     private double finalDurabilityPerServer[];
 
-    public Statistics(List<Server> servers){
-        aircraftAttendedPerServer = new int[servers.size()];
-        totalQueueWaitTimePerServer = new double[servers.size()];
-        finalDurabilityPerServer = new double[servers.size()];
+    private double maxQueueSizePerServer[];
+
+    private double coladelserver[];
+
+    private int totalServers;
+    private double stopTime;
+
+    public Statistics(List<Server> servers, double stopTime){
+        totalServers = servers.size();
+        this.stopTime = stopTime;
+        aircraftAttendedPerServer = new int[totalServers];
+        totalQueueWaitTimePerServer = new double[totalServers];
+        maxQueueWaitTimePerServer = new double[totalServers];
+        medQueueWaitTimePerServer = new double[totalServers];
+
+
+        totalIdleTimePerServer = new double[totalServers];
+        maxIdleTimePerServer = new double[totalServers];
+        maxQueueSizePerServer = new double[totalServers];
+
+
+        totalServiceTimePerServer = new double[totalServers];
+        maxServiceTimePerServer = new double[totalServers];
+        medServiceTimePerServer = new double[totalServers];
+
+
+        finalDurabilityPerServer = new double[totalServers];
+        coladelserver = new double[totalServers];
+
+
+        totalAircraftAttended = 0;
+        for (int i = 0; i<totalServers;i++){
+            aircraftAttendedPerServer[i] = 0;
+            totalQueueWaitTimePerServer[i] = 0;
+            maxQueueWaitTimePerServer[i] = 0;
+            medQueueWaitTimePerServer[i] = 0;
+            totalServiceTimePerServer[i] = 0;
+            maxServiceTimePerServer[i] = 0;
+            medServiceTimePerServer[i] = 0;
+            totalIdleTimePerServer[i] = 0;
+            maxIdleTimePerServer[i] = 0;
+            maxQueueSizePerServer[i] = 0;
+
+
+            finalDurabilityPerServer[i] = 0;
+            coladelserver[i] = 0;
+        }
     }
 
 
@@ -27,15 +81,38 @@ public class Statistics {
 
 
 
-        for(int i=0;i<servers.size()-1;i++){
-            totalAircraftAttended += servers.get(i).getEntityAttended();
+        for(int i=0;i<totalServers;i++){
+
             aircraftAttendedPerServer[i] = servers.get(i).getEntityAttended();
 
-            totalQueueWaitTimePerServer[i] = servers.get(i).getTotalQueueTime();
+            if(!(i == totalServers-1)){
+                totalAircraftAttended += aircraftAttendedPerServer[i];
+            }
 
+
+            totalQueueWaitTimePerServer[i] = servers.get(i).getTotalQueueTime();
+            maxQueueWaitTimePerServer[i] = servers.get(i).getMaxQueueTime();
+            medQueueWaitTimePerServer[i] = (totalQueueWaitTimePerServer[i] / aircraftAttendedPerServer[i]);
+            maxQueueSizePerServer[i] = servers.get(i).getMaxQueue();
 
             finalDurabilityPerServer[i] = ((Airstrip)servers.get(i)).getDurability();
+
+            totalServiceTimePerServer[i] = servers.get(i).getTotalServiceTime();
+            maxServiceTimePerServer[i] = servers.get(i).getMaxServiceTime();
+            medServiceTimePerServer[i] = (servers.get(i).getTotalServiceTime() / aircraftAttendedPerServer[i]);
+
+            totalIdleTimePerServer[i] = servers.get(i).getIdleTotalTime();
+            maxIdleTimePerServer[i] = servers.get(i).getMaxIdleTime();
+
+
+            coladelserver[i] = servers.get(i).getMinCurrentQueueSize();
+
+            System.out.println(servers.get(i).toString());
+            System.out.println("\n");
+
         }
+
+
 
 
     }
@@ -43,9 +120,35 @@ public class Statistics {
 
     public void showReport(){
         System.out.println("Total de Entidades atendidas: " + totalAircraftAttended);
-        //for (int i=0;i<aircraftAttendedPerServer.length;i++){
-        //    System.out.println("Entidades atendidas en el servidor " + i + ": " + aircraftAttendedPerServer[i]);
-        //}
-        //
+        System.out.println("\n\n\n");
+        for (int i=0;i<totalServers;i++){
+
+            System.out.println("Estadisticas servidor : " + i);
+
+            System.out.println("Entidades atendidas en el servidor: " + aircraftAttendedPerServer[i]);
+
+            System.out.println("Tiempo Total de espera en cola del servidor: " + totalQueueWaitTimePerServer[i]);
+            System.out.println("Tiempo Medio de espera en cola del servidor: " + medQueueWaitTimePerServer[i]);
+            System.out.println("Tiempo Maximo de espera en cola del servidor: " + maxQueueWaitTimePerServer[i]);
+            System.out.println("Tiempo Total de transito total del servidor: " + totalServiceTimePerServer[i]);
+            System.out.println("Tiempo Medio de transito medio del servidor: " + medServiceTimePerServer[i]);
+            System.out.println("Tiempo Maximo de transito maximo del servidor: " + maxServiceTimePerServer[i]);
+
+
+
+            System.out.println("Tiempo Total de ocio del servidor: " + totalIdleTimePerServer[i]);
+            System.out.println("Porcentaje respecto del tiempo de simulacion: " + String.format("%.2f",((totalIdleTimePerServer[i] * 100) / stopTime)) + "%");
+            System.out.println("Tiempo Maximo de ocio delservidor: " + maxIdleTimePerServer[i]);
+            System.out.println("Porcentaje respecto del tiempo de simulacion: " + String.format("%.2f",((maxIdleTimePerServer[i] * 100) / stopTime)) + "%");
+
+
+            System.out.println("Tamaño Maximo de la cola de espera del servidor: " + maxQueueSizePerServer[i]);
+
+            System.out.println("Tamaño de cola actual del servidor: " + coladelserver[i]);
+
+            System.out.println("\n\n\n");
+
+
+        }
     }
 }

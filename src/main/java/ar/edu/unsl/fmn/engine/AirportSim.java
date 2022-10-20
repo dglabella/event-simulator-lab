@@ -73,8 +73,8 @@ public class AirportSim implements Engine {
         //System.out.println(fel.toString());
         while(!stop){
             fel.getImminent().planificate(fel,servers);
-            //System.out.println("\nexecute in AirportSim: showing fel in every planificate step: \n");
-            //System.out.println(fel.toString());
+            System.out.println("\nexecute in AirportSim: showing fel in every planificate step: \n");
+            System.out.println(fel.toString());
         }
     }
 
@@ -99,7 +99,7 @@ public class AirportSim implements Engine {
         * Tamaño máximo de la cola de espera para este servidor.
          */
 
-        Statistics stats = new Statistics(servers);
+        Statistics stats = new Statistics(servers, stopTime);
         stats.collectStatistics(servers);
         stats.showReport();
 
