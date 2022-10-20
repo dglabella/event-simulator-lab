@@ -93,17 +93,14 @@ public class Statistics {
             totalQueueWaitTimePerServer[i] = servers.get(i).getTotalQueueTime();
             maxQueueWaitTimePerServer[i] = servers.get(i).getMaxQueueTime();
             medQueueWaitTimePerServer[i] = (totalQueueWaitTimePerServer[i] / aircraftAttendedPerServer[i]);
-            maxQueueSizePerServer[i] = servers.get(i).getMaxQueue();
-
-            finalDurabilityPerServer[i] = ((Airstrip)servers.get(i)).getDurability();
-
             totalServiceTimePerServer[i] = servers.get(i).getTotalServiceTime();
             maxServiceTimePerServer[i] = servers.get(i).getMaxServiceTime();
             medServiceTimePerServer[i] = (servers.get(i).getTotalServiceTime() / aircraftAttendedPerServer[i]);
 
             totalIdleTimePerServer[i] = servers.get(i).getIdleTotalTime();
             maxIdleTimePerServer[i] = servers.get(i).getMaxIdleTime();
-
+            maxQueueSizePerServer[i] = servers.get(i).getMaxQueue();
+            finalDurabilityPerServer[i] = ((Airstrip)servers.get(i)).getDurability();
 
             coladelserver[i] = servers.get(i).getMinCurrentQueueSize();
 
@@ -133,16 +130,13 @@ public class Statistics {
             System.out.println("Tiempo Total de transito total del servidor: " + totalServiceTimePerServer[i]);
             System.out.println("Tiempo Medio de transito medio del servidor: " + medServiceTimePerServer[i]);
             System.out.println("Tiempo Maximo de transito maximo del servidor: " + maxServiceTimePerServer[i]);
-
-
-
             System.out.println("Tiempo Total de ocio del servidor: " + totalIdleTimePerServer[i]);
             System.out.println("Porcentaje respecto del tiempo de simulacion: " + String.format("%.2f",((totalIdleTimePerServer[i] * 100) / stopTime)) + "%");
             System.out.println("Tiempo Maximo de ocio delservidor: " + maxIdleTimePerServer[i]);
             System.out.println("Porcentaje respecto del tiempo de simulacion: " + String.format("%.2f",((maxIdleTimePerServer[i] * 100) / stopTime)) + "%");
-
-
             System.out.println("Tamaño Maximo de la cola de espera del servidor: " + maxQueueSizePerServer[i]);
+            System.out.println("Durabilidad del suelo restante del servidor: " + finalDurabilityPerServer[i]);
+
 
             System.out.println("Tamaño de cola actual del servidor: " + coladelserver[i]);
 
