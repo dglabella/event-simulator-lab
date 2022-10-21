@@ -117,4 +117,19 @@ public class Utils {
         }
         return server;
     }
+
+    public static int verTipoServer(Server server){
+        if(server instanceof LightAirstrip){
+            return 1;
+        }
+        else if(server instanceof MediumAirstrip){
+            return 2;
+        }
+        else if(server instanceof HeavyAirstrip){
+            return 3;
+        }
+        else{
+            return 0;
+        }
+    }
 }

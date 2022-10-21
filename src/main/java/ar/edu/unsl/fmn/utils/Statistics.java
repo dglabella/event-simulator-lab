@@ -8,6 +8,9 @@ import java.util.List;
 public class Statistics {
 
     private int totalAircraftAttended;
+    private int totalLightAircraftAttended;
+    private int totalMediumAircraftAttended;
+    private int totalHeavyAircraftAttended;
 
     private int aircraftAttendedPerServer[];
 
@@ -36,6 +39,7 @@ public class Statistics {
     public Statistics(List<Server> servers, double stopTime){
         totalServers = servers.size();
         this.stopTime = stopTime;
+
         aircraftAttendedPerServer = new int[totalServers];
         totalQueueWaitTimePerServer = new double[totalServers];
         maxQueueWaitTimePerServer = new double[totalServers];
@@ -57,6 +61,9 @@ public class Statistics {
 
 
         totalAircraftAttended = 0;
+        totalLightAircraftAttended = 0;
+        totalMediumAircraftAttended = 0;
+        totalHeavyAircraftAttended = 0;
         for (int i = 0; i<totalServers;i++){
             aircraftAttendedPerServer[i] = 0;
             totalQueueWaitTimePerServer[i] = 0;
@@ -69,7 +76,6 @@ public class Statistics {
             maxIdleTimePerServer[i] = 0;
             maxQueueSizePerServer[i] = 0;
 
-
             finalDurabilityPerServer[i] = 0;
             coladelserver[i] = 0;
         }
@@ -78,9 +84,7 @@ public class Statistics {
 
 
     public void collectStatistics(List<Server> servers){
-
-
-
+        int tipoAirstrip = 0;
         for(int i=0;i<totalServers;i++){
 
             if(!(servers.get(i).isBusy())){
@@ -88,17 +92,46 @@ public class Statistics {
             }
 
             aircraftAttendedPerServer[i] = servers.get(i).getEntityAttended();
-
-            if(!(i == totalServers-1)){
-                totalAircraftAttended += aircraftAttendedPerServer[i];
+            tipoAirstrip = Utils.verTipoServer(servers.get(i));
+            switch (tipoAirstrip){
+                case 1:
+                    totalLightAircraftAttended += aircraftAttendedPerServer[i];
+                    break;
+                case 2:
+                    totalMediumAircraftAttended += aircraftAttendedPerServer[i];
+                    break;
+                case 3:
+                    totalHeavyAircraftAttended += aircraftAttendedPerServer[i];
+                    break;
+                default:
+                    break;
             }
+
+            totalAircraftAttended += aircraftAttendedPerServer[i];
+
+            /*if(!(i == totalServers-1)){ //esta linea no contabiliza las entidades atendidas por la pista auxiliar
+            //no le veo sentido a que exista, consultar si se deben contabilizar o no los atendidos por la auxiliar
+                totalAircraftAttended += aircraftAttendedPerServer[i];
+            }*/
 
             totalQueueWaitTimePerServer[i] = servers.get(i).getTotalQueueTime();
             maxQueueWaitTimePerServer[i] = servers.get(i).getMaxQueueTime();
-            medQueueWaitTimePerServer[i] = (totalQueueWaitTimePerServer[i] / aircraftAttendedPerServer[i]);
+            if(aircraftAttendedPerServer[i] ==0){
+                medQueueWaitTimePerServer[i] = 0;
+            }
+            else{
+                medQueueWaitTimePerServer[i] = (totalQueueWaitTimePerServer[i] / aircraftAttendedPerServer[i]);
+            }
+            //medQueueWaitTimePerServer[i] = (totalQueueWaitTimePerServer[i] / aircraftAttendedPerServer[i]);
             totalServiceTimePerServer[i] = servers.get(i).getTotalServiceTime();
             maxServiceTimePerServer[i] = servers.get(i).getMaxServiceTime();
-            medServiceTimePerServer[i] = (servers.get(i).getTotalServiceTime() / aircraftAttendedPerServer[i]);
+            if(aircraftAttendedPerServer[i] ==0){
+                medServiceTimePerServer[i] = 0;
+            }
+            else{
+                medServiceTimePerServer[i] = (servers.get(i).getTotalServiceTime() / aircraftAttendedPerServer[i]);
+            }
+            //medServiceTimePerServer[i] = (servers.get(i).getTotalServiceTime() / aircraftAttendedPerServer[i]);
 
             totalIdleTimePerServer[i] = servers.get(i).getIdleTotalTime();
             maxIdleTimePerServer[i] = servers.get(i).getMaxIdleTime();
@@ -107,12 +140,8 @@ public class Statistics {
 
             coladelserver[i] = servers.get(i).getMinCurrentQueueSize();
 
-
-
-
             //System.out.println(servers.get(i).toString());
             //System.out.println("\n");
-
         }
 
 
@@ -123,6 +152,9 @@ public class Statistics {
 
     public void showReport(){
         System.out.println("Total de Entidades atendidas: " + totalAircraftAttended);
+        System.out.println("Total de Entidades Livianas: " + totalLightAircraftAttended);
+        System.out.println("Total de Entidades Medianas: " + totalMediumAircraftAttended);
+        System.out.println("Total de Entidades Pesadas: " + totalHeavyAircraftAttended);
         System.out.println("\n\n\n");
         for (int i=0;i<totalServers;i++){
 
