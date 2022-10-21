@@ -49,6 +49,8 @@ public abstract class Server {
         this.totalServiceTime=0;
         this.maxServiceTime=0;
         this.maxIdleTime=0;
+        this.idleStartTime=0;
+        this.idleTotalTime = 0;
     }
 
     public int getId() {

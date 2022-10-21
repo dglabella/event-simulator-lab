@@ -83,12 +83,15 @@ public class Statistics {
 
         for(int i=0;i<totalServers;i++){
 
+            if(!(servers.get(i).isBusy())){
+                servers.get(i).endIdle(stopTime);//Para terminar el idle de los servidores que entraron en idle
+            }
+
             aircraftAttendedPerServer[i] = servers.get(i).getEntityAttended();
 
             if(!(i == totalServers-1)){
                 totalAircraftAttended += aircraftAttendedPerServer[i];
             }
-
 
             totalQueueWaitTimePerServer[i] = servers.get(i).getTotalQueueTime();
             maxQueueWaitTimePerServer[i] = servers.get(i).getMaxQueueTime();
@@ -103,6 +106,9 @@ public class Statistics {
             finalDurabilityPerServer[i] = ((Airstrip)servers.get(i)).getDurability();
 
             coladelserver[i] = servers.get(i).getMinCurrentQueueSize();
+
+
+
 
             //System.out.println(servers.get(i).toString());
             //System.out.println("\n");
