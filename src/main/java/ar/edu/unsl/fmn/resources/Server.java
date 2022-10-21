@@ -1,5 +1,6 @@
 package ar.edu.unsl.fmn.resources;
 
+import java.util.Iterator;
 import java.util.List;
 import ar.edu.unsl.fmn.entities.Entity;
 import ar.edu.unsl.fmn.entities.Maintenance;

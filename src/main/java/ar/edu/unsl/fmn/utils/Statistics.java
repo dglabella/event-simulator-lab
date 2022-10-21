@@ -104,8 +104,8 @@ public class Statistics {
 
             coladelserver[i] = servers.get(i).getMinCurrentQueueSize();
 
-            System.out.println(servers.get(i).toString());
-            System.out.println("\n");
+            //System.out.println(servers.get(i).toString());
+            //System.out.println("\n");
 
         }
 

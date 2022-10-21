@@ -24,10 +24,13 @@
   <component name="ChangeListManager">
     <list default="true" id="6503c0a6-a548-460d-9a4f-cf44e089aacc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/behaviors/ArrivalBehavior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/behaviors/ArrivalBehavior.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/engine/AirportSim.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/engine/AirportSim.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/events/Arrival.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/events/Arrival.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/events/EndOfService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/events/EndOfService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/resources/CustomQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/resources/CustomQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/resources/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/resources/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/utils/Statistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/utils/Statistics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/utils/Utils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +135,7 @@
       <workItem from="1666036048800" duration="740000" />
       <workItem from="1666087788939" duration="3774000" />
       <workItem from="1666218675100" duration="3995000" />
-      <workItem from="1666283530565" duration="5051000" />
+      <workItem from="1666283530565" duration="14768000" />
     </task>
     <servers />
   </component>
@@ -165,12 +168,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/resources/CustomQueue.java</url>
-          <line>64</line>
+          <line>62</line>
           <option name="timeStamp" value="88" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/resources/Server.java</url>
-          <line>212</line>
+          <line>213</line>
           <option name="timeStamp" value="89" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

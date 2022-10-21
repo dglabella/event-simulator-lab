@@ -69,29 +69,36 @@ public class Utils {
             instance = 3;
         }
 
+        Maintenance maintenance = new Maintenance();
         for(int i=0;i<servers.size() - 1;i++){//-1 por la pista auxiliar
-            if(!(servers.get(i).checkForActivity(new Maintenance()))){
-                switch (instance){
-                    case 1:
-                        if(servers.get(i) instanceof LightAirstrip){
+            switch (instance){
+                case 1:
+                    if(servers.get(i) instanceof LightAirstrip){
+                        if(!(servers.get(i).checkForActivity(maintenance))){
                             filteredservers.add(servers.get(i));
                         }
-                        break;
-                    case 2:
-                        if(servers.get(i) instanceof MediumAirstrip){
+                    }
+                    break;
+                case 2:
+                    if(servers.get(i) instanceof MediumAirstrip){
+                        if(!(servers.get(i).checkForActivity(maintenance))){
                             filteredservers.add(servers.get(i));
                         }
-                        break;
-                    case 3:
-                        if(servers.get(i) instanceof HeavyAirstrip){
+                    }
+                    break;
+                case 3:
+                    if(servers.get(i) instanceof HeavyAirstrip){
+                        if(!(servers.get(i).checkForActivity(maintenance))){
                             filteredservers.add(servers.get(i));
                         }
-                        break;
-                    default:
-                        System.out.println("No deberia entrar a este default, MultiplEserVErSelectionPolicy, puede ser pq no le digo que tipo de entity es a la fel");
+                    }
+                    break;
+                default:
+                    if(!(servers.get(i).checkForActivity(maintenance))){
+                        System.out.println("No deberia entrar a este default, Utils, puede ser pq no le digo que tipo de entity es a la fel");
                         System.exit(0);
-                        break;
-                }
+                    }
+                    break;
             }
         }
         if (filteredservers.size() == 0){

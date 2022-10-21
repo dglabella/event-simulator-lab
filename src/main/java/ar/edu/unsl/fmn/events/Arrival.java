@@ -80,12 +80,8 @@ public class Arrival extends Event {
                 aircraft = new Aircraft(this.getEntity().getId() +1);
                 break;
         }
-
-
-        //Aircraft aircraft = new Aircraft(this.getEntity().getId() +1);
         Arrival arrival = new Arrival(this.getClock() + this.getBehavior().nextTime(aircraft,this.getClock()),aircraft,this.getBehavior(),endOfServiceBehavior,policy);
         aircraft.getEvents().add(arrival);
-        //aircraft.setServer(this.policy.selectServer(servers, aircraft));
 
         fel.insert(arrival);
         //Colleccionar datos

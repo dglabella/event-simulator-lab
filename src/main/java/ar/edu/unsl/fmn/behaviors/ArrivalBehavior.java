@@ -25,7 +25,6 @@ public class ArrivalBehavior implements Behavior {
     public double nextTime(Entity entity, double clock) {
         Exponential exp;
         Normal norm;
-        CustomRandomizer rand = new CustomRandomizer();
         if (LightAircraft.class.equals(entity.getClass())) {
             if(Utils.esHoraPico(clock)){
                 exp = new Exponential(20d);
@@ -33,7 +32,7 @@ public class ArrivalBehavior implements Behavior {
             else{
                 exp = new Exponential(40d);
             }
-            return exp.event(rand.nextRandom());
+            return exp.event(this.randomizer.nextRandom());
         } else if (MediumAircraft.class.equals(entity.getClass())) {
             if(Utils.esHoraPico(clock)){
                 exp = new Exponential(15d);
@@ -41,18 +40,21 @@ public class ArrivalBehavior implements Behavior {
             else{
                 exp = new Exponential(30d);
             }
-            return exp.event(rand.nextRandom());
+            return exp.event(this.randomizer.nextRandom());
         } else if (HeavyAircraft.class.equals(entity.getClass())) {
             if(Utils.esHoraPico(clock)){
-                norm = new Normal(30d,Math.pow(2d,2d));
+                norm = new Normal(30d,Math.pow(2d,2d),this.randomizer);
             }
             else{
-                norm = new Normal(60d,Math.pow(2d,2d));
+                norm = new Normal(60d,Math.pow(2d,2d),this.randomizer);
             }
             return norm.event();
         } else if (Maintenance.class.equals(entity.getClass())){
-            norm = new Normal(5,Math.pow(0.5,2));
-            return norm.event() * 1440d;
+            norm = new Normal(5,Math.pow(0.5,2),this.randomizer);
+            double tarda = norm.event() * 1440d;
+            //return norm.event() * 1440d;
+            System.out.println("EL MANTENIMIENTO VA A TARDAR: " + tarda);
+            return tarda;
         }
         else{
             return this.distribution.event(this.randomizer.nextRandom());

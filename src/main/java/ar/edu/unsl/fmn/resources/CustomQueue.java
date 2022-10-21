@@ -1,11 +1,9 @@
 package ar.edu.unsl.fmn.resources;
 
 import ar.edu.unsl.fmn.entities.Entity;
+import ar.edu.unsl.fmn.entities.Maintenance;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class CustomQueue implements Queue {
 
@@ -75,7 +73,16 @@ public class CustomQueue implements Queue {
 
     @Override
     public boolean checkForEntity(Entity entity){
-        return this.queue.contains(entity);
+        boolean res = false;
+        Iterator<Entity> it = this.queue.iterator();
+        Entity entityit;
+        while(it.hasNext()){
+            entityit = it.next();
+            if (entityit instanceof Maintenance){
+                res = true;
+            }
+        }
+        return res;
     }
 
 }
