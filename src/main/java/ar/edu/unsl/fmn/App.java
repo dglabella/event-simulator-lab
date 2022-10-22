@@ -21,7 +21,7 @@ import java.util.Random;
 public class App {
 
     private static final double SIMULATION_LENGHT = 40320d;
-    // private static final double SIMULATION_LENGHT = 100d;
+    //private static final double SIMULATION_LENGHT = 24*60;
 
     public static void main(String[] args) {
         //Liviana: Exp 40

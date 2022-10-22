@@ -22,7 +22,7 @@ public class Maintenance extends Entity{
 
     @Override
     public boolean equals(Object obj) {
-        return obj.getClass().getName() == "Maintenance"; //Ver que devuelva bien
+        return obj.getClass().getName().equals("Maintenance") || obj.getClass().getName().equals("ar.edu.unsl.fmn.entities.Maintenance");
     }
 
     @Override

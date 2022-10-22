@@ -24,8 +24,11 @@ public class EndOfService extends Event {
     public void planificate(FutureEventList fel, List<Server> servers) {
         Server server = this.getEntity().getServer();
         Entity entity;
-        //ESTA LINEA LA COMENTE XQ TIRABA NPE, REVISAR PQ
         server.addEntityAttended();
+
+        this.getEntity().getServer().addTotalServiceTime(this.getClock() - this.getEntity().getEvents().get(0).getClock());
+        this.getEntity().getServer().compareMaxServiceTime(this.getClock() - this.getEntity().getEvents().get(0).getClock());
+
 
 
         //System.out.println(this.getEntity().toString());
@@ -52,13 +55,15 @@ public class EndOfService extends Event {
                     tickEoS,
                     entity,
                     this.getBehavior()));
-            //calculo tiempo de cola
+            /**
+             * Calculo tiempo de cola
+             */
             entity.calculateQueuedTime(this.getClock());
             entity.getServer().addTotalQueueTime(entity.getQueuedTime());
             entity.getServer().compareMaxQueueTime(entity.getQueuedTime());
-            //calculo tiempo de servicio
-            entity.getServer().addTotalServiceTime(tickEoS - entity.getEvents().get(0).getClock());
-            entity.getServer().compareMaxServiceTime(tickEoS - entity.getEvents().get(0).getClock());
+            //calculo tiempo de servicio ESTO VA ARRIBA
+            //entity.getServer().addTotalServiceTime(tickEoS - entity.getEvents().get(0).getClock());
+            //entity.getServer().compareMaxServiceTime(tickEoS - entity.getEvents().get(0).getClock());
         }
         else{
             //REVISAR SI FALTA ALGO, IDLE TIME?

@@ -105,6 +105,12 @@ public class Utils {
             server = servers.get(servers.size() - 1); //esta va a ser la pista de mantenimiento
         }
         else{
+            for (int i=0;i<filteredservers.size();i++){
+                if(!(filteredservers.get(i).isBusy())){
+                    return filteredservers.get(i);
+                }
+            }
+
             int minQueue = filteredservers.get(0).getMinCurrentQueueSize();
             int currentServerWithMinQueue = 0;
             for (int i=1;i<filteredservers.size();i++){

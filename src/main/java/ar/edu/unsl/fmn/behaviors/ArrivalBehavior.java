@@ -51,10 +51,7 @@ public class ArrivalBehavior implements Behavior {
             return norm.event();
         } else if (Maintenance.class.equals(entity.getClass())){
             norm = new Normal(5,Math.pow(0.5,2),this.randomizer);
-            double tarda = norm.event() * 1440d;
-            //return norm.event() * 1440d;
-            System.out.println("EL MANTENIMIENTO VA A TARDAR: " + tarda);
-            return tarda;
+            return norm.event() * 1440d;
         }
         else{
             return this.distribution.event(this.randomizer.nextRandom());

@@ -217,11 +217,16 @@ public abstract class Server {
     }
 
     public boolean checkForActivity(Entity entity){
-        boolean res = false;
-        for(int i=0; i<this.queues.size();i++){
-            res = res || this.queues.get(i).checkForEntity(entity);
+        if((this.getCurrentEntity() != null) && (this.getCurrentEntity().equals(entity))){
+            return true;
         }
-        return res;
+        else{
+            boolean res = false;
+            for(int i=0; i<this.queues.size();i++){
+                res = res || this.queues.get(i).checkForEntity(entity);
+            }
+            return res;
+        }
     }
 
     @Override

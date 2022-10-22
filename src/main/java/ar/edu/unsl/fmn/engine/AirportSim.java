@@ -57,7 +57,6 @@ public class AirportSim implements Engine {
                 new ArrivalBehavior(randomizer),
                 new EndOfServiceBehavior(randomizer),
                 policy);
-
         entity1.getEvents().add(arrival1);
         entity2.getEvents().add(arrival2);
         entity3.getEvents().add(arrival3);
