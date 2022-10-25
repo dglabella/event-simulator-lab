@@ -24,17 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6503c0a6-a548-460d-9a4f-cf44e089aacc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/behaviors/ArrivalBehavior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/behaviors/ArrivalBehavior.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/behaviors/EndOfServiceBehavior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/behaviors/EndOfServiceBehavior.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/engine/AirportSim.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/engine/AirportSim.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/entities/Maintenance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/entities/Maintenance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/events/Arrival.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/events/Arrival.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/events/EndOfService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/events/EndOfService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/resources/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/resources/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/utils/ScenarioBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/utils/ScenarioBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/utils/Statistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/utils/Statistics.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/utils/Utils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,19 +53,19 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -136,6 +126,7 @@
       <workItem from="1666218675100" duration="3995000" />
       <workItem from="1666283530565" duration="15441000" />
       <workItem from="1666369638126" duration="1701000" />
+      <workItem from="1666722736577" duration="490000" />
     </task>
     <servers />
   </component>
@@ -155,22 +146,38 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1323" height="516" key="GridCell.Tab.0.bottom" timestamp="1666391032935">
+    <state width="1323" height="223" key="GridCell.Tab.0.bottom" timestamp="1666479481584">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="516" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1666391032935" />
-    <state width="1323" height="516" key="GridCell.Tab.0.center" timestamp="1666391032935">
+    <state width="1323" height="223" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1666479481584" />
+    <state width="1323" height="223" key="GridCell.Tab.0.center" timestamp="1666479481583">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="516" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1666391032935" />
-    <state width="1323" height="516" key="GridCell.Tab.0.left" timestamp="1666391032934">
+    <state width="1323" height="223" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1666479481583" />
+    <state width="1323" height="223" key="GridCell.Tab.0.left" timestamp="1666479481583">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="516" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1666391032934" />
-    <state width="1323" height="516" key="GridCell.Tab.0.right" timestamp="1666391032935">
+    <state width="1323" height="223" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1666479481583" />
+    <state width="1323" height="223" key="GridCell.Tab.0.right" timestamp="1666479481584">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="516" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1666391032935" />
+    <state width="1323" height="223" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1666479481584" />
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1666479481584">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1666479481584" />
+    <state width="1323" height="223" key="GridCell.Tab.1.center" timestamp="1666479481584">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1666479481584" />
+    <state width="1323" height="223" key="GridCell.Tab.1.left" timestamp="1666479481584">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1666479481584" />
+    <state width="1323" height="223" key="GridCell.Tab.1.right" timestamp="1666479481584">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1666479481584" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1666381023294">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -196,7 +203,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ar/edu/unsl/fmn/resources/Server.java</url>
-          <line>215</line>
+          <line>214</line>
           <option name="timeStamp" value="89" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

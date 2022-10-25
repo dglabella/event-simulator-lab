@@ -31,10 +31,6 @@ public abstract class Server {
 
     private double maxIdleTime;
 
-    /*
-    * Estos de queue time, deberian estar sobre la cola y no sobre el server, cierto?
-    */
-
     public Server() {
 
     }
