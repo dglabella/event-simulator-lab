@@ -83,11 +83,15 @@ public class AirportSim implements Engine {
     }
 
     @Override
-    public void generateReport() {
+    public void generateReport(Statistics statistics) {
         System.out.println(fel.toString());
+        statistics.showReport();
+    }
 
-        Statistics stats = new Statistics(servers, stopTime);
-        stats.collectStatistics(servers);
-        stats.showReport();
+    @Override
+    public Statistics getStatistics() {
+        Statistics statistics = new Statistics(servers, stopTime);
+        statistics.collectStatistics(servers);
+        return statistics;
     }
 }
