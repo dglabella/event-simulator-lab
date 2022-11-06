@@ -26,22 +26,22 @@ public class App {
 
     public static void main(String[] args) {
 
-        Statistics stats;
+        /*Statistics stats;
 
         Engine engine = new AirportSim( SIMULATION_LENGHT, ScenarioBuilder.MultipleServersOneQueuePerServer(),
                 new MultipleServerSelectionPolicy(), new CustomRandomizer());
         engine.execute();
         stats = engine.getStatistics();
-        engine.generateReport(stats);
+        engine.generateReport(stats);*/
 
-        /*Statistics[] stats = new Statistics[SIMULATION_RUNS];
+        Statistics[] stats = new Statistics[SIMULATION_RUNS];
         for(int i=0;i<SIMULATION_RUNS;i++){
             Engine engine = new AirportSim( SIMULATION_LENGHT, ScenarioBuilder.MultipleServersOneQueuePerServer(),
                     new MultipleServerSelectionPolicy(), new CustomRandomizer());
             engine.execute();
             stats[i] = engine.getStatistics();
             engine.generateReport(stats[i]);
-        }*/
+        }
 
         /**
          * Hacer algo con estas stats[i]
