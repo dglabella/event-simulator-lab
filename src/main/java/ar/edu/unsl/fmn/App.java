@@ -11,6 +11,7 @@ import ar.edu.unsl.fmn.resources.CustomQueue;
 import ar.edu.unsl.fmn.resources.Queue;
 import ar.edu.unsl.fmn.resources.Server;
 import ar.edu.unsl.fmn.utils.CustomRandomizer;
+import ar.edu.unsl.fmn.utils.DataAnalysis;
 import ar.edu.unsl.fmn.utils.ScenarioBuilder;
 import ar.edu.unsl.fmn.utils.Statistics;
 import ar.edu.unsl.fmn.utils.distributions.Exponential;
@@ -42,6 +43,8 @@ public class App {
             stats[i] = engine.getStatistics();
             engine.generateReport(stats[i]);
         }
+
+        DataAnalysis analysis = new DataAnalysis(stats);
 
         /**
          * Hacer algo con estas stats[i]
