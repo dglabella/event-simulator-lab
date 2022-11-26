@@ -279,4 +279,204 @@ public class Statistics {
 
         }
     }
+
+    public int getTotalAircraftAttended() {
+        return totalAircraftAttended;
+    }
+
+    public void setTotalAircraftAttended(int totalAircraftAttended) {
+        this.totalAircraftAttended = totalAircraftAttended;
+    }
+
+    public int getTotalLightAircraftAttended() {
+        return totalLightAircraftAttended;
+    }
+
+    public void setTotalLightAircraftAttended(int totalLightAircraftAttended) {
+        this.totalLightAircraftAttended = totalLightAircraftAttended;
+    }
+
+    public int getTotalMediumAircraftAttended() {
+        return totalMediumAircraftAttended;
+    }
+
+    public void setTotalMediumAircraftAttended(int totalMediumAircraftAttended) {
+        this.totalMediumAircraftAttended = totalMediumAircraftAttended;
+    }
+
+    public int getTotalHeavyAircraftAttended() {
+        return totalHeavyAircraftAttended;
+    }
+
+    public void setTotalHeavyAircraftAttended(int totalHeavyAircraftAttended) {
+        this.totalHeavyAircraftAttended = totalHeavyAircraftAttended;
+    }
+
+    public int[] getAircraftAttendedPerServer() {
+        return aircraftAttendedPerServer;
+    }
+
+    public void setAircraftAttendedPerServer(int[] aircraftAttendedPerServer) {
+        this.aircraftAttendedPerServer = aircraftAttendedPerServer;
+    }
+
+    public double[] getTotalQueueTimePerAircraft() {
+        return totalQueueTimePerAircraft;
+    }
+
+    public void setTotalQueueTimePerAircraft(double[] totalQueueTimePerAircraft) {
+        this.totalQueueTimePerAircraft = totalQueueTimePerAircraft;
+    }
+
+    public double[] getMedQueueTimePerAircraft() {
+        return medQueueTimePerAircraft;
+    }
+
+    public void setMedQueueTimePerAircraft(double[] medQueueTimePerAircraft) {
+        this.medQueueTimePerAircraft = medQueueTimePerAircraft;
+    }
+
+    public double[] getMaxQueueTimePerAircraft() {
+        return maxQueueTimePerAircraft;
+    }
+
+    public void setMaxQueueTimePerAircraft(double[] maxQueueTimePerAircraft) {
+        this.maxQueueTimePerAircraft = maxQueueTimePerAircraft;
+    }
+
+    public double[] getTotalServiceTimePerAircraft() {
+        return totalServiceTimePerAircraft;
+    }
+
+    public void setTotalServiceTimePerAircraft(double[] totalServiceTimePerAircraft) {
+        this.totalServiceTimePerAircraft = totalServiceTimePerAircraft;
+    }
+
+    public double[] getMedServiceTimePerAircraft() {
+        return medServiceTimePerAircraft;
+    }
+
+    public void setMedServiceTimePerAircraft(double[] medServiceTimePerAircraft) {
+        this.medServiceTimePerAircraft = medServiceTimePerAircraft;
+    }
+
+    public double[] getMaxServiceTimePerAircraft() {
+        return maxServiceTimePerAircraft;
+    }
+
+    public void setMaxServiceTimePerAircraft(double[] maxServiceTimePerAircraft) {
+        this.maxServiceTimePerAircraft = maxServiceTimePerAircraft;
+    }
+
+    public double[] getTotalQueueWaitTimePerServer() {
+        return totalQueueWaitTimePerServer;
+    }
+
+    public void setTotalQueueWaitTimePerServer(double[] totalQueueWaitTimePerServer) {
+        this.totalQueueWaitTimePerServer = totalQueueWaitTimePerServer;
+    }
+
+    public double[] getMaxQueueWaitTimePerServer() {
+        return maxQueueWaitTimePerServer;
+    }
+
+    public void setMaxQueueWaitTimePerServer(double[] maxQueueWaitTimePerServer) {
+        this.maxQueueWaitTimePerServer = maxQueueWaitTimePerServer;
+    }
+
+    public double[] getMedQueueWaitTimePerServer() {
+        return medQueueWaitTimePerServer;
+    }
+
+    public void setMedQueueWaitTimePerServer(double[] medQueueWaitTimePerServer) {
+        this.medQueueWaitTimePerServer = medQueueWaitTimePerServer;
+    }
+
+    public double[] getTotalServiceTimePerServer() {
+        return totalServiceTimePerServer;
+    }
+
+    public void setTotalServiceTimePerServer(double[] totalServiceTimePerServer) {
+        this.totalServiceTimePerServer = totalServiceTimePerServer;
+    }
+
+    public double[] getMaxServiceTimePerServer() {
+        return maxServiceTimePerServer;
+    }
+
+    public void setMaxServiceTimePerServer(double[] maxServiceTimePerServer) {
+        this.maxServiceTimePerServer = maxServiceTimePerServer;
+    }
+
+    public double[] getMedServiceTimePerServer() {
+        return medServiceTimePerServer;
+    }
+
+    public void setMedServiceTimePerServer(double[] medServiceTimePerServer) {
+        this.medServiceTimePerServer = medServiceTimePerServer;
+    }
+
+    public double[] getTotalIdleTimePerServer() {
+        return totalIdleTimePerServer;
+    }
+
+    public void setTotalIdleTimePerServer(double[] totalIdleTimePerServer) {
+        this.totalIdleTimePerServer = totalIdleTimePerServer;
+    }
+
+    public double[] getMaxIdleTimePerServer() {
+        return maxIdleTimePerServer;
+    }
+
+    public void setMaxIdleTimePerServer(double[] maxIdleTimePerServer) {
+        this.maxIdleTimePerServer = maxIdleTimePerServer;
+    }
+
+    public double[] getFinalDurabilityPerServer() {
+        return finalDurabilityPerServer;
+    }
+
+    public void setFinalDurabilityPerServer(double[] finalDurabilityPerServer) {
+        this.finalDurabilityPerServer = finalDurabilityPerServer;
+    }
+
+    public double[] getMaxQueueSizePerServer() {
+        return maxQueueSizePerServer;
+    }
+
+    public void setMaxQueueSizePerServer(double[] maxQueueSizePerServer) {
+        this.maxQueueSizePerServer = maxQueueSizePerServer;
+    }
+
+    public int getTotalServers() {
+        return totalServers;
+    }
+
+    public void setTotalServers(int totalServers) {
+        this.totalServers = totalServers;
+    }
+
+    public double getStopTime() {
+        return stopTime;
+    }
+
+    public void setStopTime(double stopTime) {
+        this.stopTime = stopTime;
+    }
+
+    public double getPercentageTotalIdleTime() {
+        return percentageTotalIdleTime;
+    }
+
+    public void setPercentageTotalIdleTime(double percentageTotalIdleTime) {
+        this.percentageTotalIdleTime = percentageTotalIdleTime;
+    }
+
+    public double getPercentageMaxIdleTime() {
+        return percentageMaxIdleTime;
+    }
+
+    public void setPercentageMaxIdleTime(double percentageMaxIdleTime) {
+        this.percentageMaxIdleTime = percentageMaxIdleTime;
+    }
 }
