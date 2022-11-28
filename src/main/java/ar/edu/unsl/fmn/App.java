@@ -41,7 +41,7 @@ public class App {
                     new MultipleServerSelectionPolicy(), new CustomRandomizer());
             engine.execute();
             stats[i] = engine.getStatistics();
-            engine.generateReport(stats[i]);
+            //engine.generateReport(stats[i]);
         }
 
         DataAnalysis analysis = new DataAnalysis(stats);
