@@ -278,30 +278,18 @@ public class DataAnalysis {
         /*Servers*/
         for(int j=0;j<totalServers;j++){
             meanOfMeansAircraftAttendedPerServer[j] = estimateMedForIntegerMatrix(samplesAircraftAttendedPerServer,n,j);
-            private double samplesTotalQueueWaitTimePerServer[][];
-            private double meanOfMeansTotalQueueWaitTimePerServer[];
-            private double samplesMedQueueWaitTimePerServer[][];
-            private double meanOfMeansMedQueueWaitTimePerServer[];
-            private double samplesMaxQueueWaitTimePerServer[][];
-            private double meanOfMeansMaxQueueWaitTimePerServer[];
-            private double samplesTotalServiceWaitTimePerServer[][];
-            private double meanOfMeansTotalServiceWaitTimePerServer[];
-            private double samplesMedServiceWaitTimePerServer[][];
-            private double meanOfMeansMedServiceWaitTimePerServer[];
-            private double samplesMaxServiceWaitTimePerServer[][];
-            private double meanOfMeansMaxServiceWaitTimePerServer[];
-            private double samplesTotalIdleTimePerServer[][];
-            private double meanOfMeansTotalIdleTimePerServer[];
-            private double samplesPercentageTotalIdleTimePerServer[][];
-            private double meanOfMeansPercentageTotalIdleTimePerServer[];
-            private double samplesMaxIdleTimePerServer[][];
-            private double meanOfMeansMaxIdleTimePerServer[];
-            private double samplesPercentageMaxIdleTimePerServer[][];
-            private double meanOfMeansPercentageMaxIdleTimePerServer[];
-            private double samplesMaxQueueSizePerServer[][];
-            private double meanOfMeansMaxQueueSizePerServer[];
-            private double samplesFinalDurabilityPerServer[][];
-            private double meanOfMeansFinalDurabilityPerServer[];
+            meanOfMeansTotalQueueWaitTimePerServer[j] = estimateMedForDoubleMatrix(samplesTotalQueueWaitTimePerServer,n,j);
+            meanOfMeansMedQueueWaitTimePerServer[j] = estimateMedForDoubleMatrix(samplesMedQueueWaitTimePerServer,n,j);
+            meanOfMeansMaxQueueWaitTimePerServer[j] = estimateMedForDoubleMatrix(samplesMaxQueueWaitTimePerServer,n,j);
+            meanOfMeansTotalServiceTimePerServer[j] = estimateMedForDoubleMatrix(samplesTotalServiceTimePerServer,n,j);
+            meanOfMeansMedServiceTimePerServer[j] = estimateMedForDoubleMatrix(samplesMedServiceTimePerServer,n,j);
+            meanOfMeansMaxServiceTimePerServer[j] = estimateMedForDoubleMatrix(samplesMaxServiceTimePerServer,n,j);
+            meanOfMeansTotalIdleTimePerServer[j] = estimateMedForDoubleMatrix(samplesTotalIdleTimePerServer,n,j);
+            meanOfMeansPercentageTotalIdleTimePerServer[j] = estimateMedForDoubleMatrix(samplesPercentageTotalIdleTimePerServer,n,j);
+            meanOfMeansMaxIdleTimePerServer[j] = estimateMedForDoubleMatrix(samplesMaxIdleTimePerServer,n,j);
+            meanOfMeansPercentageMaxIdleTimePerServer[j] = estimateMedForDoubleMatrix(samplesPercentageMaxIdleTimePerServer,n,j);
+            meanOfMeansMaxQueueSizePerServer[j] = estimateMedForDoubleMatrix(samplesMaxQueueSizePerServer,n,j);
+            meanOfMeansFinalDurabilityPerServer[j] = estimateMedForDoubleMatrix(samplesFinalDurabilityPerServer,n,j);
         }
 
     }
@@ -345,6 +333,19 @@ public class DataAnalysis {
         }
     }
 
+    private double estimateMedForDoubleMatrix(double[][] data,int length,int server){
+        double res = 0;
+        for(int i=0;i<length;i++){
+            res += data[i][server];
+        }
+        if(res==0){
+            return 0;
+        }
+        else{
+            return res/data.length;
+        }
+    }
+
     private double estimateStdDevSampleForIntegers(int[] data, double med){
         double res = 0;
         for(int i=0;i<data.length;i++){
@@ -362,6 +363,14 @@ public class DataAnalysis {
     }
 
     private double estimateStdDevSampleForIntegerMatrix(int[][] data,double med,int length,int server){
+        double res = 0;
+        for(int i=0;i<length;i++){
+            res += Math.pow(data[i][server] - med,2);
+        }
+        return(Math.sqrt(res / (data.length-1)));
+    }
+
+    private double estimateStdDevSampleForDoubleMatrix(double[][] data,double med,int length,int server){
         double res = 0;
         for(int i=0;i<length;i++){
             res += Math.pow(data[i][server] - med,2);
@@ -483,67 +492,63 @@ public class DataAnalysis {
 
         System.out.println("\n\n\n");
         for(int j=0;j<totalServers;j++){
+            System.out.println("\n");
             System.out.println("Estadisticas servidor: " + j);
 
             System.out.println("Entidades atendidas en el servidor:");
             System.out.println("(" +
                     intervalLeft(meanOfMeansAircraftAttendedPerServer[j],estimateStdDevSampleForIntegerMatrix(samplesAircraftAttendedPerServer,meanOfMeansAircraftAttendedPerServer[j],n,j),n) + "," +
                     intervalRight(meanOfMeansAircraftAttendedPerServer[j],estimateStdDevSampleForIntegerMatrix(samplesAircraftAttendedPerServer,meanOfMeansAircraftAttendedPerServer[j],n,j),n) + ")");
-            System.out.println("Tiempo Total de espera en cola del servidor:" + totalQueueWaitTimePerServer[i]);
+            System.out.println("Tiempo Total de espera en cola del servidor:");
             System.out.println("(" +
-                    intervalLeft(meanOfMeansAircraftAttendedPerServer[j],estimateStdDevSampleForIntegerMatrix(samplesAircraftAttendedPerServer,meanOfMeansAircraftAttendedPerServer[j],n,j),n) + "," +
-                    intervalRight(meanOfMeansAircraftAttendedPerServer[j],estimateStdDevSampleForIntegerMatrix(samplesAircraftAttendedPerServer,meanOfMeansAircraftAttendedPerServer[j],n,j),n) + ")")
-            System.out.println("Tiempo Medio de espera en cola del servidor:" + medQueueWaitTimePerServer[i]);
+                    intervalLeft(meanOfMeansTotalQueueWaitTimePerServer[j],estimateStdDevSampleForDoubleMatrix(samplesTotalQueueWaitTimePerServer,meanOfMeansTotalQueueWaitTimePerServer[j],n,j),n) + "," +
+                    intervalRight(meanOfMeansTotalQueueWaitTimePerServer[j],estimateStdDevSampleForDoubleMatrix(samplesTotalQueueWaitTimePerServer,meanOfMeansTotalQueueWaitTimePerServer[j],n,j),n) + ")");
+            System.out.println("Tiempo Medio de espera en cola del servidor:");
             System.out.println("(" +
-                    intervalLeft(meanOfMeansAircraftAttendedPerServer[j],estimateStdDevSampleForIntegerMatrix(samplesAircraftAttendedPerServer,meanOfMeansAircraftAttendedPerServer[j],n,j),n) + "," +
-                    intervalRight(meanOfMeansAircraftAttendedPerServer[j],estimateStdDevSampleForIntegerMatrix(samplesAircraftAttendedPerServer,meanOfMeansAircraftAttendedPerServer[j],n,j),n) + ")")
-            System.out.println("Tiempo Maximo de espera en cola del servidor:" + maxQueueWaitTimePerServer[i]);
+                    intervalLeft(meanOfMeansMedQueueWaitTimePerServer[j],estimateStdDevSampleForDoubleMatrix(samplesMedQueueWaitTimePerServer,meanOfMeansMedQueueWaitTimePerServer[j],n,j),n) + "," +
+                    intervalRight(meanOfMeansMedQueueWaitTimePerServer[j],estimateStdDevSampleForDoubleMatrix(samplesMedQueueWaitTimePerServer,meanOfMeansMedQueueWaitTimePerServer[j],n,j),n) + ")");
+            System.out.println("Tiempo Maximo de espera en cola del servidor:");
             System.out.println("(" +
-                    intervalLeft(meanOfMeansAircraftAttendedPerServer[j],estimateStdDevSampleForIntegerMatrix(samplesAircraftAttendedPerServer,meanOfMeansAircraftAttendedPerServer[j],n,j),n) + "," +
-                    intervalRight(meanOfMeansAircraftAttendedPerServer[j],estimateStdDevSampleForIntegerMatrix(samplesAircraftAttendedPerServer,meanOfMeansAircraftAttendedPerServer[j],n,j),n) + ")")
+                    intervalLeft(meanOfMeansMaxQueueWaitTimePerServer[j],estimateStdDevSampleForDoubleMatrix(samplesMaxQueueWaitTimePerServer,meanOfMeansMaxQueueWaitTimePerServer[j],n,j),n) + "," +
+                    intervalRight(meanOfMeansMaxQueueWaitTimePerServer[j],estimateStdDevSampleForDoubleMatrix(samplesMaxQueueWaitTimePerServer,meanOfMeansMaxQueueWaitTimePerServer[j],n,j),n) + ")");
 
-            System.out.println("Tiempo Total de transito del servidor:" + totalServiceTimePerServer[i]);
+            System.out.println("Tiempo Total de transito del servidor:");
             System.out.println("(" +
-                    intervalLeft(meanOfMeansAircraftAttendedPerServer[j],estimateStdDevSampleForIntegerMatrix(samplesAircraftAttendedPerServer,meanOfMeansAircraftAttendedPerServer[j],n,j),n) + "," +
-                    intervalRight(meanOfMeansAircraftAttendedPerServer[j],estimateStdDevSampleForIntegerMatrix(samplesAircraftAttendedPerServer,meanOfMeansAircraftAttendedPerServer[j],n,j),n) + ")")
-            System.out.println("Tiempo Medio de transito del servidor:" + medServiceTimePerServer[i]);
+                    intervalLeft(meanOfMeansTotalServiceTimePerServer[j],estimateStdDevSampleForDoubleMatrix(samplesTotalServiceTimePerServer,meanOfMeansTotalServiceTimePerServer[j],n,j),n) + "," +
+                    intervalRight(meanOfMeansTotalServiceTimePerServer[j],estimateStdDevSampleForDoubleMatrix(samplesTotalServiceTimePerServer,meanOfMeansTotalServiceTimePerServer[j],n,j),n) + ")");
+            System.out.println("Tiempo Medio de transito del servidor:");
             System.out.println("(" +
-                    intervalLeft(meanOfMeansAircraftAttendedPerServer[j],estimateStdDevSampleForIntegerMatrix(samplesAircraftAttendedPerServer,meanOfMeansAircraftAttendedPerServer[j],n,j),n) + "," +
-                    intervalRight(meanOfMeansAircraftAttendedPerServer[j],estimateStdDevSampleForIntegerMatrix(samplesAircraftAttendedPerServer,meanOfMeansAircraftAttendedPerServer[j],n,j),n) + ")")
-            System.out.println("Tiempo Maximo de transito del servidor:" + maxServiceTimePerServer[i]);
+                    intervalLeft(meanOfMeansMedServiceTimePerServer[j],estimateStdDevSampleForDoubleMatrix(samplesMedServiceTimePerServer,meanOfMeansMedServiceTimePerServer[j],n,j),n) + "," +
+                    intervalRight(meanOfMeansMedServiceTimePerServer[j],estimateStdDevSampleForDoubleMatrix(samplesMedServiceTimePerServer,meanOfMeansMedServiceTimePerServer[j],n,j),n) + ")");
+            System.out.println("Tiempo Maximo de transito del servidor:");
             System.out.println("(" +
-                    intervalLeft(meanOfMeansAircraftAttendedPerServer[j],estimateStdDevSampleForIntegerMatrix(samplesAircraftAttendedPerServer,meanOfMeansAircraftAttendedPerServer[j],n,j),n) + "," +
-                    intervalRight(meanOfMeansAircraftAttendedPerServer[j],estimateStdDevSampleForIntegerMatrix(samplesAircraftAttendedPerServer,meanOfMeansAircraftAttendedPerServer[j],n,j),n) + ")")
+                    intervalLeft(meanOfMeansMaxServiceTimePerServer[j],estimateStdDevSampleForDoubleMatrix(samplesMaxServiceTimePerServer,meanOfMeansMaxServiceTimePerServer[j],n,j),n) + "," +
+                    intervalRight(meanOfMeansMaxServiceTimePerServer[j],estimateStdDevSampleForDoubleMatrix(samplesMaxServiceTimePerServer,meanOfMeansMaxServiceTimePerServer[j],n,j),n) + ")");
 
-            System.out.println("Tiempo Total de ocio del servidor:" + totalIdleTimePerServer[i]);
+            System.out.println("Tiempo Total de ocio del servidor:");
             System.out.println("(" +
-                    intervalLeft(meanOfMeansAircraftAttendedPerServer[j],estimateStdDevSampleForIntegerMatrix(samplesAircraftAttendedPerServer,meanOfMeansAircraftAttendedPerServer[j],n,j),n) + "," +
-                    intervalRight(meanOfMeansAircraftAttendedPerServer[j],estimateStdDevSampleForIntegerMatrix(samplesAircraftAttendedPerServer,meanOfMeansAircraftAttendedPerServer[j],n,j),n) + ")")
-            System.out.println("Porcentaje respecto del tiempo de simulacion:" + String.format("%.2f",percentageTotalIdleTime) + "%");
+                    intervalLeft(meanOfMeansTotalIdleTimePerServer[j],estimateStdDevSampleForDoubleMatrix(samplesTotalIdleTimePerServer,meanOfMeansTotalIdleTimePerServer[j],n,j),n) + "," +
+                    intervalRight(meanOfMeansTotalIdleTimePerServer[j],estimateStdDevSampleForDoubleMatrix(samplesTotalIdleTimePerServer,meanOfMeansTotalIdleTimePerServer[j],n,j),n) + ")");
+            System.out.println("Porcentaje respecto del tiempo de simulacion:");
             System.out.println("(" +
-                    intervalLeft(meanOfMeansAircraftAttendedPerServer[j],estimateStdDevSampleForIntegerMatrix(samplesAircraftAttendedPerServer,meanOfMeansAircraftAttendedPerServer[j],n,j),n) + "," +
-                    intervalRight(meanOfMeansAircraftAttendedPerServer[j],estimateStdDevSampleForIntegerMatrix(samplesAircraftAttendedPerServer,meanOfMeansAircraftAttendedPerServer[j],n,j),n) + ")")
-            System.out.println("Tiempo Maximo de ocio delservidor:" + maxIdleTimePerServer[i]);
+                    String.format("%.2f",intervalLeft(meanOfMeansPercentageTotalIdleTimePerServer[j],estimateStdDevSampleForDoubleMatrix(samplesPercentageTotalIdleTimePerServer,meanOfMeansPercentageTotalIdleTimePerServer[j],n,j),n)) + "%"  + "," +
+                    String.format("%.2f",intervalRight(meanOfMeansPercentageTotalIdleTimePerServer[j],estimateStdDevSampleForDoubleMatrix(samplesPercentageTotalIdleTimePerServer,meanOfMeansPercentageTotalIdleTimePerServer[j],n,j),n)) + "%" + ")");
+            System.out.println("Tiempo Maximo de ocio delservidor:");
             System.out.println("(" +
-                    intervalLeft(meanOfMeansAircraftAttendedPerServer[j],estimateStdDevSampleForIntegerMatrix(samplesAircraftAttendedPerServer,meanOfMeansAircraftAttendedPerServer[j],n,j),n) + "," +
-                    intervalRight(meanOfMeansAircraftAttendedPerServer[j],estimateStdDevSampleForIntegerMatrix(samplesAircraftAttendedPerServer,meanOfMeansAircraftAttendedPerServer[j],n,j),n) + ")")
-            System.out.println("Porcentaje respecto del tiempo de simulacion:" + String.format("%.2f",percentageMaxIdleTime) + "%");
+                    intervalLeft(meanOfMeansMaxIdleTimePerServer[j],estimateStdDevSampleForDoubleMatrix(samplesMaxIdleTimePerServer,meanOfMeansMaxIdleTimePerServer[j],n,j),n) + "," +
+                    intervalRight(meanOfMeansMaxIdleTimePerServer[j],estimateStdDevSampleForDoubleMatrix(samplesMaxIdleTimePerServer,meanOfMeansMaxIdleTimePerServer[j],n,j),n) + ")");
+            System.out.println("Porcentaje respecto del tiempo de simulacion:");
             System.out.println("(" +
-                    intervalLeft(meanOfMeansAircraftAttendedPerServer[j],estimateStdDevSampleForIntegerMatrix(samplesAircraftAttendedPerServer,meanOfMeansAircraftAttendedPerServer[j],n,j),n) + "," +
-                    intervalRight(meanOfMeansAircraftAttendedPerServer[j],estimateStdDevSampleForIntegerMatrix(samplesAircraftAttendedPerServer,meanOfMeansAircraftAttendedPerServer[j],n,j),n) + ")")
-            System.out.println("Tamaño Maximo de la cola de espera del servidor:" + maxQueueSizePerServer[i]);
+                    String.format("%.2f",intervalLeft(meanOfMeansPercentageMaxIdleTimePerServer[j],estimateStdDevSampleForDoubleMatrix(samplesPercentageMaxIdleTimePerServer,meanOfMeansPercentageMaxIdleTimePerServer[j],n,j),n)) + "%" + "," +
+                    String.format("%.2f",intervalRight(meanOfMeansPercentageMaxIdleTimePerServer[j],estimateStdDevSampleForDoubleMatrix(samplesPercentageMaxIdleTimePerServer,meanOfMeansPercentageMaxIdleTimePerServer[j],n,j),n)) + "%" + ")");
+            System.out.println("Tamaño Maximo de la cola de espera del servidor:");
             System.out.println("(" +
-                    intervalLeft(meanOfMeansAircraftAttendedPerServer[j],estimateStdDevSampleForIntegerMatrix(samplesAircraftAttendedPerServer,meanOfMeansAircraftAttendedPerServer[j],n,j),n) + "," +
-                    intervalRight(meanOfMeansAircraftAttendedPerServer[j],estimateStdDevSampleForIntegerMatrix(samplesAircraftAttendedPerServer,meanOfMeansAircraftAttendedPerServer[j],n,j),n) + ")")
-            System.out.println("Durabilidad del suelo restante del servidor:" + finalDurabilityPerServer[i]);
+                    intervalLeft(meanOfMeansMaxQueueSizePerServer[j],estimateStdDevSampleForDoubleMatrix(samplesMaxQueueSizePerServer,meanOfMeansMaxQueueSizePerServer[j],n,j),n) + "," +
+                    intervalRight(meanOfMeansMaxQueueSizePerServer[j],estimateStdDevSampleForDoubleMatrix(samplesMaxQueueSizePerServer,meanOfMeansMaxQueueSizePerServer[j],n,j),n) + ")");
+            System.out.println("Durabilidad del suelo restante del servidor:");
             System.out.println("(" +
-                    intervalLeft(meanOfMeansAircraftAttendedPerServer[j],estimateStdDevSampleForIntegerMatrix(samplesAircraftAttendedPerServer,meanOfMeansAircraftAttendedPerServer[j],n,j),n) + "," +
-                    intervalRight(meanOfMeansAircraftAttendedPerServer[j],estimateStdDevSampleForIntegerMatrix(samplesAircraftAttendedPerServer,meanOfMeansAircraftAttendedPerServer[j],n,j),n) + ")")
-
-
-
-
-
+                    intervalLeft(meanOfMeansFinalDurabilityPerServer[j],estimateStdDevSampleForDoubleMatrix(samplesFinalDurabilityPerServer,meanOfMeansFinalDurabilityPerServer[j],n,j),n) + "," +
+                    intervalRight(meanOfMeansFinalDurabilityPerServer[j],estimateStdDevSampleForDoubleMatrix(samplesFinalDurabilityPerServer,meanOfMeansFinalDurabilityPerServer[j],n,j),n) + ")");
 
         }
 
