@@ -15,42 +15,42 @@ public class Statistics {
 
     private int totalHeavyAircraftAttended;
 
-    private int aircraftAttendedPerServer[];
+    private int[] aircraftAttendedPerServer;
 
-    private double totalQueueTimePerAircraft[];
-    private double medQueueTimePerAircraft[];
-    private double maxQueueTimePerAircraft[];
-    private double totalServiceTimePerAircraft[];
-    private double medServiceTimePerAircraft[];
-    private double maxServiceTimePerAircraft[];
+    private double[] totalQueueTimePerAircraft;
+    private double[] medQueueTimePerAircraft;
+    private double[] maxQueueTimePerAircraft;
+    private double[] totalServiceTimePerAircraft;
+    private double[] medServiceTimePerAircraft;
+    private double[] maxServiceTimePerAircraft;
 
-    private double totalQueueWaitTimePerServer[];
+    private double[] totalQueueWaitTimePerServer;
 
-    private double maxQueueWaitTimePerServer[];
+    private double[] maxQueueWaitTimePerServer;
 
-    private double medQueueWaitTimePerServer[];
+    private double[] medQueueWaitTimePerServer;
 
-    private double totalServiceTimePerServer[];
+    private double[] totalServiceTimePerServer;
 
-    private double maxServiceTimePerServer[];
+    private double[] maxServiceTimePerServer;
 
-    private double medServiceTimePerServer[];
+    private double[] medServiceTimePerServer;
 
-    private double totalIdleTimePerServer[];
+    private double[] totalIdleTimePerServer;
 
-    private double maxIdleTimePerServer[];
+    private double[] maxIdleTimePerServer;
 
-    private double finalDurabilityPerServer[];
+    private double[] finalDurabilityPerServer;
 
-    private double maxQueueSizePerServer[];
+    private double[] maxQueueSizePerServer;
 
     private int totalServers;
 
     private double stopTime;
 
-    private double percentageTotalIdleTime;
+    private double[] percentageTotalIdleTime;
 
-    private double percentageMaxIdleTime;
+    private double[] percentageMaxIdleTime;
 
 
     public Statistics(List<Server> servers, double stopTime){
@@ -62,8 +62,8 @@ public class Statistics {
         totalMediumAircraftAttended = 0;
         totalHeavyAircraftAttended = 0;
 
-        percentageTotalIdleTime = 0;
-        percentageMaxIdleTime = 0;
+        percentageTotalIdleTime = new double [totalServers];
+        percentageMaxIdleTime = new double [totalServers];
 
 
         totalQueueWaitTimePerServer = new double[totalServers];
@@ -147,7 +147,7 @@ public class Statistics {
 
             totalQueueWaitTimePerServer[i] = servers.get(i).getTotalQueueTime();
             maxQueueWaitTimePerServer[i] = servers.get(i).getMaxQueueTime();
-            if(aircraftAttendedPerServer[i] ==0){
+            if(aircraftAttendedPerServer[i] == 0){
                 medQueueWaitTimePerServer[i] = 0;
             }
             else{
@@ -157,7 +157,7 @@ public class Statistics {
 
             totalServiceTimePerServer[i] = servers.get(i).getTotalServiceTime();
             maxServiceTimePerServer[i] = servers.get(i).getMaxServiceTime();
-            if(aircraftAttendedPerServer[i] ==0){
+            if(aircraftAttendedPerServer[i] == 0){
                 medServiceTimePerServer[i] = 0;
             }
             else{
@@ -170,8 +170,8 @@ public class Statistics {
             maxQueueSizePerServer[i] = servers.get(i).getMaxQueue();
             finalDurabilityPerServer[i] = ((Airstrip)servers.get(i)).getDurability();
 
-            percentageTotalIdleTime = ((totalIdleTimePerServer[i] * 100) / stopTime);
-            percentageMaxIdleTime = ((maxIdleTimePerServer[i] * 100) / stopTime);
+            percentageTotalIdleTime[i] = ((totalIdleTimePerServer[i] * 100) / stopTime);
+            percentageMaxIdleTime[i] = ((maxIdleTimePerServer[i] * 100) / stopTime);
         }
 
 
@@ -219,8 +219,6 @@ public class Statistics {
         medServiceTimePerAircraft[0] = totalServiceTimePerAircraft[0] / totalLightAircraftAttended;
         medServiceTimePerAircraft[1] = totalServiceTimePerAircraft[1] / totalLightAircraftAttended;
         medServiceTimePerAircraft[2] = totalServiceTimePerAircraft[2] / totalLightAircraftAttended;
-
-
     }
 
 
@@ -230,27 +228,27 @@ public class Statistics {
         System.out.println("Tiempo Total de espera en cola de Entidades Livianas: " + totalQueueTimePerAircraft[0]);
         System.out.println("Tiempo Medio de espera en cola de Entidades Livianas: " + medQueueTimePerAircraft[0]);
         System.out.println("Tiempo Maximo de espera en cola de Entidades Livianas: " + maxQueueTimePerAircraft[0]);
-        System.out.println("Tiempo Total de transito en cola de Entidades Livianas: " + totalServiceTimePerAircraft[0]);
-        System.out.println("Tiempo Medio de transito en cola de Entidades Livianas: " + medServiceTimePerAircraft[0]);
-        System.out.println("Tiempo Maximo de transito en cola de Entidades Livianas: " + maxServiceTimePerAircraft[0]);
+        System.out.println("Tiempo Total de transito de Entidades Livianas: " + totalServiceTimePerAircraft[0]);
+        System.out.println("Tiempo Medio de transito de Entidades Livianas: " + medServiceTimePerAircraft[0]);
+        System.out.println("Tiempo Maximo de transito de Entidades Livianas: " + maxServiceTimePerAircraft[0]);
         System.out.println("\n");
 
         System.out.println("Total de Entidades Medianas: " + totalMediumAircraftAttended);
         System.out.println("Tiempo Total de espera en cola de Entidades Medianas: " + totalQueueTimePerAircraft[1]);
         System.out.println("Tiempo Medio de espera en cola de Entidades Medianas: " + medQueueTimePerAircraft[1]);
         System.out.println("Tiempo Maximo de espera en cola de Entidades Medianas: " + maxQueueTimePerAircraft[1]);
-        System.out.println("Tiempo Total de transito en cola de Entidades Medianas: " + totalServiceTimePerAircraft[1]);
-        System.out.println("Tiempo Medio de transito en cola de Entidades Medianas: " + medServiceTimePerAircraft[1]);
-        System.out.println("Tiempo Maximo de transito en cola de Entidades Medianas: " + maxServiceTimePerAircraft[1]);
+        System.out.println("Tiempo Total de transito de Entidades Medianas: " + totalServiceTimePerAircraft[1]);
+        System.out.println("Tiempo Medio de transito de Entidades Medianas: " + medServiceTimePerAircraft[1]);
+        System.out.println("Tiempo Maximo de transito de Entidades Medianas: " + maxServiceTimePerAircraft[1]);
         System.out.println("\n");
 
         System.out.println("Total de Entidades Pesadas: " + totalHeavyAircraftAttended);
         System.out.println("Tiempo Total de espera en cola de Entidades Pesadas: " + totalQueueTimePerAircraft[2]);
         System.out.println("Tiempo Medio de espera en cola de Entidades Pesadas: " + medQueueTimePerAircraft[2]);
         System.out.println("Tiempo Maximo de espera en cola de Entidades Pesadas: " + maxQueueTimePerAircraft[2]);
-        System.out.println("Tiempo Total de transito en cola de Entidades Pesadas: " + totalServiceTimePerAircraft[2]);
-        System.out.println("Tiempo Medio de transito en cola de Entidades Pesadas: " + medServiceTimePerAircraft[2]);
-        System.out.println("Tiempo Maximo de transito en cola de Entidades Pesadas: " + maxServiceTimePerAircraft[2]);
+        System.out.println("Tiempo Total de transito de Entidades Pesadas: " + totalServiceTimePerAircraft[2]);
+        System.out.println("Tiempo Medio de transito de Entidades Pesadas: " + medServiceTimePerAircraft[2]);
+        System.out.println("Tiempo Maximo de transito de Entidades Pesadas: " + maxServiceTimePerAircraft[2]);
 
         System.out.println("\n\n\n");
         for (int i=0;i<totalServers;i++){
@@ -268,9 +266,9 @@ public class Statistics {
             System.out.println("Tiempo Maximo de transito del servidor: " + maxServiceTimePerServer[i]);
 
             System.out.println("Tiempo Total de ocio del servidor: " + totalIdleTimePerServer[i]);
-            System.out.println("Porcentaje respecto del tiempo de simulacion: " + String.format("%.2f",percentageTotalIdleTime) + "%");
+            System.out.println("Porcentaje respecto del tiempo de simulacion: " + String.format("%.2f",percentageTotalIdleTime[i]) + "%");
             System.out.println("Tiempo Maximo de ocio delservidor: " + maxIdleTimePerServer[i]);
-            System.out.println("Porcentaje respecto del tiempo de simulacion: " + String.format("%.2f",percentageMaxIdleTime) + "%");
+            System.out.println("Porcentaje respecto del tiempo de simulacion: " + String.format("%.2f",percentageMaxIdleTime[i]) + "%");
             System.out.println("Tamaño Maximo de la cola de espera del servidor: " + maxQueueSizePerServer[i]);
             System.out.println("Durabilidad del suelo restante del servidor: " + finalDurabilityPerServer[i]);
 
@@ -464,19 +462,19 @@ public class Statistics {
         this.stopTime = stopTime;
     }
 
-    public double getPercentageTotalIdleTime() {
+    public double[] getPercentageTotalIdleTime() {
         return percentageTotalIdleTime;
     }
 
-    public void setPercentageTotalIdleTime(double percentageTotalIdleTime) {
+    public void setPercentageTotalIdleTime(double[] percentageTotalIdleTime) {
         this.percentageTotalIdleTime = percentageTotalIdleTime;
     }
 
-    public double getPercentageMaxIdleTime() {
+    public double[] getPercentageMaxIdleTime() {
         return percentageMaxIdleTime;
     }
 
-    public void setPercentageMaxIdleTime(double percentageMaxIdleTime) {
+    public void setPercentageMaxIdleTime(double[] percentageMaxIdleTime) {
         this.percentageMaxIdleTime = percentageMaxIdleTime;
     }
 }

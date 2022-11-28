@@ -45,6 +45,7 @@ public class App {
         }
 
         DataAnalysis analysis = new DataAnalysis(stats);
+        analysis.printAnalytics();
 
         /**
          * Hacer algo con estas stats[i]
