@@ -13,88 +13,88 @@ public class DataAnalysis {
 
     //Arrays datos
 
-    private int n;
-    private int totalServers;
-    private int[] samplesAircraftAttendedTotal;
+    private final int n;
+    private final int totalServers;
+    private final int[] samplesAircraftAttendedTotal;
     private double meanOfMeansAircraftAttendedTotal;
     /*Livianas*/
-    private int[] samplesTotalAttendedLight;
+    private final int[] samplesTotalAttendedLight;
     private double meanOfMeansTotalAttendedLight;
-    private double samplesTotalQueueWaitTimeLight[];
+    private final double[] samplesTotalQueueWaitTimeLight;
     private double meanOfMeansTotalQueueWaitTimeLight;
-    private double samplesMedQueueWaitTimeLight[];
+    private final double[] samplesMedQueueWaitTimeLight;
     private double meanOfMeansMedQueueWaitTimeLight;
-    private double samplesMaxQueueWaitTimeLight[];
+    private final double[] samplesMaxQueueWaitTimeLight;
     private double meanOfMeansMaxQueueWaitTimeLight;
-    private double samplesTotalServiceTimeLight[];
+    private final double[] samplesTotalServiceTimeLight;
     private double meanOfMeansTotalServiceTimeLight;
-    private double samplesMedServiceTimeLight[];
+    private final double[] samplesMedServiceTimeLight;
     private double meanOfMeansMedServiceTimeLight;
-    private double samplesMaxServiceTimeLight[];
+    private final double[] samplesMaxServiceTimeLight;
     private double meanOfMeansMaxServiceTimeLight;
 
 
     /*Medianas*/
-    private int samplesTotalAttendedMedium[];
+    private final int[] samplesTotalAttendedMedium;
     private double meanOfMeansTotalAttendedMedium;
-    private double samplesTotalQueueWaitTimeMedium[];
+    private final double[] samplesTotalQueueWaitTimeMedium;
     private double meanOfMeansTotalQueueWaitTimeMedium;
-    private double samplesMedQueueWaitTimeMedium[];
+    private final double[] samplesMedQueueWaitTimeMedium;
     private double meanOfMeansMedQueueWaitTimeMedium;
-    private double[] samplesMaxQueueWaitTimeMedium;
+    private final double[] samplesMaxQueueWaitTimeMedium;
     private double meanOfMeansMaxQueueWaitTimeMedium;
-    private double[] samplesTotalServiceTimeMedium;
+    private final double[] samplesTotalServiceTimeMedium;
     private double meanOfMeansTotalServiceTimeMedium;
-    private double[] samplesMedServiceTimeMedium;
+    private final double[] samplesMedServiceTimeMedium;
     private double meanOfMeansMedServiceTimeMedium;
-    private double[] samplesMaxServiceTimeMedium;
+    private final double[] samplesMaxServiceTimeMedium;
     private double meanOfMeansMaxServiceTimeMedium;
 
 
     /*Pesadas*/
-    private int samplesTotalAttendedHeavy[];
+    private final int[] samplesTotalAttendedHeavy;
     private double meanOfMeansTotalAttendedHeavy;
-    private double samplesTotalQueueWaitTimeHeavy[];
+    private final double[] samplesTotalQueueWaitTimeHeavy;
     private double meanOfMeansTotalQueueWaitTimeHeavy;
-    private double samplesMedQueueWaitTimeHeavy[];
+    private final double[] samplesMedQueueWaitTimeHeavy;
     private double meanOfMeansMedQueueWaitTimeHeavy;
-    private double samplesMaxQueueWaitTimeHeavy[];
+    private final double[] samplesMaxQueueWaitTimeHeavy;
     private double meanOfMeansMaxQueueWaitTimeHeavy;
-    private double samplesTotalServiceTimeHeavy[];
+    private final double[] samplesTotalServiceTimeHeavy;
     private double meanOfMeansTotalServiceTimeHeavy;
-    private double samplesMedServiceTimeHeavy[];
+    private final double[] samplesMedServiceTimeHeavy;
     private double meanOfMeansMedServiceTimeHeavy;
-    private double samplesMaxServiceTimeHeavy[];
+    private final double[] samplesMaxServiceTimeHeavy;
     private double meanOfMeansMaxServiceTimeHeavy;
 
 
     /*Servers*/
-    private int samplesAircraftAttendedPerServer[][];
-    private double meanOfMeansAircraftAttendedPerServer[];
-    private double samplesTotalQueueWaitTimePerServer[][];
-    private double meanOfMeansTotalQueueWaitTimePerServer[];
-    private double samplesMedQueueWaitTimePerServer[][];
-    private double meanOfMeansMedQueueWaitTimePerServer[];
-    private double samplesMaxQueueWaitTimePerServer[][];
-    private double meanOfMeansMaxQueueWaitTimePerServer[];
-    private double samplesTotalServiceTimePerServer[][];
-    private double meanOfMeansTotalServiceTimePerServer[];
-    private double samplesMedServiceTimePerServer[][];
-    private double meanOfMeansMedServiceTimePerServer[];
-    private double samplesMaxServiceTimePerServer[][];
-    private double meanOfMeansMaxServiceTimePerServer[];
-    private double samplesTotalIdleTimePerServer[][];
-    private double meanOfMeansTotalIdleTimePerServer[];
-    private double samplesPercentageTotalIdleTimePerServer[][];
-    private double meanOfMeansPercentageTotalIdleTimePerServer[];
-    private double samplesMaxIdleTimePerServer[][];
-    private double meanOfMeansMaxIdleTimePerServer[];
-    private double samplesPercentageMaxIdleTimePerServer[][];
-    private double meanOfMeansPercentageMaxIdleTimePerServer[];
-    private double samplesMaxQueueSizePerServer[][];
-    private double meanOfMeansMaxQueueSizePerServer[];
-    private double samplesFinalDurabilityPerServer[][];
-    private double meanOfMeansFinalDurabilityPerServer[];
+    private final int[][] samplesAircraftAttendedPerServer;
+    private final double[] meanOfMeansAircraftAttendedPerServer;
+    private final double[][] samplesTotalQueueWaitTimePerServer;
+    private final double[] meanOfMeansTotalQueueWaitTimePerServer;
+    private final double[][] samplesMedQueueWaitTimePerServer;
+    private final double[] meanOfMeansMedQueueWaitTimePerServer;
+    private final double[][] samplesMaxQueueWaitTimePerServer;
+    private final double[] meanOfMeansMaxQueueWaitTimePerServer;
+    private final double[][] samplesTotalServiceTimePerServer;
+    private final double[] meanOfMeansTotalServiceTimePerServer;
+    private final double[][] samplesMedServiceTimePerServer;
+    private final double[] meanOfMeansMedServiceTimePerServer;
+    private final double[][] samplesMaxServiceTimePerServer;
+    private final double[] meanOfMeansMaxServiceTimePerServer;
+    private final double[][] samplesTotalIdleTimePerServer;
+    private final double[] meanOfMeansTotalIdleTimePerServer;
+    private final double[][] samplesPercentageTotalIdleTimePerServer;
+    private final double[] meanOfMeansPercentageTotalIdleTimePerServer;
+    private final double[][] samplesMaxIdleTimePerServer;
+    private final double[] meanOfMeansMaxIdleTimePerServer;
+    private final double[][] samplesPercentageMaxIdleTimePerServer;
+    private final double[] meanOfMeansPercentageMaxIdleTimePerServer;
+    private final double[][] samplesMaxQueueSizePerServer;
+    private final double[] meanOfMeansMaxQueueSizePerServer;
+    private final double[][] samplesFinalDurabilityPerServer;
+    private final double[] meanOfMeansFinalDurabilityPerServer;
 
 
 
@@ -104,7 +104,7 @@ public class DataAnalysis {
 
 
     public DataAnalysis(Statistics[] statistics){
-        /**
+        /*
          * Inicializacion Variables
          */
         n = statistics.length;
@@ -189,7 +189,7 @@ public class DataAnalysis {
         meanOfMeansFinalDurabilityPerServer = new double[totalServers];
 
 
-        /**
+        /*
          * Recupero Datos
          */
         for(int i=0; i< statistics.length; i++){
@@ -242,7 +242,7 @@ public class DataAnalysis {
             }
 
         }
-        /**
+        /*
          * Medias de Medias
          */
         meanOfMeansAircraftAttendedTotal = estimateMedForInteger(samplesAircraftAttendedTotal);
@@ -296,8 +296,8 @@ public class DataAnalysis {
 
     private double estimateMedForInteger(int[] data){
         double res = 0;
-        for(int i=0;i<data.length;i++){
-            res += data[i];
+        for (int datum : data) {
+            res += datum;
         }
         if(res==0){
             return 0;
@@ -309,8 +309,8 @@ public class DataAnalysis {
 
     private double estimateMedForDoubles(double[] data){
         double res = 0;
-        for(int i=0;i<data.length;i++){
-            res += data[i];
+        for (double datum : data) {
+            res += datum;
         }
         if(res==0){
             return 0;
@@ -348,16 +348,16 @@ public class DataAnalysis {
 
     private double estimateStdDevSampleForIntegers(int[] data, double med){
         double res = 0;
-        for(int i=0;i<data.length;i++){
-            res += Math.pow(data[i] - med,2);
+        for (int datum : data) {
+            res += Math.pow(datum - med, 2);
         }
         return(Math.sqrt(res / (data.length-1)));
     }
 
     private double estimateStdDevSampleForDoubles(double[] data, double med){
         double res = 0;
-        for(int i=0;i<data.length;i++){
-            res += Math.pow(data[i] - med,2);
+        for (double datum : data) {
+            res += Math.pow(datum - med, 2);
         }
         return(Math.sqrt(res / (data.length-1)));
     }
@@ -393,8 +393,8 @@ public class DataAnalysis {
                 intervalLeft(meanOfMeansAircraftAttendedTotal,estimateStdDevSampleForIntegers(samplesAircraftAttendedTotal,meanOfMeansAircraftAttendedTotal),n) + "," +
                 intervalRight(meanOfMeansAircraftAttendedTotal,estimateStdDevSampleForIntegers(samplesAircraftAttendedTotal,meanOfMeansAircraftAttendedTotal),n) + ")");
         /*Livianas*/
-        System.out.println("");
-        System.out.println("");
+        System.out.println();
+        System.out.println();
         System.out.println("Total de Entidades Livianas atendidas:");
         System.out.println("(" +
                 intervalLeft(meanOfMeansTotalAttendedLight,estimateStdDevSampleForIntegers(samplesTotalAttendedLight,meanOfMeansTotalAttendedLight),n) + "," +
@@ -426,8 +426,8 @@ public class DataAnalysis {
 
 
         /*Medianas*/
-        System.out.println("");
-        System.out.println("");
+        System.out.println();
+        System.out.println();
         System.out.println("Total de Entidades Medianas atendidas:");
         System.out.println("(" +
                 intervalLeft(meanOfMeansTotalAttendedMedium,estimateStdDevSampleForIntegers(samplesTotalAttendedMedium,meanOfMeansTotalAttendedMedium),n) + "," +
@@ -459,8 +459,8 @@ public class DataAnalysis {
 
 
         /*Pesadas*/
-        System.out.println("");
-        System.out.println("");
+        System.out.println();
+        System.out.println();
         System.out.println("Total de Entidades Pesadas atendidas:");
         System.out.println("(" +
                 intervalLeft(meanOfMeansTotalAttendedHeavy,estimateStdDevSampleForIntegers(samplesTotalAttendedHeavy,meanOfMeansTotalAttendedHeavy),n) + "," +
@@ -533,7 +533,7 @@ public class DataAnalysis {
             System.out.println("(" +
                     String.format("%.2f",intervalLeft(meanOfMeansPercentageTotalIdleTimePerServer[j],estimateStdDevSampleForDoubleMatrix(samplesPercentageTotalIdleTimePerServer,meanOfMeansPercentageTotalIdleTimePerServer[j],n,j),n)) + "%"  + "," +
                     String.format("%.2f",intervalRight(meanOfMeansPercentageTotalIdleTimePerServer[j],estimateStdDevSampleForDoubleMatrix(samplesPercentageTotalIdleTimePerServer,meanOfMeansPercentageTotalIdleTimePerServer[j],n,j),n)) + "%" + ")");
-            System.out.println("Tiempo Maximo de ocio delservidor:");
+            System.out.println("Tiempo Maximo de ocio del servidor:");
             System.out.println("(" +
                     intervalLeft(meanOfMeansMaxIdleTimePerServer[j],estimateStdDevSampleForDoubleMatrix(samplesMaxIdleTimePerServer,meanOfMeansMaxIdleTimePerServer[j],n,j),n) + "," +
                     intervalRight(meanOfMeansMaxIdleTimePerServer[j],estimateStdDevSampleForDoubleMatrix(samplesMaxIdleTimePerServer,meanOfMeansMaxIdleTimePerServer[j],n,j),n) + ")");
