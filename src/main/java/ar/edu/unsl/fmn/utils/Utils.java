@@ -8,6 +8,7 @@ import ar.edu.unsl.fmn.utils.distributions.Uniform;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Utils {
     public static double calculateDmg(Entity entity, Airstrip server, Randomizer rand){
@@ -74,27 +75,27 @@ public class Utils {
             switch (instance){
                 case 1:
                     if(servers.get(i) instanceof LightAirstrip){
-                        if(!(servers.get(i).checkForActivity(maintenance))){
+                        if(!(servers.get(i).checkForActivityExperimental(maintenance))){
                             filteredservers.add(servers.get(i));
                         }
                     }
                     break;
                 case 2:
                     if(servers.get(i) instanceof MediumAirstrip){
-                        if(!(servers.get(i).checkForActivity(maintenance))){
+                        if(!(servers.get(i).checkForActivityExperimental(maintenance))){
                             filteredservers.add(servers.get(i));
                         }
                     }
                     break;
                 case 3:
                     if(servers.get(i) instanceof HeavyAirstrip){
-                        if(!(servers.get(i).checkForActivity(maintenance))){
+                        if(!(servers.get(i).checkForActivityExperimental(maintenance))){
                             filteredservers.add(servers.get(i));
                         }
                     }
                     break;
                 default:
-                    if(!(servers.get(i).checkForActivity(maintenance))){
+                    if(!(servers.get(i).checkForActivityExperimental(maintenance))){
                         System.out.println("No deberia entrar a este default, Utils, puede ser pq no le digo que tipo de entity es a la fel");
                         System.exit(0);
                     }
@@ -120,6 +121,79 @@ public class Utils {
                 }
             }
             server = filteredservers.get(currentServerWithMinQueue);
+        }
+        return server;
+    }
+
+    public static Server filterEquitativeServer(List<Server> servers,Entity entity){
+        Server server = servers.get(servers.size() - 1);
+        /**
+         * Filtro los servidores por el tipo que sean
+         */
+        List<Server> filteredservers = new ArrayList<>();
+        int instance = 0;
+        if(entity instanceof LightAircraft){
+            instance = 1;
+        } else if (entity instanceof MediumAircraft) {
+            instance = 2;
+        } else if (entity instanceof HeavyAircraft) {
+            instance = 3;
+        }
+
+        Maintenance maintenance = new Maintenance();
+        for(int i=0;i<servers.size() - 1;i++){//-1 por la pista auxiliar
+            switch (instance){
+                case 1:
+                    if(servers.get(i) instanceof LightAirstrip){
+                        if(!(servers.get(i).checkForActivityExperimental(maintenance))){
+                            filteredservers.add(servers.get(i));
+                        }
+                    }
+                    break;
+                case 2:
+                    if(servers.get(i) instanceof MediumAirstrip){
+                        if(!(servers.get(i).checkForActivityExperimental(maintenance))){
+                            filteredservers.add(servers.get(i));
+                        }
+                    }
+                    break;
+                case 3:
+                    if(servers.get(i) instanceof HeavyAirstrip){
+                        if(!(servers.get(i).checkForActivityExperimental(maintenance))){
+                            filteredservers.add(servers.get(i));
+                        }
+                    }
+                    break;
+                default:
+                    if(!(servers.get(i).checkForActivityExperimental(maintenance))){
+                        System.out.println("No deberia entrar a este default, Utils, puede ser pq no le digo que tipo de entity es a la fel");
+                        System.exit(0);
+                    }
+                    break;
+            }
+        }
+        if (filteredservers.size() == 0){
+            server = servers.get(servers.size() - 1); //esta va a ser la pista de mantenimiento
+        }
+        else{
+            double random = Math.random();
+            Double[] EmpiricalDiscrete = new Double[filteredservers.size()+1];
+            double accumulate = 0;
+            double step = (double)((double)1 / (double)filteredservers.size());
+            for(int i=0;i<=filteredservers.size();i++){
+                EmpiricalDiscrete[i] = accumulate;
+                accumulate += step;
+            }
+            for (int i=0;i<EmpiricalDiscrete.length;i++){
+                if(i+1 != EmpiricalDiscrete.length){
+                    if( (random >= EmpiricalDiscrete[i]) && (random <= EmpiricalDiscrete[i+1]) ){
+                        return filteredservers.get(i);
+                    }
+                }
+                else{
+                    return filteredservers.get(filteredservers.size() -1);
+                }
+            }
         }
         return server;
     }

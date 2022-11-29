@@ -225,6 +225,15 @@ public abstract class Server {
         }
     }
 
+    public boolean checkForActivityExperimental(Entity entity){
+        if((this.getCurrentEntity() != null) && (this.getCurrentEntity().equals(entity))){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
     @Override
     public String toString() {
         String ret = "id: " + this.id + " -- current entity: " + (this.currentEntity == null?"null": this.currentEntity.getId()) + "\n"
@@ -234,6 +243,18 @@ public abstract class Server {
             ret += "\t" + q.toString() + "\n";
 
         return ret;
+    }
+
+    public String getQueueContent(){
+        return getQueue().toString();
+    }
+
+    /**
+     * Metodo creado para revisar que la Unica Cola para todos los servidores funcione correctamente.
+     * @return Queue
+     */
+    private Queue getQueue(){
+        return this.queues.get(0);
     }
 
 

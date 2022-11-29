@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import ar.edu.unsl.fmn.policies.OneToAllServerQueue;
 import ar.edu.unsl.fmn.policies.OneToOneServerQueue;
 import ar.edu.unsl.fmn.resources.*;
 
@@ -29,21 +30,21 @@ public class ScenarioBuilder {
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(System.in));
         int pl,pm,pp,pa;
-        System.out.println("Cuantas pistas Livianas?");
+        //System.out.println("Cuantas pistas Livianas?");
         pl=3;
         /*try {
             pl = Integer.parseInt( reader.readLine());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }*/
-        System.out.println("Cuantos pistas Medianas?");
+        //System.out.println("Cuantos pistas Medianas?");
         pm=4;
         /*try {
             pm = Integer.parseInt( reader.readLine());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }*/
-        System.out.println("Cuantos pistas Pesadas?");
+        //System.out.println("Cuantos pistas Pesadas?");
         pp=2;
         /*try {
             pp = Integer.parseInt( reader.readLine());
@@ -77,6 +78,55 @@ public class ScenarioBuilder {
             List<Queue> queues = new ArrayList<>();
             queues.add(new CustomQueue());
             servers.add(new Auxiliar(j,queues,new OneToOneServerQueue()));
+            j++;
+        }
+        return servers;
+    }
+    public static List<Server> MultipleServersOneQueue() {
+        BufferedReader reader = new BufferedReader(
+                new InputStreamReader(System.in));
+        int pl,pm,pp,pa;
+        //System.out.println("Cuantas pistas Livianas?");
+        pl=1;
+        /*try {
+            pl = Integer.parseInt( reader.readLine());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }*/
+        //System.out.println("Cuantos pistas Medianas?");
+        pm=2;
+        /*try {
+            pm = Integer.parseInt( reader.readLine());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }*/
+        //System.out.println("Cuantos pistas Pesadas?");
+        pp=1;
+        /*try {
+            pp = Integer.parseInt( reader.readLine());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }*/
+        pa=1;
+        List<Queue> queues = new ArrayList<>();
+        queues.add(new CustomQueue());
+
+        List<Server> servers = new ArrayList<>();
+        int j=0;
+        for(int i=0;i<pl;i++){
+            servers.add(new LightAirstrip(j,queues,new OneToAllServerQueue()));
+            j++;
+        }
+        for(int i=0;i<pm;i++){
+            servers.add(new MediumAirstrip(j,queues,new OneToAllServerQueue()));
+            j++;
+        }
+        for(int i=0;i<pp;i++){
+            servers.add(new HeavyAirstrip(j,queues,new OneToAllServerQueue()));
+            j++;
+        }
+        for(int i=0;i<pa;i++){
+            servers.add(new Auxiliar(j,queues,new OneToAllServerQueue()));
             j++;
         }
         return servers;

@@ -74,6 +74,7 @@ public class AirportSim implements Engine {
             fel.getImminent().planificate(fel,servers);
             //System.out.println("\nexecute in AirportSim: showing fel in every planificate step: \n");
             //System.out.println(fel.toString());
+            //System.out.println(servers.get(0).getQueueContent());
         }
     }
 
