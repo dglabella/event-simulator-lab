@@ -94,7 +94,7 @@ public class ScenarioBuilder {
             throw new RuntimeException(e);
         }*/
         //System.out.println("Cuantos pistas Medianas?");
-        pm=2;
+        pm=1;
         /*try {
             pm = Integer.parseInt( reader.readLine());
         } catch (IOException e) {
