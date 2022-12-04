@@ -88,7 +88,7 @@ public class ScenarioBuilder {
                 new InputStreamReader(System.in));
         int pl,pm,pp,pa;
         //System.out.println("Cuantas pistas Livianas?");
-        pl=1;
+        pl=2;
         /*try {
             pl = Integer.parseInt( reader.readLine());
         } catch (IOException e) {
