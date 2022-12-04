@@ -16,7 +16,7 @@ public class MultipleServerSelectionPolicy implements ServerSelectionPolicy{
             return Utils.serverForMaintenance(servers);
         }
         else{
-            return Utils.filterServer(servers,entity);
+            return Utils.filterEquitativeServer(servers,entity);
         }
     }
 }

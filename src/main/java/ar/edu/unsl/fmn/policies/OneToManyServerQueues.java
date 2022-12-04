@@ -8,19 +8,17 @@ public class OneToManyServerQueues implements ServerQueuePolicy {
 
     @Override
     public boolean queuesEmpty(List<Queue> queues) {
-        // TODO Auto-generated method stub
-        return false;
+        return queues.get(0).isEmpty();
     }
 
     @Override
     public void enqueue(List<Queue> queues, Entity entity) {
-        // TODO Auto-generated method stub
+        queues.get(0).enqueue(entity);
 
     }
 
     @Override
     public Entity dequeue(List<Queue> queues) {
-        // TODO Auto-generated method stub
-        return null;
+        return queues.get(0).next();
     }
 }

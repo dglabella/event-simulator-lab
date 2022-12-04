@@ -37,7 +37,7 @@ public class App {
 
         Statistics[] stats = new Statistics[SIMULATION_RUNS];
         for(int i=0;i<SIMULATION_RUNS;i++){
-            Engine engine = new AirportSim( SIMULATION_LENGHT, ScenarioBuilder.MultipleServersOneQueuePerServer(),
+            Engine engine = new AirportSim( SIMULATION_LENGHT, ScenarioBuilder.MultipleServersOneQueue(),
                     new MultipleServerSelectionPolicy(), new CustomRandomizer());
             engine.execute();
             stats[i] = engine.getStatistics();
