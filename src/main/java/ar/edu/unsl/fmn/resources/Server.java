@@ -225,6 +225,15 @@ public abstract class Server {
         }
     }
 
+    public boolean checkForActivityExperimental(Entity entity){
+        if((this.getCurrentEntity() != null) && (this.getCurrentEntity().equals(entity))){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
     @Override
     public String toString() {
         String ret = "id: " + this.id + " -- current entity: " + (this.currentEntity == null?"null": this.currentEntity.getId()) + "\n"

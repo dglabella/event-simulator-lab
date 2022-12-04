@@ -102,7 +102,7 @@ public class ScenarioBuilder {
             throw new RuntimeException(e);
         }*/
         //System.out.println("Cuantos pistas Pesadas?");
-        pp=1;
+        pp=2;
         /*try {
             pp = Integer.parseInt( reader.readLine());
         } catch (IOException e) {
